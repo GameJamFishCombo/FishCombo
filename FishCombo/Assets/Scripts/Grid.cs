@@ -6,15 +6,25 @@ public class Grid : MonoBehaviour
 {
     [Header("Art Assets")]
     [SerializeField] private Material tileMaterial;
+    [SerializeField] private float tileSize = 1.0f;
+    [SerializeField] private float yOffset = 0.2f;
+
+    [Header("Prefabs & Mats")]
+    [SerializeField] private GameObject[] prefabs;
+    [SerializeField] private Material[] teamMats;
 
     private const int TILE_COUNT_X = 8;
     private const int TITLE_COUNT_Y = 4;
     private GameObject[,] tiles;
     private Camera currentCamera;
     private Vector2Int currHover;
+    private Units[,] unitPiece;
+    private Vector3 bounds;
 
     private void Awake() {
-        GenerateAllTiles(1, TILE_COUNT_X, TITLE_COUNT_Y);
+        GenerateAllTiles(tileSize, TILE_COUNT_X, TITLE_COUNT_Y);
+        SpawnAllPieces();
+        PositionAllPieces();
     }
 
     public void Update() {
@@ -83,6 +93,42 @@ public class Grid : MonoBehaviour
 
         return tileObj;
     }
+
+    //Spawn player
+    private void SpawnAllPieces() {
+        unitPiece = new Units[TILE_COUNT_X, TITLE_COUNT_Y];
+        unitPiece[0,0] = SpawnSinglePiece(UnitType.Player, 0);
+        unitPiece[7,3] = SpawnSinglePiece(UnitType.Basic, 1);
+    }
+
+    private Units SpawnSinglePiece(UnitType type, int team) {
+        Units u = Instantiate(prefabs[(int)type - 1], transform).GetComponent<Units>();
+        u.type = type;
+        u.team = team;
+        u.GetComponent<MeshRenderer>().material = teamMats[team];
+
+        return u;
+    }
+
+    private void PositionAllPieces() {
+        for (int x = 0; x < TILE_COUNT_X; x++) 
+            for (int y = 0; y < TITLE_COUNT_Y; y++)
+                if(unitPiece[x,y] != null)
+                    PositionSinglePieces(x,y,true);
+    }
+    private void PositionSinglePieces (int x, int y, bool force) {
+        force = false;
+        unitPiece[x,y].currX = x;
+        unitPiece[x,y].currY = y;
+        unitPiece[x,y].transform.position = GetTileCenter(x, y);
+
+        
+    }
+
+    private Vector3 GetTileCenter(int x, int y) {
+        return new Vector3(x * tileSize, yOffset, y * tileSize) - bounds + new Vector3(tileSize / 2, 0, tileSize / 2);
+    }
+
 
     private Vector2Int LookupTileIndex(GameObject hitInfo) {
         for (int x = 0; x < TILE_COUNT_X; x++) { 
