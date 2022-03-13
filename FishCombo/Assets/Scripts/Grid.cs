@@ -8,6 +8,7 @@ public class Grid : MonoBehaviour
     [SerializeField] private Material tileMaterial;
     [SerializeField] private float tileSize = 1.0f;
     [SerializeField] private float yOffset = 0.2f;
+    [SerializeField] private GameObject newTile;
 
     [Header("Prefabs & Mats")]
     [SerializeField] private GameObject[] prefabs;
@@ -60,7 +61,7 @@ public class Grid : MonoBehaviour
 
     private void GenerateAllTiles(float tileSize, int tileCountX, int tileCountY) {
         tiles = new GameObject[tileCountX, tileCountY];
-
+        
         for (int x = 0; x < tileCountX; x++) { 
             for (int y = 0; y < tileCountY; y++) {
                 tiles[x,y] = GenerateSingleTile(tileSize, x, y);
@@ -69,36 +70,41 @@ public class Grid : MonoBehaviour
     }
 
     private GameObject GenerateSingleTile(float tileSize, int x, int y) {
-        GameObject tileObj = new GameObject(string.Format("X:{0} Y:{1}", x, y));
-        tileObj.transform.parent = transform;
+        // GameObject tileObj = new GameObject(string.Format("X:{0} Y:{1}", x, y));
+        Vector3 location = new Vector3(x,0,y);
+        GameObject defaultTile = Instantiate(newTile, location, Quaternion.identity);
 
-        Mesh mesh = new Mesh();
-        tileObj.AddComponent<MeshFilter>().mesh = mesh;
-        tileObj.AddComponent<MeshRenderer>().material = tileMaterial;
+        defaultTile.name = string.Format("X:{0} Y:{1}", x, y);
+        // tileObj.transform.parent = transform;
 
-        Vector3[] vertices = new Vector3[4];
-        vertices[0] = new Vector3(x * tileSize, 0, y * tileSize);
-        vertices[1] = new Vector3(x * tileSize, 0, (y+1) * tileSize);
-        vertices[2] = new Vector3((x+1) * tileSize, 0, y * tileSize);
-        vertices[3] = new Vector3((x+1) * tileSize, 0, (y+1) * tileSize);
+        // Mesh mesh = new Mesh();
+        // tileObj.AddComponent<MeshFilter>().mesh = mesh;
+        // tileObj.AddComponent<MeshRenderer>().material = tileMaterial;
 
-        int[] tris = new int[] {0, 1, 2, 1, 3, 2};
+        // Vector3[] vertices = new Vector3[4];
+        // vertices[0] = new Vector3(x * tileSize, 0, y * tileSize);
+        // vertices[1] = new Vector3(x * tileSize, 0, (y+1) * tileSize);
+        // vertices[2] = new Vector3((x+1) * tileSize, 0, y * tileSize);
+        // vertices[3] = new Vector3((x+1) * tileSize, 0, (y+1) * tileSize);
 
-        mesh.vertices = vertices;
-        mesh.triangles = tris;
-        mesh.RecalculateNormals();
+        // int[] tris = new int[] {0, 1, 2, 1, 3, 2};
 
-        tileObj.layer = LayerMask.NameToLayer("Tile");
-        tileObj.AddComponent<BoxCollider>();
+        // mesh.vertices = vertices;
+        // mesh.triangles = tris;
+        // mesh.RecalculateNormals();
 
-        return tileObj;
+        // tileObj.layer = LayerMask.NameToLayer("Tile");
+        defaultTile.layer = LayerMask.NameToLayer("Tile");
+        // tileObj.AddComponent<BoxCollider>();
+
+        return defaultTile;
     }
 
     //Spawn player
     private void SpawnAllPieces() {
         unitPiece = new Units[TILE_COUNT_X, TITLE_COUNT_Y];
         unitPiece[0,0] = SpawnSinglePiece(UnitType.Player, 0);
-        unitPiece[7,3] = SpawnSinglePiece(UnitType.Basic, 1);
+        unitPiece[6,2] = SpawnSinglePiece(UnitType.Basic, 1);
     }
 
     private Units SpawnSinglePiece(UnitType type, int team) {
@@ -114,10 +120,9 @@ public class Grid : MonoBehaviour
         for (int x = 0; x < TILE_COUNT_X; x++) 
             for (int y = 0; y < TITLE_COUNT_Y; y++)
                 if(unitPiece[x,y] != null)
-                    PositionSinglePieces(x,y,true);
+                    PositionSinglePieces(x,y);
     }
-    private void PositionSinglePieces (int x, int y, bool force) {
-        force = false;
+    private void PositionSinglePieces (int x, int y) {
         unitPiece[x,y].currX = x;
         unitPiece[x,y].currY = y;
         unitPiece[x,y].transform.position = GetTileCenter(x, y);
@@ -126,7 +131,7 @@ public class Grid : MonoBehaviour
     }
 
     private Vector3 GetTileCenter(int x, int y) {
-        return new Vector3(x * tileSize, yOffset, y * tileSize) - bounds + new Vector3(tileSize / 2, 0, tileSize / 2);
+        return new Vector3(x * tileSize, yOffset, y * tileSize) - bounds + new Vector3(tileSize, 0, tileSize);
     }
 
 
