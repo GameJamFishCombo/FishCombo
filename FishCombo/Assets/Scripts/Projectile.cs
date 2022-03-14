@@ -5,10 +5,14 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     Rigidbody rigidbody;
+    GameObject enemy;
+    public GameObject shooter;
+    Units shooterStat;
     
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+        shooterStat = shooter.GetComponent<Units>();
     }
 
     void Update()
@@ -24,18 +28,15 @@ public class Projectile : MonoBehaviour
         rigidbody.AddForce(direction * force);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        // EnemyController e = other.collider.GetComponent<EnemyController>();
-        // if (e != null)
-        // {
-        //     e.Fix();
-        // }
+    void OnTriggerEnter(Collider other) {
+        Units enemyStat = other.gameObject.GetComponent<Units>();
 
         if(other.gameObject.layer == 6 || other.gameObject.layer == 8) {
             return;
         }
-        
+
+        enemyStat.TakeDmg(shooterStat.dmg);
+        Debug.Log("Enemy HP: " + enemyStat.currHP);        
         Destroy(gameObject);
     }
 }

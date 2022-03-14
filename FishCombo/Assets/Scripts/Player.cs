@@ -6,7 +6,7 @@ public class Player : Units
 {
     Transform player;
     Vector3 playerPos;
-    float duration = 0.09f;
+    public float duration = 0.09f;
     public GameObject projectilePrefab;
     Rigidbody rigidbody;
     bool canMove = true;
@@ -58,10 +58,14 @@ public class Player : Units
 
             }
 
-            if(Input.GetKeyDown(KeyCode.L))
+            if(Input.GetKeyDown(KeyCode.L)) //if between tiles, round up or down
             {
                 Launch();
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.K)) {
+            TakeDmg(5);
         }
     }
 

@@ -113,6 +113,9 @@ MonoBehaviour:
   currX: 0
   currY: 0
   type: 3
+  maxHP: 100
+  dmg: 2
+  def: 0
   projectilePrefab: {fileID: 8956560313617596929, guid: eb7b1a2da12f0124787f159da0ac9c43, type: 3}
 --- !u!54 &6206849033393784433
 Rigidbody:
