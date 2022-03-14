@@ -27,6 +27,10 @@ public class Units : MonoBehaviour
         dmg -= def;
         dmg = Mathf.Clamp(dmg, 0, int.MaxValue);
         currHP -= dmg;
+
+        if (currHP <= 0) {
+            Die();
+        }
     }
     
     public virtual void Die() {

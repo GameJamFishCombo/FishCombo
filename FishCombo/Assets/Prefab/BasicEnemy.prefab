@@ -113,6 +113,13 @@ MonoBehaviour:
   currX: 0
   currY: 0
   type: 1
+  maxHP: 100
+  dmg: 0
+  def: 0
+  duration: 0.09
+  time: 1
+  timer: 0
+  speed: 0.75
 --- !u!54 &4819684709663901344
 Rigidbody:
   m_ObjectHideFlags: 0
