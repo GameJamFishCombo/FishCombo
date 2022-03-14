@@ -8,29 +8,40 @@ public class BasicEnemy : Units
     Transform enemy;
     bool canMove = true;    
     public float duration = 0.09f;
-    public float time = 1, timer;
-    public float speed = .2f;
+    public float time1 = 1, time2 = 1, timer1, timer2;
+    public float mvSpd = .2f;
+    public float shootSpd = .5f;
+    public GameObject projectilePrefab;
 
 
     public void Awake() {
         enemy = GetComponent<Transform>();
-        timer = time;
+        timer1 = time1;
+        timer2 = time2;
     }
 
     public void Update() {
-        timer -= Time.deltaTime;
+        timer1 -= Time.deltaTime;
+        timer2 -= Time.deltaTime;
 
-        if(timer <= 0) {
-            time = Random.Range(duration, speed);
-            timer = time;
+        if(timer1 <= 0) {
+            time1 = Random.Range(duration, mvSpd);
+            timer1 = time1;
 
-            move();
+            Move();
+        }
+
+        if(timer2 <= 0) {
+            time2 = Random.Range(.1f, shootSpd);
+            timer2 = time2;
+
+            Launch();
         }
 
         
     }
 
-    void move() {
+    void Move() {
         int randomNum = (int)Random.Range(0,4);
         Vector3 move = new Vector3(0, 0, 0);
 
@@ -93,5 +104,17 @@ public class BasicEnemy : Units
         base.Die();
         Destroy(this.gameObject);
         Debug.Log(enemy + " dead.");
+    }
+
+    void Launch() {
+        GameObject projectileObject = Instantiate(projectilePrefab, enemy.position, Quaternion.identity);
+
+        Projectile projectile = projectileObject.GetComponent<Projectile>();
+        Vector3 lookDirection = new Vector3(-1f, 0, 0);
+        projectile.Launch(lookDirection, 300);
+
+        // animator.SetTrigger("Launch");
+        
+        // PlaySound(throwSound);
     }
 }

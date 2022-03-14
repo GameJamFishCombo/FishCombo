@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6206849033393784433}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +116,7 @@ MonoBehaviour:
   maxHP: 100
   dmg: 2
   def: 0
+  duration: 0.09
   projectilePrefab: {fileID: 8956560313617596929, guid: eb7b1a2da12f0124787f159da0ac9c43, type: 3}
 --- !u!54 &6206849033393784433
 Rigidbody:
