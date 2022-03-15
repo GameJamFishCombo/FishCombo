@@ -17,7 +17,7 @@ public class Units : MonoBehaviour
     public int dmg;
     int comboPts;
     public int def;
-    public HUDHealth HPBar;
+    // public HUDHealth HPBar;
     public Grid grid;
 
     void Start() {
@@ -31,7 +31,7 @@ public class Units : MonoBehaviour
         if(gameObject.tag != "Player")
             GameManager.comboManager.IncrementCombo();
 
-        HPBar.SetHealth(currHP);
+        // HPBar.SetHealth(currHP);
 
         if (currHP <= 0) {
             Die();
@@ -47,7 +47,7 @@ public class Units : MonoBehaviour
     public void heal() {
         currHP = 100;
         Debug.Log("Player healed. HP at " + currHP);
-        HPBar.SetHealth(currHP);
+        // HPBar.SetHealth(currHP);
     }
 
 

@@ -43,6 +43,11 @@ public class Player : Units
                 buffer.Enqueue(MovementInput.Right);
         }
 
+        if(Input.GetKeyDown(KeyCode.Z) && canMove) //if between tiles, round up or down
+        {
+            Launch();
+        }
+
         if(Input.GetKeyDown(KeyCode.C) && canMove) //if between tiles, round up or down
         {
             LaunchPush();
