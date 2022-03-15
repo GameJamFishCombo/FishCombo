@@ -31,14 +31,14 @@ public class Projectile : MonoBehaviour
             if(other.tag == "Enemy") {
                 Units enemyStat = other.gameObject.GetComponent<Units>();
                 enemyStat.TakeDmg(shooterStat.dmg);
-                Debug.Log("Enemy HP: " + enemyStat.currHP);        
+                //Debug.Log("Enemy HP: " + enemyStat.currHP);        
                 Destroy(gameObject);
             }
         } else if(this.tag == "EnemyBullet"){
             if(other.tag == "Player") {
                 Units playerStat = other.gameObject.GetComponent<Units>();
                 playerStat.TakeDmg(shooterStat.dmg);
-                Debug.Log("Player HP: " + playerStat.currHP);        
+                //Debug.Log("Player HP: " + playerStat.currHP);        
                 Destroy(gameObject);
             }
         }

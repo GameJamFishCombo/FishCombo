@@ -27,6 +27,8 @@ public class Units : MonoBehaviour
         dmg -= def;
         dmg = Mathf.Clamp(dmg, 0, int.MaxValue);
         currHP -= dmg;
+        if(gameObject.tag != "Player")
+            GameManager.comboManager.IncrementCombo();
 
         if (currHP <= 0) {
             Die();
