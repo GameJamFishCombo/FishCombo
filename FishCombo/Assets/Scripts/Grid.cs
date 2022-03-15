@@ -34,29 +34,29 @@ public class Grid : MonoBehaviour
             return;
         }
 
-        RaycastHit info;
-        Ray ray = currentCamera.ScreenPointToRay(Input.mousePosition);
+        // RaycastHit info;
+        // Ray ray = currentCamera.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out info, 100, LayerMask.GetMask("Tile", "Hover"))) {
-            //get the indexes of the tile i've hit
-            Vector2Int hitPos = LookupTileIndex(info.transform.gameObject);
+        // if (Physics.Raycast(ray, out info, 100, LayerMask.GetMask("Tile", "Hover"))) {
+        //     //get the indexes of the tile i've hit
+        //     Vector2Int hitPos = LookupTileIndex(info.transform.gameObject);
 
-            if(currHover == -Vector2Int.one) {
-                currHover = hitPos;
-                tiles[hitPos.x, hitPos.y].layer = LayerMask.NameToLayer("Hover");
-            }
+        //     if(currHover == -Vector2Int.one) {
+        //         currHover = hitPos;
+        //         tiles[hitPos.x, hitPos.y].layer = LayerMask.NameToLayer("Hover");
+        //     }
 
-            if(currHover != hitPos) {
-                tiles[currHover.x, currHover.y].layer = LayerMask.NameToLayer("Tile");
-                currHover = hitPos;
-                tiles[hitPos.x, hitPos.y].layer = LayerMask.NameToLayer("Hover");
-            }
-        } else {
-            if(currHover != -Vector2Int.one) {
-                tiles[currHover.x, currHover.y].layer = LayerMask.NameToLayer("Tile");
-                currHover = -Vector2Int.one;
-            }
-        }
+        //     if(currHover != hitPos) {
+        //         tiles[currHover.x, currHover.y].layer = LayerMask.NameToLayer("Tile");
+        //         currHover = hitPos;
+        //         tiles[hitPos.x, hitPos.y].layer = LayerMask.NameToLayer("Hover");
+        //     }
+        // } else {
+        //     if(currHover != -Vector2Int.one) {
+        //         tiles[currHover.x, currHover.y].layer = LayerMask.NameToLayer("Tile");
+        //         currHover = -Vector2Int.one;
+        //     }
+        // }
     }
 
     private void GenerateAllTiles(float tileSize, int tileCountX, int tileCountY) {
@@ -104,7 +104,7 @@ public class Grid : MonoBehaviour
     private void SpawnAllPieces() {
         unitPiece = new Units[TILE_COUNT_X, TITLE_COUNT_Y];
         unitPiece[0,0] = SpawnSinglePiece(UnitType.Player, 0);
-        unitPiece[6,2] = SpawnSinglePiece(UnitType.Basic, 1);
+        // unitPiece[6,2] = SpawnSinglePiece(UnitType.Basic, 1);
     }
 
     private Units SpawnSinglePiece(UnitType type, int team) {
@@ -149,10 +149,11 @@ public class Grid : MonoBehaviour
         unitPiece = new Units[TILE_COUNT_X, TITLE_COUNT_Y];
         //pick random spot on enemy side of grid
         int randX = 0, randZ = 0;
-        randX = (int)Random.Range(4,7);
-        randZ = (int)Random.Range(0,4);
+        randX = (int)Random.Range(3,6);
+        randZ = (int)Random.Range(0,3);
 
         unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Basic, 1);
+        PositionAllPieces();
 
         Debug.Log("Spawning Enemy: " + enemy.name);
     }
