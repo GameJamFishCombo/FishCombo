@@ -12,8 +12,8 @@ public class Player : Units
     Rigidbody rigidbody;
     bool canMove = true;
     public float projectileSpeed = 450;
-
     private Queue<MovementInput> buffer;
+
     void Awake()
     {
         buffer = new Queue<MovementInput>();
@@ -48,59 +48,62 @@ public class Player : Units
             Launch();
         }
 
-        if(Input.GetKeyDown(KeyCode.C) && canMove) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.X) && canMove) //if between tiles, round up or down
         {
             LaunchPush();
         }
 
         move();
-
-        if(Input.GetKeyDown(KeyCode.K)) {
-            TakeDmg(5);
-        }
     }
 
     private void move(){
         if(canMove && buffer.Count > 0) {        
             MovementInput input = buffer.Dequeue();
+            bool checkBounds = true;
             if(input == MovementInput.Up) {
                 Vector3 move = new Vector3(0, 0, 1f) + player.position;
-                // bool check = UnitInBounds(move, 3, 3);
+                checkBounds = inBounds(move);
 
-                // if(check) {
-                //     StartCoroutine(LerpPosition(move, duration));
-                // }
-
-                if(!(move.x < 0 || move.z < 0 || move.x > 3 || move.z > 3)) {
+                if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
                 }
-
             }
 
             if(input == MovementInput.Left) {
                 Vector3 move = new Vector3(-1f, 0, 0) + player.position;
-                if(!(move.x < 0 || move.z < 0 || move.x > 3 || move.z > 3)) {
+                checkBounds = inBounds(move);
+
+                if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
                 }
-
             }
             
             if(input == MovementInput.Down) {
                 Vector3 move = new Vector3(0, 0, -1f) + player.position;
-                if(!(move.x < 0 || move.z < 0 || move.x > 3 || move.z > 3)) {
+                checkBounds = inBounds(move);
+
+                if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
                 }
-
             }
 
             if(input == MovementInput.Right) {
                 Vector3 move = new Vector3(1f, 0, 0) + player.position;
-                if(!(move.x < 0 || move.z < 0 || move.x > 3 || move.z > 3)) {
+                checkBounds = inBounds(move);
+
+                if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
                 }
-
             }
         }
+    }
+
+    public bool inBounds(Vector3 vec) {
+        if(vec.x < 0 || vec.x > 3 || vec.z < 0  || vec.z > 3) {
+            return true;
+        }
+
+        return false;
     }
 
     IEnumerator LerpPosition(Vector3 targetPosition, float duration) {

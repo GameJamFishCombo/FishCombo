@@ -18,7 +18,6 @@ public class Units : MonoBehaviour
     int comboPts;
     public int def;
     // public HUDHealth HPBar;
-    public Grid grid;
 
     void Start() {
         currHP = maxHP;

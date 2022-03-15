@@ -51,45 +51,70 @@ public class BasicEnemy : Units
     void Move() {
         int randomNum = (int)Random.Range(0,4);
         Vector3 move = new Vector3(0, 0, 0);
+        bool checkBounds = true;
 
         switch(randomNum) {
             case 0: //move up
                 move = new Vector3(0, 0, 1f) + enemy.position;
 
                 // max 7 max 3 min 4 min 0
+                checkBounds = inBounds(move);
 
-                if(!(move.x < 4 || move.z < 0 || move.x > 7 || move.z > 3)) {
+                if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
                 }
+                // if(!(move.x < 4 || move.z < 0 || move.x > 7 || move.z > 3)) {
+                //     StartCoroutine(LerpPosition(move, duration));
+                // }
 
 
                 break;
             case 1: //move left
                 move = new Vector3(-1f, 0, 0) + enemy.position;
+                checkBounds = inBounds(move);
 
-                if(!(move.x < 4 || move.z < 0 || move.x > 7 || move.z > 3)) {
+                if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
                 }
+                // if(!(move.x < 4 || move.z < 0 || move.x > 7 || move.z > 3)) {
+                //     StartCoroutine(LerpPosition(move, duration));
+                // }
 
                 break;
 
             case 2: //move south
                 move = new Vector3(0, 0, -1f) + enemy.position;
-                
-                if(!(move.x < 4 || move.z < 0 || move.x > 7 || move.z > 3)) {
+                checkBounds = inBounds(move);
+
+                if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
                 }
+                // if(!(move.x < 4 || move.z < 0 || move.x > 7 || move.z > 3)) {
+                //     StartCoroutine(LerpPosition(move, duration));
+                // }
 
                 break;
             case 3: //move right
                 move = new Vector3(1f, 0, 0) + enemy.position;
+                checkBounds = inBounds(move);
 
-                if(!(move.x < 4 || move.z < 0 || move.x > 7 || move.z > 3)) {
+                if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
                 }
+                // if(!(move.x < 4 || move.z < 0 || move.x > 7 || move.z > 3)) {
+                //     StartCoroutine(LerpPosition(move, duration));
+                // }
 
                 break;
         }
+    }
+
+    public bool inBounds(Vector3 vec) {
+        if(vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
+                return true;
+        }
+
+        return false;
     }
 
     IEnumerator LerpPosition(Vector3 targetPosition, float duration) {

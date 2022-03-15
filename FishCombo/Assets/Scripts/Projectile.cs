@@ -8,7 +8,6 @@ public class Projectile : MonoBehaviour
     GameObject enemy;
     public GameObject shooter;
     Units shooterStat;
-    public Grid grid;
     
     void Awake()
     {
@@ -43,5 +42,13 @@ public class Projectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public bool inBounds(Vector3 vec) {
+        if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
+            return true;
+        }
+
+        return false;
     }
 }
