@@ -10,7 +10,7 @@ public class GridTileAnimator : MonoBehaviour
     // Start is called before the first frame update
     
     void OnTriggerEnter(Collider other){
-        if(other.tag == "PlayerBullet"){
+        if(other.tag == "PlayerBullet" || other.tag == "PushBullet"){
             animator.Play("BlueHighlight");
         }
         if(other.tag == "EnemyBullet"){

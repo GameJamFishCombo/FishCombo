@@ -8,6 +8,7 @@ public class Player : Units
     Vector3 playerPos;
     public float duration = 0.09f;
     public GameObject projectilePrefab;
+    public GameObject pushPrefab;
     Rigidbody rigidbody;
     bool canMove = true;
     public float projectileSpeed = 450;
@@ -42,9 +43,9 @@ public class Player : Units
                 buffer.Enqueue(MovementInput.Right);
         }
 
-        if(Input.GetKeyDown(KeyCode.C) && canMove) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.V) && canMove) //if between tiles, round up or down
         {
-            Launch();
+            LaunchPush();
         }
 
         move();
@@ -116,6 +117,24 @@ public class Player : Units
         // animator.SetTrigger("Launch");
         
         // PlaySound(throwSound);
+    }
+
+    void LaunchPush(){
+        Vector3 spawnPosition = player.position + new Vector3(1f, 0, 1f);
+
+        GameObject projectile = Instantiate(pushPrefab, spawnPosition, Quaternion.identity);
+        PushProjectile pushProjectile = projectile.GetComponent<PushProjectile>();
+        pushProjectile.Launch(new Vector3(1f, 0, 0));
+
+        spawnPosition += new Vector3(0f, 0f, -1f);
+        projectile = Instantiate(pushPrefab, spawnPosition, Quaternion.identity);
+        pushProjectile = projectile.GetComponent<PushProjectile>();
+        pushProjectile.Launch(new Vector3(1f, 0, 0));
+
+        spawnPosition += new Vector3(0f, 0f, -1f);
+        projectile = Instantiate(pushPrefab, spawnPosition, Quaternion.identity);
+        pushProjectile = projectile.GetComponent<PushProjectile>();
+        pushProjectile.Launch(new Vector3(1f, 0, 0));
     }
 
     public override void Die() {
