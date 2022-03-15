@@ -10,7 +10,7 @@ public class Player : Units
     public GameObject projectilePrefab;
     Rigidbody rigidbody;
     bool canMove = true;
-
+    public float projectileSpeed = 450;
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -89,7 +89,7 @@ public class Player : Units
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(1f, 0, 0);
-        projectile.Launch(lookDirection, 300);
+        projectile.Launch(lookDirection, projectileSpeed);
 
         // animator.SetTrigger("Launch");
         
