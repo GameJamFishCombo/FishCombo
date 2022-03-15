@@ -121,8 +121,10 @@ MonoBehaviour:
   time2: 1
   timer1: 0
   timer2: 0
-  mvSpd: 1.5
-  shootSpd: 3
+  minMoveWaitTime: 0.12
+  maxMoveWaitTime: 2
+  minShootSpd: 0.5
+  maxShootSpd: 3
   projectilePrefab: {fileID: 5648063081001141407, guid: e2f3ae7c7a51b6349b115fc05d3b9ddf, type: 3}
 --- !u!54 &4819684709663901344
 Rigidbody:
