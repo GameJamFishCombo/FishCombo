@@ -116,13 +116,13 @@ MonoBehaviour:
   maxHP: 100
   dmg: 1
   def: 0
-  duration: 0.09
+  duration: 0.12
   time1: 1
   time2: 1
   timer1: 0
   timer2: 0
-  mvSpd: 0.75
-  shootSpd: 2
+  mvSpd: 1.5
+  shootSpd: 3
   projectilePrefab: {fileID: 5648063081001141407, guid: e2f3ae7c7a51b6349b115fc05d3b9ddf, type: 3}
 --- !u!54 &4819684709663901344
 Rigidbody:

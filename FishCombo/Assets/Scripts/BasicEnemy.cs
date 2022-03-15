@@ -6,11 +6,18 @@ public class BasicEnemy : Units
 {
     // Random rand = new Random();
     Transform enemy;
-    bool canMove = true;    
-    public float duration = 0.09f;
+    bool canMove = true;
+    [Tooltip("Duration it takes to LERP between tiles.")]    
+    public float duration = 0.09f; //time for lerp
     public float time1 = 1, time2 = 1, timer1, timer2;
-    public float mvSpd = .2f;
-    public float shootSpd = .5f;
+
+    [Header("Action Timings")]
+    [Tooltip("Minumum move wait time. MUST be =>duration.")]
+    public float minMoveWaitTime = 0.09f; //minimum move wait time, must be >=duration
+    public float maxMoveWaitTime = 2f; //max move wait time
+    [Tooltip("Minumum fire wait time. MUST be =>duration.")]
+    public float minShootSpd = .5f;
+    public float maxShootSpd = 3f;
     public GameObject projectilePrefab;
 
 
@@ -25,14 +32,14 @@ public class BasicEnemy : Units
         timer2 -= Time.deltaTime;
 
         if(timer1 <= 0) {
-            time1 = Random.Range(duration, mvSpd);
+            time1 = Random.Range(minMoveWaitTime, maxMoveWaitTime);
             timer1 = time1;
 
             Move();
         }
 
         if(timer2 <= 0) {
-            time2 = Random.Range(.1f, shootSpd);
+            time2 = Random.Range(minShootSpd, maxShootSpd);
             timer2 = time2;
 
             Launch();
