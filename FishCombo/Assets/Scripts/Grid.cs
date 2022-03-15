@@ -158,7 +158,15 @@ public class Grid : MonoBehaviour
         Debug.Log("Spawning Enemy: " + enemy.name);
     }
 
-    public bool checkBoundsProjectile(Vector3 vec) {
+    public bool projectileInBounds(Vector3 vec) {
+        if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
+            return true;
+        } 
+
+        return false;
+    }
+
+    public bool UnitInBounds(Vector3 vec, int boundX, int boundZ) {
         if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
             return true;
         } 
