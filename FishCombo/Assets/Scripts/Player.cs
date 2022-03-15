@@ -95,4 +95,10 @@ public class Player : Units
         
         // PlaySound(throwSound);
     }
+
+    public override void Die() {
+        base.Die();
+        Destroy(this.gameObject);
+        Debug.Log(player + " dead.");
+    }
 }
