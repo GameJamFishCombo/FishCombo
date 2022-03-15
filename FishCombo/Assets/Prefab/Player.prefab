@@ -119,8 +119,8 @@ MonoBehaviour:
   def: 0
   duration: 0.12
   projectilePrefab: {fileID: 8956560313617596929, guid: eb7b1a2da12f0124787f159da0ac9c43, type: 3}
+  pushPrefab: {fileID: 4028143268801482855, guid: 7725c1e134b120c44a6c0c126821283b, type: 3}
   projectileSpeed: 450
-  animator: {fileID: 4827720983324577512}
 --- !u!54 &6206849033393784433
 Rigidbody:
   m_ObjectHideFlags: 0
