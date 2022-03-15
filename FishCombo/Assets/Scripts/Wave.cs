@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Wave : MonoBehaviour
 {
     public string name;
@@ -9,5 +10,7 @@ public class Wave : MonoBehaviour
     public Transform[] enemy;
     [Header("Number of enemies per type")]
     public int[] Enemies;
-    public float rate; 
+    public float rate;
+
+
 }

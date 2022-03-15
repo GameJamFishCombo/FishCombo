@@ -437,7 +437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1962465171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,17 +450,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f7aec811b323340bd2c65a9a49acf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
-  enemy:
-  - {fileID: 4231866635281644065, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
-  Enemies: 01000000
-  rate: 1
   waves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - name: 'Wave 1: 1 Basic'
+    enemy:
+    - {fileID: 4231866635281644065, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    Enemies: 03000000
+    rate: 0.5
+  - name: 'Wave 2: 2 Basic'
+    enemy:
+    - {fileID: 4231866635281644065, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    Enemies: 02000000
+    rate: 0.1
   timeBetweenWaves: 2
   waveCountdown: 0
   grid: {fileID: 1021620868}
