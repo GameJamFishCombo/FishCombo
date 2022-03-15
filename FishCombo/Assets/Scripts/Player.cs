@@ -60,6 +60,12 @@ public class Player : Units
             MovementInput input = buffer.Dequeue();
             if(input == MovementInput.Up) {
                 Vector3 move = new Vector3(0, 0, 1f) + player.position;
+                // bool check = UnitInBounds(move, 3, 3);
+
+                // if(check) {
+                //     StartCoroutine(LerpPosition(move, duration));
+                // }
+
                 if(!(move.x < 0 || move.z < 0 || move.x > 3 || move.z > 3)) {
                     StartCoroutine(LerpPosition(move, duration));
                 }

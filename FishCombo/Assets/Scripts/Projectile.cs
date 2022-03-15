@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     GameObject enemy;
     public GameObject shooter;
     Units shooterStat;
+    public Grid grid;
     
     void Awake()
     {

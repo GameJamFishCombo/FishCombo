@@ -112,18 +112,27 @@ public class Grid : MonoBehaviour
         Debug.Log("Spawning Enemy: " + enemy.name);
     }
 
-    public bool projectileInBounds(Vector3 vec) {
-        if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
-            return true;
-        } 
+    public bool inBounds(Vector3 vec, string tag) {
+        if(tag == "Player") {
+            if(vec.x < 0 || vec.x > 3 || vec.z < 0  || vec.z > 3) {
+                return true;
+            }
 
-        return false;
-    }
+            return false;
 
-    public bool UnitInBounds(Vector3 vec, int boundX, int boundZ) {
-        if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
-            return true;
-        } 
+        } else if (tag == "Enemy") {
+            if(vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
+                return true;
+            }
+
+            return false;
+        } else { //these are projectiles
+            if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
+                return true;
+            }
+
+            return false;
+        }
 
         return false;
     }

@@ -11,13 +11,14 @@ public class Units : MonoBehaviour
     public int team;
     public int currX, currY;
     public UnitType type;
-
     private Vector3 desiredPos, desiredScale;
     public int maxHP = 100;
     public int currHP {get; private set;}
     public int dmg;
     int comboPts;
     public int def;
+    public HUDHealth HPBar;
+    public Grid grid;
 
     void Start() {
         currHP = maxHP;
@@ -29,6 +30,8 @@ public class Units : MonoBehaviour
         currHP -= dmg;
         if(gameObject.tag != "Player")
             GameManager.comboManager.IncrementCombo();
+
+        HPBar.SetHealth(currHP);
 
         if (currHP <= 0) {
             Die();
@@ -44,7 +47,7 @@ public class Units : MonoBehaviour
     public void heal() {
         currHP = 100;
         Debug.Log("Player healed. HP at " + currHP);
-        // HPBar.SetHealth(currHP);
+        HPBar.SetHealth(currHP);
     }
 
 

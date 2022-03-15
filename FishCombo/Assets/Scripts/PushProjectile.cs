@@ -10,6 +10,7 @@ public class PushProjectile : MonoBehaviour
     float projectileSpeed = 400;
     public GameObject shooter;
     Units shooterStat;
+    public Grid grid;
     
     void Awake()
     {
