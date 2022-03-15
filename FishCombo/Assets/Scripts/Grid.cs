@@ -144,4 +144,16 @@ public class Grid : MonoBehaviour
 
         return -Vector2Int.one; //-1 -1; Invalid
     }
+
+    public void SpawnEnemy(Transform enemy) {
+        unitPiece = new Units[TILE_COUNT_X, TITLE_COUNT_Y];
+        //pick random spot on enemy side of grid
+        int randX = 0, randZ = 0;
+        randX = (int)Random.Range(4,7);
+        randZ = (int)Random.Range(0,4);
+
+        unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Basic, 1);
+
+        Debug.Log("Spawning Enemy: " + enemy.name);
+    }
 }
