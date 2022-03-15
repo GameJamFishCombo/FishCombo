@@ -12,6 +12,12 @@ public class Player : Units
     Rigidbody rigidbody;
     bool canMove = true;
     public float projectileSpeed = 450;
+<<<<<<< Updated upstream
+=======
+
+    public Animator animator;
+
+>>>>>>> Stashed changes
     private Queue<MovementInput> buffer;
 
     void Awake()
@@ -122,12 +128,14 @@ public class Player : Units
     }
 
     void Launch() {
+        //animator.SetBool("Fire",true);
+        animator.Play("Fire",-1,0.0f);
         GameObject projectileObject = Instantiate(projectilePrefab, player.position, Quaternion.identity);
-
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(1f, 0, 0);
         projectile.Launch(lookDirection, projectileSpeed);
 
+        //animator.SetBool("Fire",false);
         // animator.SetTrigger("Launch");
         
         // PlaySound(throwSound);
