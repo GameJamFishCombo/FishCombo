@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -63,7 +64,18 @@ public class WaveSpawner : MonoBehaviour
         //if the next wave is out of bounds of array
         //basically, final wave was completed, trigger cutscene
         if(nextWave + 1 > waves.Length - 1) {
-            //idk something
+            //either goes to shop or next stage
+            int sceneIdx = SceneManager.GetActiveScene().buildIndex;
+
+            // if((sceneIdx + 1) == 5) {
+            //     //load whatever the shop scene is one
+            //     SceneManager.LoadScene(sceneIdx + 1);
+            // } else {
+            //     //load next scene
+            //     SceneManager.LoadScene(sceneIdx + 1);
+            // }
+
+        SceneManager.LoadScene(sceneIdx + 1);
         } else {
             nextWave++;
         }
