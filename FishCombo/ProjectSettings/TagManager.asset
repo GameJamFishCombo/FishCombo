@@ -8,6 +8,9 @@ TagManager:
   - PlayerBullet
   - EnemyBullet
   - GridTile
+  - Undefined
+  - PushBullet
+  - StillBullet
   layers:
   - Default
   - TransparentFX

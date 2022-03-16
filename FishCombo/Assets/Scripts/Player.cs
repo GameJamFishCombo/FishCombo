@@ -9,6 +9,7 @@ public class Player : Units
     public float duration = 0.09f;
     public GameObject projectilePrefab;
     public GameObject pushPrefab;
+    public GameObject areaProjectile;
     Rigidbody rigidbody;
     bool canMove = true;
     public float projectileSpeed = 450;
@@ -54,6 +55,11 @@ public class Player : Units
         if(Input.GetKeyDown(KeyCode.X) && canMove) //if between tiles, round up or down
         {
             LaunchPush();
+        }
+
+        if(Input.GetKeyDown(KeyCode.C) && canMove) //if between tiles, round up or down
+        {
+            LaunchArea();
         }
 
         move();
@@ -154,6 +160,36 @@ public class Player : Units
         projectile = Instantiate(pushPrefab, spawnPosition, Quaternion.identity);
         pushProjectile = projectile.GetComponent<PushProjectile>();
         pushProjectile.Launch(new Vector3(1f, 0, 0));
+    }
+
+    void LaunchArea(){
+        Vector3 spawnPosition = player.position + new Vector3(3f, 0, -1);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(4f, 0, -1);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(5f, 0, -1);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(3f, 0, 0);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(4f, 0, 0);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(5f, 0, 0);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(3f, 0, 1);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(4f, 0, 1);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(5f, 0, 1);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
     }
 
     public override void Die() {

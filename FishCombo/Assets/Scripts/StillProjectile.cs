@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PushProjectile : MonoBehaviour
+public class StillProjectile : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody rigidbody;
-    public int damageMulitplier = 2;
-    public float projectileSpeed = 450;
-    public float pushDuration = 0.07f;
+    public int damageMulitplier = 3;
+    public float lifeSpan = 0.2f; 
     public GameObject shooter;
+    float lifeTimer = 0f;
     Units shooterStat;
     Grid grid;
     
@@ -21,37 +21,23 @@ public class PushProjectile : MonoBehaviour
     }
 
     void Update() {
-
-        if(transform.position.magnitude > 1000.0f)
-        {
+        if(lifeTimer >= lifeSpan){
             Destroy(gameObject);
         }
+        lifeTimer += Time.deltaTime;
 
         if(grid.inBounds(transform.position, "Projectile")){
             Destroy(gameObject);
         }
     }
 
-    public void Launch(Vector3 direction) {
-        rigidbody.AddForce(direction * projectileSpeed);
-    }
-
     void OnTriggerEnter(Collider other) {
         if(other.tag == "Enemy") {
-            BasicEnemy enemyBehavior = other.gameObject.GetComponent<BasicEnemy>();
-            enemyBehavior.pushTo(MovementInput.Right, pushDuration);
             Units enemyStat = other.gameObject.GetComponent<Units>();
             enemyStat.TakeDmg(shooterStat.dmg * damageMulitplier);
             //Debug.Log("Enemy HP: " + enemyStat.currHP);        
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
-    }
-
-    public bool inBounds(Vector3 vec) {
-        if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
-            return true;
-        }
-
-        return false;
     }
 }
+
