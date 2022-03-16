@@ -12,12 +12,9 @@ public class Player : Units
     Rigidbody rigidbody;
     bool canMove = true;
     public float projectileSpeed = 450;
-<<<<<<< Updated upstream
-=======
 
     public Animator animator;
 
->>>>>>> Stashed changes
     private Queue<MovementInput> buffer;
 
     void Awake()
