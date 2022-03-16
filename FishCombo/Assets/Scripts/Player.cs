@@ -27,22 +27,22 @@ public class Player : Units
 
     public void Update() {
         if(Input.GetKeyDown(KeyCode.UpArrow)) {
-            if(buffer.Count < 3)
+            if(buffer.Count < 2)
                 buffer.Enqueue(MovementInput.Up);
         }
 
         if(Input.GetKeyDown(KeyCode.LeftArrow)) {
-            if(buffer.Count < 3)
+            if(buffer.Count < 2)
                 buffer.Enqueue(MovementInput.Left);
         }
             
         if(Input.GetKeyDown(KeyCode.DownArrow)) {
-            if(buffer.Count < 3)
+            if(buffer.Count < 2)
                 buffer.Enqueue(MovementInput.Down);
         }
 
         if(Input.GetKeyDown(KeyCode.RightArrow)) {
-            if(buffer.Count < 3)
+            if(buffer.Count < 2)
                 buffer.Enqueue(MovementInput.Right);
         }
 

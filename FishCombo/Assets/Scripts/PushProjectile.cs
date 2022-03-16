@@ -7,19 +7,27 @@ public class PushProjectile : MonoBehaviour
     // Start is called before the first frame update
     Rigidbody rigidbody;
     float damageMulitplier = 2f;
-    float projectileSpeed = 400;
+    float projectileSpeed = 450;
+    float pushDuration = 0.07f;
     public GameObject shooter;
     Units shooterStat;
+    Grid grid;
     
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
         shooterStat = shooter.GetComponent<Units>();
+        grid = GameManager.grid;
     }
 
     void Update() {
+
         if(transform.position.magnitude > 1000.0f)
         {
+            Destroy(gameObject);
+        }
+
+        if(grid.inBounds(transform.position, "Projectile")){
             Destroy(gameObject);
         }
     }
@@ -30,10 +38,12 @@ public class PushProjectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if(other.tag == "Enemy") {
+            BasicEnemy enemyBehavior = other.gameObject.GetComponent<BasicEnemy>();
+            enemyBehavior.pushTo(MovementInput.Right, pushDuration);
             Units enemyStat = other.gameObject.GetComponent<Units>();
             enemyStat.TakeDmg(shooterStat.dmg);
             //Debug.Log("Enemy HP: " + enemyStat.currHP);        
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
