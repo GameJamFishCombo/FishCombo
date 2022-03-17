@@ -27,6 +27,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: DarkOrange1
+    second: {fileID: 2100000, guid: f55532ad2cc7e5d499b001e2ebcda3c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: DarkRed
     second: {fileID: 2100000, guid: 096f4836887671a4f89a2987532ff513, type: 2}
   - first:
@@ -34,6 +39,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: DarkRed1
     second: {fileID: 2100000, guid: 8345b4803397f9e43898e74e93a1cb00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkRed2
+    second: {fileID: 2100000, guid: 9b975e3831016214bb5388da5dacc417, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -72,18 +82,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: LightOrange1
+    second: {fileID: 2100000, guid: 58c135916df52d44582ab1fe9b03024f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: LightRed
-    second: {fileID: 2100000, guid: ce34313b77000c94a8cd9fee9b4b3768, type: 2}
+    second: {fileID: 2100000, guid: b6e7de2dd8172c4499fe2d791d15be07, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LightRed1
-    second: {fileID: 2100000, guid: f20c3f2a58a42aa4794390c2b5610d29, type: 2}
+    second: {fileID: 2100000, guid: b6e7de2dd8172c4499fe2d791d15be07, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Red
     second: {fileID: 2100000, guid: 8cb4da9866285c649ac7899ca61da5ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red1
+    second: {fileID: 2100000, guid: 5b552fdd5ffe96245b493fbad42481ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RedRed
+    second: {fileID: 2100000, guid: b6e7de2dd8172c4499fe2d791d15be07, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -129,6 +154,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: lambert16
     second: {fileID: 2100000, guid: 763c376083f051947917052eed50c8ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert18
+    second: {fileID: 2100000, guid: c28e158b61f27364e99e04566d15abf0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
