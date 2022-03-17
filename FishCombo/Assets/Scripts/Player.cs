@@ -2,14 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MovementInput
+{
+    Up = 0,
+    Left = 1,
+    Down = 2,
+    Right = 3,
+}
+
 public class Player : Units
 {
     Transform player;
     Vector3 playerPos;
     public float duration = 0.09f;
+    public float lungeDuration = 0.03f;
+    public int numMeleeHits = 3;
+    public float meleeHitDelay = 0.01f;
     public GameObject projectilePrefab;
     public GameObject pushPrefab;
     public GameObject areaProjectile;
+    public GameObject meleeProjectile;
     Rigidbody rigidbody;
     bool canMove = true;
     public float projectileSpeed = 450;
@@ -60,6 +72,11 @@ public class Player : Units
         if(Input.GetKeyDown(KeyCode.C) && canMove) //if between tiles, round up or down
         {
             LaunchArea();
+        }
+
+        if(Input.GetKeyDown(KeyCode.V) && canMove) //if between tiles, round up or down
+        {
+            StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
         }
 
         move();
@@ -130,6 +147,60 @@ public class Player : Units
         canMove = true;
     }
 
+    IEnumerator Lunge(Vector3 targetPosition){ // KILL ME
+        canMove = false;
+        float time = 0;
+        Vector3 startPosition = player.position;
+
+        while (time < lungeDuration) {
+            player.position = Vector3.Lerp(startPosition, targetPosition, time / lungeDuration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        player.position = targetPosition;
+        time = 0;
+
+        for(int i = 0; i < (numMeleeHits-1); i++){
+            LaunchMelee();
+            while (time < meleeHitDelay) {
+                time += Time.deltaTime;
+                yield return null;
+            }
+            time = 0;
+        }
+        LaunchMelee();
+
+        time = 0;
+        while (time < lungeDuration) {
+            player.position = Vector3.Lerp(targetPosition, startPosition, time / lungeDuration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        player.position = startPosition;
+        canMove = true;
+    }
+
+    void LaunchMelee(){
+        Vector3 spawnPosition = player.position + new Vector3(0, 0, -1);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(0, 0, 0);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(0, 0, 1);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(1f, 0, -1);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(1f, 0, 0);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = player.position + new Vector3(1f, 0, 1);
+        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+    }
+
     void Launch() {
         //animator.SetBool("Fire",true);
         animator.Play("Fire",-1,0.0f);
@@ -197,12 +268,4 @@ public class Player : Units
         Destroy(this.gameObject);
         Debug.Log(player + " dead.");
     }
-}
-
-public enum MovementInput
-{
-    Up = 0,
-    Left = 1,
-    Down = 2,
-    Right = 3,
 }
