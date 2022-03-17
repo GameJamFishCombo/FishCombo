@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6069205607161794464}
   m_Layer: 0
   m_Name: SpikesProjectile 1
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,4 +108,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd633b61e3e994f44a2f35446f4dec59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shooter: {fileID: 3404688020700068758, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
