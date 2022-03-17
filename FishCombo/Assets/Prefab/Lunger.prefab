@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4242674239804470226}
   - component: {fileID: 8780301635968193841}
   - component: {fileID: 6069812965912333186}
-  - component: {fileID: 453259538917941004}
+  - component: {fileID: 1517648336444037032}
   m_Layer: 0
   m_Name: Lunger
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &453259538917941004
+--- !u!114 &1517648336444037032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1385168246886231382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edfb3b392fc3478439b01fb9548b7d28, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a18b669af16f844d983c633dcc8c4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
@@ -132,14 +132,16 @@ MonoBehaviour:
   maxHP: 100
   dmg: 0
   def: 0
-  duration: 0.09
+  duration: 0.15
   time1: 1
   time2: 1
   timer1: 0
   timer2: 0
   minMoveWaitTime: 0.09
   maxMoveWaitTime: 2
-  minShootSpd: 0.5
-  maxShootSpd: 3
-  projectilePrefab: {fileID: 5648063081001141407, guid: e2f3ae7c7a51b6349b115fc05d3b9ddf, type: 3}
-  playerPrefab: {fileID: 7428160566791425927, guid: f1b8d766af1789c40b7baa9eaaec1f10, type: 3}
+  minStabSpd: 0.7
+  maxStabSpd: 3
+  lungeDuration: 0.1
+  numMeleeHits: 3
+  meleeHitDelay: 0.01
+  meleeProjectile: {fileID: 7718313146677422797, guid: d98fa251f207f124eb4538061ee8cc73, type: 3}

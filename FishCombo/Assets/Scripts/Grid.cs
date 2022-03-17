@@ -12,7 +12,7 @@ public class Grid : MonoBehaviour
 
     [Header("Prefabs & Mats")]
     [SerializeField] private GameObject[] prefabs;
-    [SerializeField] private Material[] teamMats;
+    // [SerializeField] private Material[] teamMats;
 
     private const int TILE_COUNT_X = 8;
     private const int TITLE_COUNT_Y = 4;
@@ -66,7 +66,7 @@ public class Grid : MonoBehaviour
         Units u = Instantiate(prefabs[(int)type - 1], transform).GetComponent<Units>();
         u.type = type;
         u.team = team;
-        u.GetComponent<MeshRenderer>().material = teamMats[team];
+        // u.GetComponent<MeshRenderer>().material = teamMats[team];
 
         return u;
     }
@@ -110,7 +110,7 @@ public class Grid : MonoBehaviour
             unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Basic, 1);
         } else if(enemy.name == "SpikeEnemy") {
             unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Spike, 1);
-        } else if(enemy.name == "LungeEnemy") {
+        } else if(enemy.name == "Lunger") {
             unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Lunger, 1);
         } else if(enemy.name == "BossEnemy") {
             unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Boss, 1);

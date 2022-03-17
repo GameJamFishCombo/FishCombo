@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class SpikeEnemy : Units
+public class LungeEnemy : Units
 {
-    // Random rand = new Random();
     Transform enemy;
     bool canMove = true;
     [Tooltip("Duration it takes to LERP between tiles.")]    
@@ -17,20 +16,20 @@ public class SpikeEnemy : Units
     public float minMoveWaitTime = 0.09f; //minimum move wait time, must be >=duration
     public float maxMoveWaitTime = 2f; //max move wait time
     [Tooltip("Minumum fire wait time. MUST be =>duration.")]
-    public float minShootSpd = .5f;
-    public float maxShootSpd = 3f;
-    public GameObject projectilePrefab;
+    public float minStabSpd = .5f;
+    public float maxStabSpd = 3f;
 
-    public GameObject playerObj;
-    Player player;
+    Transform player;
+    public float lungeDuration = 0.03f;
+    public int numMeleeHits = 3;
+    public float meleeHitDelay = 0.01f;
+    public GameObject meleeProjectile;
 
 
     public void Awake() {
         enemy = GetComponent<Transform>();
         timer1 = time1;
         timer2 = time2;
-        playerObj = GameObject.FindGameObjectWithTag("Player");
-        player = playerObj.GetComponent<Player>();
     }
 
     public void Update() {
@@ -45,10 +44,10 @@ public class SpikeEnemy : Units
         }
 
         if(timer2 <= 0) {
-            time2 = UnityEngine.Random.Range(minShootSpd, maxShootSpd);
+            time2 = UnityEngine.Random.Range(minStabSpd, maxStabSpd);
             timer2 = time2;
 
-            Spikes();
+            StartCoroutine(Lunge(transform.position + (new Vector3(-4f, 0, 0))));
         }
 
         
@@ -64,7 +63,7 @@ public class SpikeEnemy : Units
                 move = new Vector3(0, 0, 1f) + enemy.position;
 
                 // max 7 max 3 min 4 min 0
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Enemy");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
@@ -73,7 +72,7 @@ public class SpikeEnemy : Units
                 break;
             case 1: //move left
                 move = new Vector3(-1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Enemy");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
@@ -83,7 +82,7 @@ public class SpikeEnemy : Units
 
             case 2: //move south
                 move = new Vector3(0, 0, -1f) + enemy.position;
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Enemy");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
@@ -92,7 +91,7 @@ public class SpikeEnemy : Units
                 break;
             case 3: //move right
                 move = new Vector3(1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Enemy");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
@@ -110,7 +109,7 @@ public class SpikeEnemy : Units
             case MovementInput.Up:
                 move = new Vector3(0, 0, 1f) + enemy.position;
 
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Enemy");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, pushDuration));
@@ -121,7 +120,7 @@ public class SpikeEnemy : Units
                 break;
             case MovementInput.Left: //move left
                 move = new Vector3(-1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Enemy");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, pushDuration));
@@ -131,7 +130,7 @@ public class SpikeEnemy : Units
 
             case MovementInput.Down: //move south
                 move = new Vector3(0, 0, -1f) + enemy.position;
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Enemy");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, pushDuration));
@@ -141,7 +140,7 @@ public class SpikeEnemy : Units
                 
             case MovementInput.Right: //move right
                 move = new Vector3(1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Enemy");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, pushDuration));
@@ -152,8 +151,25 @@ public class SpikeEnemy : Units
         return false;
     }
 
-    public bool inBounds(Vector3 vec) {
-        return (vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3);
+    
+    public bool inBounds(Vector3 vec, string tag) {
+        if(tag == "Enemy") {
+            if(vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if(tag == "Projectile") {
+            if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        return false;
     }
 
     IEnumerator LerpPosition(Vector3 targetPosition, float duration) {
@@ -177,14 +193,53 @@ public class SpikeEnemy : Units
         Debug.Log(enemy + " dead.");
     }
 
-    void Spikes() {
-        Debug.Log("Spawn spikes");
-        GameObject projectileObject = Instantiate(projectilePrefab, player.getCurrPosition(), Quaternion.identity);
-        //some animation that shows where obj gonna spawn
-        SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
+    IEnumerator Lunge(Vector3 targetPosition){ // KILL ME
+        canMove = false;
+        float time = 0;
+        Vector3 startPosition = enemy.position;
 
-        // animator.SetTrigger("Spikes");
-        
-        // PlaySound(throwSound);
+        while (time < lungeDuration) {
+            enemy.position = Vector3.Lerp(startPosition, targetPosition, time / lungeDuration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        enemy.position = targetPosition;
+        time = 0;
+
+        for(int i = 0; i < (numMeleeHits-1); i++){
+            LaunchMelee();
+            while (time < meleeHitDelay) {
+                time += Time.deltaTime;
+                yield return null;
+            }
+            time = 0;
+        }
+        LaunchMelee();
+
+        time = 0;
+        while (time < lungeDuration) {
+            enemy.position = Vector3.Lerp(targetPosition, startPosition, time / lungeDuration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        enemy.position = startPosition;
+        canMove = true;
     }
+
+
+    void LaunchMelee(){
+        Vector3 spawnPosition = enemy.position + new Vector3(-1f, 0, 0); //tile behind
+        if(!inBounds(spawnPosition, "Projectile"))
+            Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = enemy.position + new Vector3(0, 0, 0); //current tile
+        if(!inBounds(spawnPosition, "Projectile"))
+            Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
+
+        spawnPosition = enemy.position + new Vector3(1f, 0, 0); //tile infront
+        if(!inBounds(spawnPosition, "Projectile"))
+            Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
+    }
+
 }

@@ -298,4 +298,8 @@ public class Player : Units
         Destroy(this.gameObject);
         Debug.Log(player + " dead.");
     }
+
+    public Vector3 getCurrPosition() {
+        return player.position;
+    }
 }
