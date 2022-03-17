@@ -142,4 +142,4 @@ MonoBehaviour:
   minShootSpd: 0.5
   maxShootSpd: 3
   projectilePrefab: {fileID: 5648063081001141407, guid: e2f3ae7c7a51b6349b115fc05d3b9ddf, type: 3}
-  playerPrefab: {fileID: 7428160566791425927, guid: f1b8d766af1789c40b7baa9eaaec1f10, type: 3}
+  playerObj: {fileID: 7428160566791425927, guid: f1b8d766af1789c40b7baa9eaaec1f10, type: 3}
