@@ -199,27 +199,27 @@ public class Player : Units
     void LaunchMelee(){
         Vector3 spawnPosition = player.position + new Vector3(0, 0, -1);
         if(!inBounds(spawnPosition, "Projectile"))
-            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+            Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(0, 0, 0);
         if(!inBounds(spawnPosition, "Projectile"))
-            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+            Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(0, 0, 1);
         if(!inBounds(spawnPosition, "Projectile"))
-            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+            Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(1f, 0, -1);
         if(!inBounds(spawnPosition, "Projectile"))
-            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+            Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(1f, 0, 0);
         if(!inBounds(spawnPosition, "Projectile"))
-            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+            Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(1f, 0, 1);
         if(!inBounds(spawnPosition, "Projectile"))
-            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+            Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
     }
 
     void Launch() {

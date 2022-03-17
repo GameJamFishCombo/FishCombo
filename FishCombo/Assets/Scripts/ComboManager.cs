@@ -37,4 +37,9 @@ public class ComboManager : MonoBehaviour
         Debug.Log("Combo set to "+ comboLevel);
         comboBar.SetCombo(comboLevel);
     }
+
+    public void DecreaseCombo(int decrement){
+        comboLevel -= decrement;
+        comboBar.SetCombo(comboLevel);
+    }
 }
