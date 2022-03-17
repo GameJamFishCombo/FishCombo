@@ -44,9 +44,18 @@ public class Units : MonoBehaviour
     }
 
     public void heal() {
-        currHP = 100;
+        currHP = maxHP;
         Debug.Log("Player healed. HP at " + currHP);
         // HPBar.SetHealth(currHP);
+    }
+
+    public void IncreaseATK() {
+        dmg += 1;
+    }
+
+    public void IncreaseMaxHP() {
+        currHP += 20;
+        maxHP += 20;
     }
 
 
