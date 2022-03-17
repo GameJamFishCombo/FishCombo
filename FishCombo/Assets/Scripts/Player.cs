@@ -14,6 +14,9 @@ public class Player : Units
 {
     Transform player;
     Vector3 playerPos;
+    public int lungeCost = 5;
+    public int pushCost = 15;
+    public int areaCost = 30;
     public float duration = 0.09f;
     public float lungeDuration = 0.03f;
     public int numMeleeHits = 3;
@@ -31,6 +34,7 @@ public class Player : Units
 
     private Queue<MovementInput> buffer;
     private Grid grid;
+    private ComboManager comboManager;
 
     void Awake()
     {
@@ -39,6 +43,7 @@ public class Player : Units
         player = GetComponent<Transform>();
         playerPos = rigidbody.position;
         grid = GameManager.grid;
+        comboManager = GameManager.comboManager;
     }
 
     public void Update() {
@@ -67,18 +72,21 @@ public class Player : Units
             Launch();
         }
 
-        if(Input.GetKeyDown(KeyCode.W) && canMove) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.W) && canMove && comboManager.comboLevel >= pushCost) //if between tiles, round up or down
         {
+            comboManager.DecreaseCombo(pushCost);
             LaunchPush();
         }
 
-        if(Input.GetKeyDown(KeyCode.E) && canMove) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.E) && canMove && comboManager.comboLevel >= areaCost) //if between tiles, round up or down
         {
+            comboManager.DecreaseCombo(areaCost);
             LaunchArea();
         }
 
-        if(Input.GetKeyDown(KeyCode.Q) && canMove) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.Q) && canMove && comboManager.comboLevel >= lungeCost) //if between tiles, round up or down
         {
+            comboManager.DecreaseCombo(lungeCost);
             StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
         }
 

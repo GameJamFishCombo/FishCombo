@@ -34,7 +34,7 @@ public class ComboManager : MonoBehaviour
     public void IncrementCombo(){
         comboLevel += 1;
         resetTimer = resetTime;
-        Debug.Log("Combo set to "+ comboLevel);
+        //Debug.Log("Combo set to "+ comboLevel);
         comboBar.SetCombo(comboLevel);
     }
 
