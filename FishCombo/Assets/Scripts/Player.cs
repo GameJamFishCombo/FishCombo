@@ -62,22 +62,22 @@ public class Player : Units
                 buffer.Enqueue(MovementInput.Right);
         }
 
-        if(Input.GetKeyDown(KeyCode.Z) && canMove) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.R) && canMove) //if between tiles, round up or down
         {
             Launch();
         }
 
-        if(Input.GetKeyDown(KeyCode.X) && canMove) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.W) && canMove) //if between tiles, round up or down
         {
             LaunchPush();
         }
 
-        if(Input.GetKeyDown(KeyCode.C) && canMove) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.E) && canMove) //if between tiles, round up or down
         {
             LaunchArea();
         }
 
-        if(Input.GetKeyDown(KeyCode.V) && canMove) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.Q) && canMove) //if between tiles, round up or down
         {
             StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
         }

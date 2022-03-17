@@ -955,6 +955,8 @@ MonoBehaviour:
   syringeSpawn: {fileID: 38642244}
   syringeAnim: {fileID: 0}
   syringeLerp: {fileID: 1828427616}
+  playerPrefab: {fileID: 7428160566791425927, guid: f1b8d766af1789c40b7baa9eaaec1f10, type: 3}
+  player: {fileID: 0}
 --- !u!4 &1804442056
 Transform:
   m_ObjectHideFlags: 0

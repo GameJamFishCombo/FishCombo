@@ -9,10 +9,12 @@ public class ComboManager : MonoBehaviour
 
     private float resetTimer;
 
+    public ComboBar comboBar;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        comboBar.SetMaxCombo(100);
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class ComboManager : MonoBehaviour
             if(resetTimer <= 0){
                 Debug.Log("Reset Combo");
                 comboLevel = 0;
+                comboBar.SetCombo(comboLevel);
             }else{
                 resetTimer -= Time.deltaTime;
             }
@@ -32,5 +35,6 @@ public class ComboManager : MonoBehaviour
         comboLevel += 1;
         resetTimer = resetTime;
         Debug.Log("Combo set to "+ comboLevel);
+        comboBar.SetCombo(comboLevel);
     }
 }
