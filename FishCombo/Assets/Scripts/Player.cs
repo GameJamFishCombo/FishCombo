@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MovementInput {
+public enum MovementInput
+{
     Up = 0,
     Left = 1,
     Down = 2,
@@ -31,7 +32,8 @@ public class Player : Units
     private Queue<MovementInput> buffer;
     private Grid grid;
 
-    void Awake() {
+    void Awake()
+    {
         buffer = new Queue<MovementInput>();
         rigidbody = GetComponent<Rigidbody>();
         player = GetComponent<Transform>();
@@ -289,10 +291,6 @@ public class Player : Units
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
-    }
-
-    public Vector3 getCurrPos() {
-        return player.position;
     }
 
     public override void Die() {

@@ -102,7 +102,15 @@ public class WaveSpawner : MonoBehaviour
 
             for(int i = 0; i < wave.enemy.Length; i++) {
                 for(int j = 0; j < wave.Enemies[i]; j++) {
-                    grid.SpawnEnemy(wave.enemy[i]);
+                    if(i == 0) {
+                        grid.SpawnEnemy(wave.enemy[i]);
+                    } else if(i == 1) {
+                        grid.SpawnEnemy(wave.enemy[i]);
+                    } else if(i == 2) {
+                        grid.SpawnEnemy(wave.enemy[i]);
+                    } else if(i == 3) {
+                        grid.SpawnEnemy(wave.enemy[i]);
+                    }
                     yield return new WaitForSeconds(1f / wave.rate);
                 }
             }

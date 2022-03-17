@@ -21,16 +21,15 @@ public class SpikeEnemy : Units
     public float maxShootSpd = 3f;
     public GameObject projectilePrefab;
 
-    public GameObject playerObj;
-    Player player;
+    public GameObject playerPrefab;
+    Transform player;
 
 
     public void Awake() {
         enemy = GetComponent<Transform>();
         timer1 = time1;
         timer2 = time2;
-        playerObj = GameObject.Find("Player(Clone)");
-        player = playerObj.GetComponent<Player>();
+        player = playerPrefab.GetComponent<Transform>();
     }
 
     public void Update() {
@@ -48,7 +47,7 @@ public class SpikeEnemy : Units
             time2 = UnityEngine.Random.Range(minShootSpd, maxShootSpd);
             timer2 = time2;
 
-            Spikes();
+            Launch();
         }
 
         
@@ -177,11 +176,12 @@ public class SpikeEnemy : Units
         Debug.Log(enemy + " dead.");
     }
 
-    void Spikes() {
-        Debug.Log("Spawning spikes");
-        GameObject projectileObject = Instantiate(projectilePrefab, player.getCurrPos(), Quaternion.identity);
-        //some animation that shows where obj gonna spawn
+    void Launch() {
+        GameObject projectileObject = Instantiate(projectilePrefab, player.position, Quaternion.identity);
+
         SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
+        Vector3 lookDirection = new Vector3(0, 1f, 0);
+        projectile.Launch(lookDirection, 300);
 
         // animator.SetTrigger("Launch");
         

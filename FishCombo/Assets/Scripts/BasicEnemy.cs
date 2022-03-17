@@ -148,21 +148,7 @@ public class BasicEnemy : Units
     }
 
     public bool inBounds(Vector3 vec) {
-        if(vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
-            return true; 
-        } else {
-            return false;
-        }
-
-        //check if another enemy is on tile already
-        // if() {
-
-        // } else {
-        //     return false;
-        // }
-
-        return false;
-
+        return (vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3);
     }
 
     IEnumerator LerpPosition(Vector3 targetPosition, float duration) {
