@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Shop : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class Shop : MonoBehaviour
     public Animator syringeAnim;
     public Transform syringeLerp;
 
+    public GameObject playerPrefab;
+    public Player player;
+
     void Start()
     {
         time = timer;
@@ -45,6 +49,7 @@ public class Shop : MonoBehaviour
         syringeAnim = syringe.GetComponentInChildren<Animator>();
         Instantiate(poofParticles,meds.transform.position,Quaternion.identity);
         Instantiate(poofParticles,syringe.transform.position,Quaternion.identity);
+        player = playerPrefab.GetComponent<Player>();
     }
 
     void Update()
@@ -72,7 +77,8 @@ public class Shop : MonoBehaviour
         }
 
         if(time2 <= 0){
-            //NEXT SCENE
+            int sceneIdx = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(sceneIdx + 1);
         }
 
 
@@ -114,12 +120,12 @@ public class Shop : MonoBehaviour
         itemSelected = true;
         if(itemNum == 1){
             StartCoroutine(LerpPosition(meds,takenItem.position,0.2f));
-            //INCREASE HEALTH HERE
+            player.IncreaseMaxHP(); 
         }  
 
         if(itemNum == 2){
             StartCoroutine(LerpPosition(syringe,takenItem.position,0.2f));
-            //INCREASE DAMAGE HERE
+            player.IncreaseATK(); 
         }
     }
 
