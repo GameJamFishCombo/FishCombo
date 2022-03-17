@@ -1,37 +1,34 @@
 fileFormatVersion: 2
-guid: 085a9ea0cdd47974e9b7fa986d366011
+guid: ba789162f2442b347856663ddc0ac283
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: DarkOrange
-    second: {fileID: 2100000, guid: a15929a75c3692040b06d753f8561752, type: 2}
+    second: {fileID: 2100000, guid: f55532ad2cc7e5d499b001e2ebcda3c8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: DarkRed
-    second: {fileID: 2100000, guid: 096f4836887671a4f89a2987532ff513, type: 2}
+    second: {fileID: 2100000, guid: 9b975e3831016214bb5388da5dacc417, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LightOrange
-    second: {fileID: 2100000, guid: 365cfa193e179614c8b110a2f6b0e7ff, type: 2}
+    second: {fileID: 2100000, guid: 58c135916df52d44582ab1fe9b03024f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LightRed
-    second: {fileID: 2100000, guid: 23d1958dd1587af47a7818c3dc7eddca, type: 2}
+    second: {fileID: 2100000, guid: b6e7de2dd8172c4499fe2d791d15be07, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Red
-    second: {fileID: 2100000, guid: 8cb4da9866285c649ac7899ca61da5ac, type: 2}
+    second: {fileID: 2100000, guid: 5b552fdd5ffe96245b493fbad42481ed, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
