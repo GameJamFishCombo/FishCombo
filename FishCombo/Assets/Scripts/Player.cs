@@ -91,7 +91,7 @@ public class Player : Units
             bool checkBounds = true;
             if(input == MovementInput.Up) {
                 Vector3 move = new Vector3(0, 0, 1f) + player.position;
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Player");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
@@ -100,7 +100,7 @@ public class Player : Units
 
             if(input == MovementInput.Left) {
                 Vector3 move = new Vector3(-1f, 0, 0) + player.position;
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Player");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
@@ -109,7 +109,7 @@ public class Player : Units
             
             if(input == MovementInput.Down) {
                 Vector3 move = new Vector3(0, 0, -1f) + player.position;
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Player");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
@@ -118,7 +118,7 @@ public class Player : Units
 
             if(input == MovementInput.Right) {
                 Vector3 move = new Vector3(1f, 0, 0) + player.position;
-                checkBounds = inBounds(move);
+                checkBounds = inBounds(move, "Player");
 
                 if(!checkBounds) {
                     StartCoroutine(LerpPosition(move, duration));
@@ -127,9 +127,21 @@ public class Player : Units
         }
     }
 
-    public bool inBounds(Vector3 vec) {
-        if(vec.x < 0 || vec.x > 3 || vec.z < 0  || vec.z > 3) {
-            return true;
+    public bool inBounds(Vector3 vec, string tag) {
+        if(tag == "Player") {
+            if(vec.x < 0 || vec.x > 3 || vec.z < 0  || vec.z > 3) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if(tag == "Projectile") {
+            if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         return false;
@@ -186,27 +198,27 @@ public class Player : Units
 
     void LaunchMelee(){
         Vector3 spawnPosition = player.position + new Vector3(0, 0, -1);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(0, 0, 0);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(0, 0, 1);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(1f, 0, -1);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(1f, 0, 0);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(1f, 0, 1);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
     }
 
@@ -244,39 +256,39 @@ public class Player : Units
 
     void LaunchArea(){
         Vector3 spawnPosition = player.position + new Vector3(3f, 0, -1);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(4f, 0, -1);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(5f, 0, -1);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(3f, 0, 0);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(4f, 0, 0);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(5f, 0, 0);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(3f, 0, 1);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(4f, 0, 1);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(5f, 0, 1);
-        if(!grid.inBounds(spawnPosition, "Projectile"))
+        if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
     }

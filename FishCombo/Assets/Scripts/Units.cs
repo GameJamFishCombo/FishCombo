@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum UnitType {
-    None, Basic, Fast, Player, Boss 
+    None, Basic, Spike, Lunger, Player, Boss 
 }
 
 public class Units : MonoBehaviour

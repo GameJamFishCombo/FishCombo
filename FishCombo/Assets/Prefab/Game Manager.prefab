@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5390652016928068823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7118058769650637820}
+  - component: {fileID: 6202831642993872826}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7118058769650637820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5390652016928068823}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8070074636707876499}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6202831642993872826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5390652016928068823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f7aec811b323340bd2c65a9a49acf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - name: 'Wave 1: 1 Basic'
+    enemy:
+    - {fileID: 4231866635281644065, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
+    - {fileID: 1599567271826229327, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
+    - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+    Enemies: 03000000000000000000000000000000
+    rate: 0.5
+  - name: 'Wave 2: 2 Basic'
+    enemy:
+    - {fileID: 4231866635281644065, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    Enemies: 02000000
+    rate: 0.1
+  timeBetweenWaves: 2
+  waveCountdown: 0
+  grid: {fileID: 8070074635623944175}
 --- !u!1 &8070074635242377990
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetTime: 3
   comboLevel: 0
+  comboBar: {fileID: 0}
 --- !u!1 &8070074635623944168
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,8 +155,10 @@ MonoBehaviour:
   newTile: {fileID: 6005812876562809840, guid: a94df355bf80c5d4d8dbc74d9cdf38b6, type: 3}
   prefabs:
   - {fileID: 4231866635281644074, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
-  - {fileID: 4231866635281644074, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+  - {fileID: 3404688020700068758, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
+  - {fileID: 1385168246886231382, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
   - {fileID: 7428160566791425927, guid: f1b8d766af1789c40b7baa9eaaec1f10, type: 3}
+  - {fileID: 3529395433689516189, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
   teamMats:
   - {fileID: 2100000, guid: 331360b90b6deb447ac45efc325163d0, type: 2}
   - {fileID: 2100000, guid: b365d04f5ae6d7c408fa928e942bc62e, type: 2}
@@ -129,6 +192,7 @@ Transform:
   m_Children:
   - {fileID: 8070074635242377989}
   - {fileID: 8070074635623944174}
+  - {fileID: 7118058769650637820}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

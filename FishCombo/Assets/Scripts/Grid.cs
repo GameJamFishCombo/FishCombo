@@ -106,7 +106,16 @@ public class Grid : MonoBehaviour
         randX = (int)Random.Range(3,6);
         randZ = (int)Random.Range(0,3);
 
-        unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Basic, 1);
+        if(enemy.name == "BasicEnemy") {
+            unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Basic, 1);
+        } else if(enemy.name == "SpikeEnemy") {
+            unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Spike, 1);
+        } else if(enemy.name == "LungeEnemy") {
+            unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Lunger, 1);
+        } else if(enemy.name == "BossEnemy") {
+            unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Boss, 1);
+        }
+
         PositionAllPieces();
 
         Debug.Log("Spawning Enemy: " + enemy.name);

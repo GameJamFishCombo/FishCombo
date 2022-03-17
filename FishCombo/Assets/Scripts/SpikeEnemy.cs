@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class BasicEnemy : Units
+public class SpikeEnemy : Units
 {
     // Random rand = new Random();
     Transform enemy;
@@ -21,11 +21,15 @@ public class BasicEnemy : Units
     public float maxShootSpd = 3f;
     public GameObject projectilePrefab;
 
+    public GameObject playerPrefab;
+    Transform player;
+
 
     public void Awake() {
         enemy = GetComponent<Transform>();
         timer1 = time1;
         timer2 = time2;
+        player = playerPrefab.GetComponent<Transform>();
     }
 
     public void Update() {
@@ -173,10 +177,10 @@ public class BasicEnemy : Units
     }
 
     void Launch() {
-        GameObject projectileObject = Instantiate(projectilePrefab, enemy.position, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectilePrefab, player.position, Quaternion.identity);
 
-        Projectile projectile = projectileObject.GetComponent<Projectile>();
-        Vector3 lookDirection = new Vector3(-1f, 0, 0);
+        SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
+        Vector3 lookDirection = new Vector3(0, 1f, 0);
         projectile.Launch(lookDirection, 300);
 
         // animator.SetTrigger("Launch");
