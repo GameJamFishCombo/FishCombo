@@ -22,6 +22,7 @@ public class Player : Units
     public GameObject pushPrefab;
     public GameObject areaProjectile;
     public GameObject meleeProjectile;
+
     Rigidbody rigidbody;
     bool canMove = true;
     public float projectileSpeed = 450;
@@ -29,6 +30,7 @@ public class Player : Units
     public Animator animator;
 
     private Queue<MovementInput> buffer;
+    private Grid grid;
 
     void Awake()
     {
@@ -36,6 +38,7 @@ public class Player : Units
         rigidbody = GetComponent<Rigidbody>();
         player = GetComponent<Transform>();
         playerPos = rigidbody.position;
+        grid = GameManager.grid;
     }
 
     public void Update() {
@@ -183,22 +186,28 @@ public class Player : Units
 
     void LaunchMelee(){
         Vector3 spawnPosition = player.position + new Vector3(0, 0, -1);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(0, 0, 0);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(0, 0, 1);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(1f, 0, -1);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(1f, 0, 0);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(1f, 0, 1);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
     }
 
     void Launch() {
@@ -235,31 +244,40 @@ public class Player : Units
 
     void LaunchArea(){
         Vector3 spawnPosition = player.position + new Vector3(3f, 0, -1);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(4f, 0, -1);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(5f, 0, -1);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(3f, 0, 0);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(4f, 0, 0);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(5f, 0, 0);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(3f, 0, 1);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(4f, 0, 1);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
         spawnPosition = player.position + new Vector3(5f, 0, 1);
-        Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
+        if(!grid.inBounds(spawnPosition, "Projectile"))
+            Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
     }
 

@@ -15,6 +15,8 @@ public class Units : MonoBehaviour
     public int maxHP = 100;
     public int currHP {get; private set;}
     public int dmg;
+    bool invincible = false;
+    float invcibilityDuration = 0.0005f;
     int comboPts;
     public int def;
     // public HUDHealth HPBar;
@@ -24,17 +26,29 @@ public class Units : MonoBehaviour
     }
 
     public void TakeDmg(int dmg) {
-        dmg -= def;
-        dmg = Mathf.Clamp(dmg, 0, int.MaxValue);
-        currHP -= dmg;
-        if(gameObject.tag != "Player")
-            GameManager.comboManager.IncrementCombo();
+        if(!invincible){
+            dmg -= def;
+            dmg = Mathf.Clamp(dmg, 0, int.MaxValue);
+            currHP -= dmg;
+            if(gameObject.tag != "Player")
+                GameManager.comboManager.IncrementCombo();
+            // HPBar.SetHealth(currHP);
 
-        // HPBar.SetHealth(currHP);
-
-        if (currHP <= 0) {
-            Die();
+            if (currHP <= 0) {
+                Die();
+            }
+            StartCoroutine(Invincible(invcibilityDuration));
         }
+        
+    }
+
+    IEnumerator Invincible(float duration){
+        invincible = true;
+        while(duration > 0){
+            duration -= Time.deltaTime;
+            yield return null;
+        }
+        invincible = false;
     }
     
     public virtual void Die() {
