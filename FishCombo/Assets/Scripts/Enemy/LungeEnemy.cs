@@ -208,14 +208,14 @@ public class LungeEnemy : Units
         time = 0;
 
         for(int i = 0; i < (numMeleeHits-1); i++){
-            LaunchMelee();
+            StartCoroutine(LaunchMelee());
             while (time < meleeHitDelay) {
                 time += Time.deltaTime;
                 yield return null;
             }
             time = 0;
         }
-        LaunchMelee();
+        StartCoroutine(LaunchMelee());
 
         time = 0;
         while (time < lungeDuration) {
@@ -229,8 +229,9 @@ public class LungeEnemy : Units
     }
 
 
-    void LaunchMelee(){
+    IEnumerator LaunchMelee(){
         animator.SetBool("Attack",true);
+        yield return null;
 
         Vector3 spawnPosition = enemy.position + new Vector3(-1f, 0, 0); //tile behind
         if(!inBounds(spawnPosition, "Projectile"))

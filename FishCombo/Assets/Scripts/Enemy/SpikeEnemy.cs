@@ -48,6 +48,7 @@ public class SpikeEnemy : Units
             time2 = UnityEngine.Random.Range(minShootSpd, maxShootSpd);
             timer2 = time2;
 
+            StartCoroutine(Spikes());
             Spikes();
         }
 
@@ -177,14 +178,15 @@ public class SpikeEnemy : Units
         Debug.Log(enemy + " dead.");
     }
 
-    void Spikes() {
+    IEnumerator Spikes() {
         Debug.Log("Spawn spikes");
         GameObject projectileObject = Instantiate(projectilePrefab, player.getCurrPosition(), Quaternion.identity);
+        // animator.SetBool("Attack",true);
+        yield return null;
+
         //some animation that shows where obj gonna spawn
         SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
+        // animator.SetBool("Attack",false);
 
-        // animator.SetTrigger("Spikes");
-        
-        // PlaySound(throwSound);
     }
 }

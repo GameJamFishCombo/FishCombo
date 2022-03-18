@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class BasicEnemy : Units
+public class BossEnemy : Units
 {
     // Random rand = new Random();
     Transform enemy;
