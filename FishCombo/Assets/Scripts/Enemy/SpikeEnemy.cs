@@ -23,6 +23,7 @@ public class SpikeEnemy : Units
 
     public GameObject playerObj;
     Player player;
+    public Animator animator;
 
 
     public void Awake() {
@@ -180,10 +181,11 @@ public class SpikeEnemy : Units
 
     IEnumerator Spikes() {
         Debug.Log("Spawn spikes");
+        animator.SetBool("Attack",true);
         GameObject projectileObject = Instantiate(projectilePrefab, player.getCurrPosition(), Quaternion.identity);
         // animator.SetBool("Attack",true);
         yield return null;
-
+        animator.SetBool("Attack",false);
         //some animation that shows where obj gonna spawn
         SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
         // animator.SetBool("Attack",false);
