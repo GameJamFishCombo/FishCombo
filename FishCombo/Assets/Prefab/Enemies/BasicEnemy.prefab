@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2199046822223763853}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.115729846, z: -0, w: 0.99328077}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7894663063385701539}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -13.291, z: 0}
 --- !u!65 &2199046822223763842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,14 +66,15 @@ MonoBehaviour:
   maxHP: 100
   dmg: 1
   def: 0
+  dmgSound: {fileID: 0}
   duration: 0.12
   time1: 1
   time2: 1
   timer1: 0
   timer2: 0
-  minMoveWaitTime: 0.12
+  minMoveWaitTime: 0.2
   maxMoveWaitTime: 2
-  minShootSpd: 0.5
+  minShootSpd: 1
   maxShootSpd: 3
   projectilePrefab: {fileID: 5648063081001141407, guid: e2f3ae7c7a51b6349b115fc05d3b9ddf, type: 3}
   animator: {fileID: 7639727054323491610}
@@ -118,7 +119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ba2690e1c04edc4985d56f1653281ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.221
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ba2690e1c04edc4985d56f1653281ab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -126,7 +127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ba2690e1c04edc4985d56f1653281ab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.948
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ba2690e1c04edc4985d56f1653281ab, type: 3}
       propertyPath: m_LocalRotation.w
