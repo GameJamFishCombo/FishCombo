@@ -25,7 +25,7 @@ public class Player : Units
     public GameObject pushPrefab;
     public GameObject areaProjectile;
     public GameObject meleeProjectile;
-
+    public Transform firePoint;
     Rigidbody rigidbody;
     bool canMove = true;
     public float projectileSpeed = 450;
@@ -233,7 +233,7 @@ public class Player : Units
     void Launch() {
         //animator.SetBool("Fire",true);
         animator.Play("Fire",-1,0.0f);
-        GameObject projectileObject = Instantiate(projectilePrefab, player.position, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(1f, 0, 0);
         projectile.Launch(lookDirection, projectileSpeed);
