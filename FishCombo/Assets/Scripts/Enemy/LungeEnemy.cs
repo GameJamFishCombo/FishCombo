@@ -208,14 +208,14 @@ public class LungeEnemy : Units
         time = 0;
 
         for(int i = 0; i < (numMeleeHits-1); i++){
-            StartCoroutine(LaunchMelee());
+            LaunchMelee();
             while (time < meleeHitDelay) {
                 time += Time.deltaTime;
                 yield return null;
             }
             time = 0;
         }
-        StartCoroutine(LaunchMelee());
+        StartCoroutine(AttackAnimation());
 
         time = 0;
         while (time < lungeDuration) {
@@ -229,10 +229,13 @@ public class LungeEnemy : Units
     }
 
 
-    IEnumerator LaunchMelee(){
+    IEnumerator AttackAnimation(){
         animator.SetBool("Attack",true);
         yield return null;
+        animator.SetBool("Attack", false);
+    }
 
+    void LaunchMelee(){
         Vector3 spawnPosition = enemy.position + new Vector3(-1f, 0, 0); //tile behind
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
@@ -244,8 +247,6 @@ public class LungeEnemy : Units
         spawnPosition = enemy.position + new Vector3(1f, 0, 0); //tile infront
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
-
-        animator.SetBool("Attack", false);
     }
 
 }
