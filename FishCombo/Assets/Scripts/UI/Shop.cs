@@ -17,6 +17,9 @@ public class Shop : MonoBehaviour
     public GameObject poofParticles;
     public Transform takenItem;
 
+    public AudioSource hoverSound;
+    public AudioSource selectSound;
+
     [Header("UI")]
     public GameObject FadeIn;
     [Header("Health Object Spawn")]
@@ -101,6 +104,7 @@ public class Shop : MonoBehaviour
     }
 
     void HoverItemOne(){
+        hoverSound.Play();
         itemNum = 1;
         StartCoroutine(LerpPosition(meds,medsLerp.position,0.2f));
         StartCoroutine(LerpPosition(syringe,syringeSpawn.position,0.2f));
@@ -109,6 +113,7 @@ public class Shop : MonoBehaviour
     }
     
     void HoverItemTwo(){
+        hoverSound.Play();
         itemNum = 2;
         StartCoroutine(LerpPosition(meds,medsSpawn.position,0.2f));
         StartCoroutine(LerpPosition(syringe,syringeLerp.position,0.2f));
@@ -118,6 +123,7 @@ public class Shop : MonoBehaviour
 
     void SelectItem(){
         itemSelected = true;
+        selectSound.Play();
         if(itemNum == 1){
             StartCoroutine(LerpPosition(meds,takenItem.position,0.2f));
             player.IncreaseMaxHP(); 

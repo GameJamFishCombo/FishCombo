@@ -20,6 +20,7 @@ public class Units : MonoBehaviour
     int comboPts;
     public int def;
     // public HUDHealth HPBar;
+    public AudioSource dmgSound;
 
     void Start() {
         currHP = maxHP;
@@ -55,6 +56,10 @@ public class Units : MonoBehaviour
         //Die in some way
         //This method is meant to be overwritten
         Debug.Log(transform.name + " died");
+    }
+
+    public virtual void Sound() {
+        Debug.Log(transform.name + " audibly took damage");
     }
 
     public void heal() {

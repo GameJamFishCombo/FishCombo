@@ -35,6 +35,9 @@ public class Player : Units
     private Queue<MovementInput> buffer;
     private Grid grid;
     private ComboManager comboManager;
+    public AudioSource deathSound;
+    public AudioSource attackSound1;
+    public AudioSource attackSound2;
 
     void Awake()
     {
@@ -42,8 +45,8 @@ public class Player : Units
         rigidbody = GetComponent<Rigidbody>();
         player = GetComponent<Transform>();
         playerPos = rigidbody.position;
-        grid = GameManager.grid;
-        comboManager = GameManager.comboManager;
+        grid = GameObject.Find("Grid").GetComponent<Grid>();
+        comboManager = GameObject.Find("Combo Manager").GetComponent<ComboManager>();
     }
 
     public void Update() {
@@ -69,23 +72,27 @@ public class Player : Units
 
         if(Input.GetKeyDown(KeyCode.R) && canMove) //if between tiles, round up or down
         {
+            attackSound1.Play();
             Launch();
         }
 
         if(Input.GetKeyDown(KeyCode.W) && canMove && comboManager.comboLevel >= pushCost) //if between tiles, round up or down
         {
+            attackSound2.Play();
             comboManager.DecreaseCombo(pushCost);
             LaunchPush();
         }
 
         if(Input.GetKeyDown(KeyCode.E) && canMove && comboManager.comboLevel >= areaCost) //if between tiles, round up or down
         {
+            attackSound1.Play();
             comboManager.DecreaseCombo(areaCost);
             LaunchArea();
         }
 
         if(Input.GetKeyDown(KeyCode.Q) && canMove && comboManager.comboLevel >= lungeCost) //if between tiles, round up or down
         {
+            attackSound2.Play();
             comboManager.DecreaseCombo(lungeCost);
             StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
         }
@@ -303,8 +310,13 @@ public class Player : Units
 
     public override void Die() {
         base.Die();
+        deathSound.Play();
         Destroy(this.gameObject);
         Debug.Log(player + " dead.");
+    }
+
+    public override void Sound() {
+
     }
 
     public Vector3 getCurrPosition() {

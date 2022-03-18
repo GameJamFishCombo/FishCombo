@@ -25,6 +25,7 @@ public class LungeEnemy : Units
     public float meleeHitDelay = 0.01f;
     public GameObject meleeProjectile;
 
+    public Animator animator;
 
     public void Awake() {
         enemy = GetComponent<Transform>();
@@ -229,6 +230,8 @@ public class LungeEnemy : Units
 
 
     void LaunchMelee(){
+        animator.SetBool("Attack",true);
+
         Vector3 spawnPosition = enemy.position + new Vector3(-1f, 0, 0); //tile behind
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
@@ -240,6 +243,8 @@ public class LungeEnemy : Units
         spawnPosition = enemy.position + new Vector3(1f, 0, 0); //tile infront
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
+
+        animator.SetBool("Attack", false);
     }
 
 }

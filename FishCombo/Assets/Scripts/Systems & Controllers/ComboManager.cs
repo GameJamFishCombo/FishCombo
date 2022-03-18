@@ -9,7 +9,13 @@ public class ComboManager : MonoBehaviour
 
     private float resetTimer;
 
+    public GameObject comboBarObj;
     public ComboBar comboBar;
+
+    void Awake() {
+        comboBarObj = GameObject.Find("ComboBar");
+        comboBar = comboBarObj.GetComponent<ComboBar>();
+    }
 
     // Start is called before the first frame update
     void Start()

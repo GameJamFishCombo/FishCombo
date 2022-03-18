@@ -21,6 +21,8 @@ public class BasicEnemy : Units
     public float maxShootSpd = 3f;
     public GameObject projectilePrefab;
 
+    public Animator animator;
+
 
     public void Awake() {
         enemy = GetComponent<Transform>();
@@ -172,14 +174,18 @@ public class BasicEnemy : Units
         Debug.Log(enemy + " dead.");
     }
 
+    public override void Sound() {
+
+    }
+
     void Launch() {
         GameObject projectileObject = Instantiate(projectilePrefab, enemy.position, Quaternion.identity);
+        animator.SetBool("Attack",true);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(-1f, 0, 0);
         projectile.Launch(lookDirection, 300);
-
-        // animator.SetTrigger("Launch");
+        animator.SetBool("Attack", false);
         
         // PlaySound(throwSound);
     }
