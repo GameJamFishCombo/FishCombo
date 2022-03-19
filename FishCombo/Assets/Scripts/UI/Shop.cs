@@ -39,6 +39,8 @@ public class Shop : MonoBehaviour
     public GameObject playerPrefab;
     public Player player;
 
+    int numVisited = 0;
+
     void Start()
     {
         time = timer;
@@ -80,8 +82,16 @@ public class Shop : MonoBehaviour
         }
 
         if(time2 <= 0){
-            int sceneIdx = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(sceneIdx + 1);
+            Debug.Log("Shop Visits: " + numVisited);
+            if(numVisited == 0) {
+                numVisited++;
+                SceneManager.LoadScene("Subway");
+            }
+            
+            if(numVisited == 1) {
+                numVisited++;
+                SceneManager.LoadScene("CutScene2");
+            }
         }
 
 

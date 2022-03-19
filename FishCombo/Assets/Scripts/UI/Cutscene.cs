@@ -27,29 +27,36 @@ public class Cutscene : MonoBehaviour
             exitTime -= Time.deltaTime;
 
         time-=Time.deltaTime;
+
         if(time <=0){
             timer = 4;
             time = timer;
             sceneNum++;
             PlayScene();
         }
+
         if(exitTime <=0){
-            SceneManager.LoadScene(levelToLoad);
+            string currName = SceneManager.GetActiveScene().name;
+            //go to credits or end application
+            if(currName == "Cutscene3") {
+                Application.Quit();
+            } else {
+                SceneManager.LoadScene(levelToLoad);
+            }
         }
 
     }
+
     void PlayScene(){
-        if(sceneNum < animators.Length)
+        if(sceneNum < animators.Length) {
             animators[sceneNum].Play("In");
-            else{
+        } else{
                 transitionOut.SetActive(true);
                 cutsceneOver = true;
-            }
+        }
     }
 
     public void Skipscene(){
         time = 0;
     }
-
-    
 }
