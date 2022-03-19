@@ -33,16 +33,43 @@ public class LungeEnemy : Units
         timer2 = time2;
     }
 
-    public void Update() {
+    public void FixedUpdate() {
+        float randomNum = Mathf.Floor((int)UnityEngine.Random.Range(0,4));
+        Vector3 move = new Vector3(0, 0, 0);
+        bool checkBounds = true, occupied = false;
         timer1 -= Time.deltaTime;
-        timer2 -= Time.deltaTime;
+        Ray ray = new Ray(transform.position, -transform.right);
 
         if(timer1 <= 0) {
             time1 = UnityEngine.Random.Range(minMoveWaitTime, maxMoveWaitTime);
             timer1 = time1;
 
-            Move();
+            move = SetDirection(randomNum); //gets next direction it will move
+
+            if(randomNum == 0) { //forward
+                ray = new Ray(transform.position, transform.right);
+                occupied = OccupiedTile(ray);
+            } else if(randomNum == 1) { //back
+                ray = new Ray(transform.position, -transform.right);
+                occupied = OccupiedTile(ray);
+            } else if(randomNum == 2) { //up
+                ray = new Ray(transform.position, transform.forward);
+                occupied = OccupiedTile(ray);
+            } else if(randomNum == 3) { //down
+                ray = new Ray(transform.position, -transform.forward);
+                occupied = OccupiedTile(ray);
+            }
+
+            if(!occupied) {
+                checkBounds = inBounds(move, "Enemy");
+
+                if(!checkBounds) {
+                    StartCoroutine(LerpPosition(move, duration));
+                }
+            }
         }
+
+        timer2 -= Time.deltaTime;
 
         if(timer2 <= 0) {
             time2 = UnityEngine.Random.Range(minStabSpd, maxStabSpd);
@@ -51,141 +78,18 @@ public class LungeEnemy : Units
             StartCoroutine(Lunge(transform.position + (new Vector3(-4f, 0, 0))));
         }
 
-        
     }
-
-    void Move() {
-        int randomNum = (int)UnityEngine.Random.Range(0,4);
-        Vector3 move = new Vector3(0, 0, 0);
-        bool checkBounds = true;
-
-        switch(randomNum) {
-            case 0: //move up
-                move = new Vector3(0, 0, 1f) + enemy.position;
-
-                // max 7 max 3 min 4 min 0
-                checkBounds = inBounds(move, "Enemy");
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, duration));
-                }
-
-                break;
-            case 1: //move left
-                move = new Vector3(-1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move, "Enemy");
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, duration));
-                }
-
-                break;
-
-            case 2: //move south
-                move = new Vector3(0, 0, -1f) + enemy.position;
-                checkBounds = inBounds(move, "Enemy");
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, duration));
-                }
-
-                break;
-            case 3: //move right
-                move = new Vector3(1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move, "Enemy");
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, duration));
-                }
-
-                break;
-        }
-    }
-
-    public bool pushTo(MovementInput direction, float pushDuration){
-        Vector3 move;
-        bool checkBounds = true;
-        transform.position = new Vector3((float)Math.Round(transform.position.x), transform.position.y, (float)Math.Round(transform.position.z));
-        switch(direction) {
-            case MovementInput.Up:
-                move = new Vector3(0, 0, 1f) + enemy.position;
-
-                checkBounds = inBounds(move, "Enemy");
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, pushDuration));
-                    return true;
-                }
-                return false;
-
-                break;
-            case MovementInput.Left: //move left
-                move = new Vector3(-1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move, "Enemy");
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, pushDuration));
-                    return true;
-                }
-                return false;
-
-            case MovementInput.Down: //move south
-                move = new Vector3(0, 0, -1f) + enemy.position;
-                checkBounds = inBounds(move, "Enemy");
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, pushDuration));
-                    return true;
-                }
-                return false;
-                
-            case MovementInput.Right: //move right
-                move = new Vector3(1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move, "Enemy");
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, pushDuration));
-                    return true;
-                }
-                return false;
-        }
-        return false;
-    }
-
     
     public bool inBounds(Vector3 vec, string tag) {
-        if(tag == "Enemy") {
-            if(vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        if(tag == "Enemy") 
+            return (vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3);
+            
+        
 
-        if(tag == "Projectile") {
-            if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
+        if(tag == "Projectile") 
+            return (vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3);
+            
         return false;
-    }
-
-    IEnumerator LerpPosition(Vector3 targetPosition, float duration) {
-        canMove = false;
-        float time = 0;
-        Vector3 startPosition = enemy.position;
-
-        while (time < duration) {
-            enemy.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-
-        enemy.position = targetPosition;
-        canMove = true;
     }
 
     public override void Die() {
@@ -204,6 +108,7 @@ public class LungeEnemy : Units
             time += Time.deltaTime;
             yield return null;
         }
+        
         enemy.position = targetPosition;
         time = 0;
 

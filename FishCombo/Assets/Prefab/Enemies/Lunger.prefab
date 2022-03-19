@@ -405,11 +405,11 @@ MonoBehaviour:
   time2: 1
   timer1: 0
   timer2: 0
-  minMoveWaitTime: 0.09
+  minMoveWaitTime: 0.2
   maxMoveWaitTime: 2
-  minStabSpd: 0.7
-  maxStabSpd: 3
-  lungeDuration: 0.2
+  minStabSpd: 3
+  maxStabSpd: 4
+  lungeDuration: 0.7
   numMeleeHits: 3
   meleeHitDelay: 0.01
   meleeProjectile: {fileID: 7718313146677422797, guid: d98fa251f207f124eb4538061ee8cc73, type: 3}
@@ -613,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d39906cd92790684ea05eb0e3b876b83, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.157
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d39906cd92790684ea05eb0e3b876b83, type: 3}
       propertyPath: m_LocalPosition.y

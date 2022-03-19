@@ -9,6 +9,7 @@ public enum UnitType {
 
 public class Units : MonoBehaviour
 {
+    Transform unit;
     public int team;
     public int currX, currY;
     public UnitType type;
@@ -26,6 +27,7 @@ public class Units : MonoBehaviour
     void Start() {
         currHP = maxHP;
         // HPBar = gameObject.Find("Healthbar UI").GetComponent<HUDHealth>();
+        unit = GetComponent<Transform>();
     }
 
     public void TakeDmg(int dmg) {
@@ -79,7 +81,45 @@ public class Units : MonoBehaviour
         maxHP += 20;
     }
 
-    IEnumerator LerpPosition(Vector3 targetPosition, float duration) {
+    public Vector3 SetDirection(float randomNum) {
+        Vector3 move = new Vector3(0, 0, 0);
+
+        switch(randomNum) {
+            case 0: //move forward
+                return new Vector3(1f,0,0) + unit.position;
+                break;
+            case 1: //move backward
+                return new Vector3(-1f,0,0) + unit.position;
+
+                break;
+            case 2: //move up
+                return new Vector3(0,0,1f) + unit.position;
+
+                break;
+            case 3: //move down
+                return new Vector3(0,0,-1f) + unit.position;
+                break;
+            default:
+                return new Vector3(0,0,0);
+        }
+    }
+
+    public bool OccupiedTile(Ray ray) {
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit)) {
+            string tag = hit.collider.tag;
+
+            if(tag == "Enemy") {
+                Debug.Log("Tile is occupied");
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public IEnumerator LerpPosition(Vector3 targetPosition, float duration) {
         float time = 0;
         Vector3 startPosition = transform.position;
 

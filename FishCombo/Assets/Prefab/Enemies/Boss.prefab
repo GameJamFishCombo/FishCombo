@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4856016518959040154}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +82,7 @@ MonoBehaviour:
   maxHP: 100
   dmg: 5
   def: 0
+  HPBar: {fileID: 0}
   dmgSound: {fileID: 0}
   duration: 0.09
   time1: 1

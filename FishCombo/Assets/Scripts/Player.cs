@@ -72,14 +72,14 @@ public class Player : Units
 
         if(Input.GetKeyDown(KeyCode.R) && canMove) //if between tiles, round up or down
         {
-            //attackSound1.Play();
+            // attackSound1.Play();
             AudioManager.PlaySound("Player Attack");
             Launch();
         }
 
         if(Input.GetKeyDown(KeyCode.W) && canMove && comboManager.comboLevel >= pushCost) //if between tiles, round up or down
         {
-            //attackSound2.Play();
+            // attackSound2.Play();
             AudioManager.PlaySound("Player Special Attack 2");
             comboManager.DecreaseCombo(pushCost);
             LaunchPush();
@@ -87,7 +87,7 @@ public class Player : Units
 
         if(Input.GetKeyDown(KeyCode.E) && canMove && comboManager.comboLevel >= areaCost) //if between tiles, round up or down
         {
-            //attackSound1.Play();
+            // attackSound1.Play();
             AudioManager.PlaySound("Player Special Attack 2");
             comboManager.DecreaseCombo(areaCost);
             LaunchArea();
@@ -95,7 +95,7 @@ public class Player : Units
 
         if(Input.GetKeyDown(KeyCode.Q) && canMove && comboManager.comboLevel >= lungeCost) //if between tiles, round up or down
         {
-            //attackSound2.Play();
+            // attackSound2.Play();
             AudioManager.PlaySound("Player Special Attack 1");
             comboManager.DecreaseCombo(lungeCost);
             StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
