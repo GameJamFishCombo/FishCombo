@@ -120,7 +120,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.588, g: 0.06409202, b: 0.06409202, a: 1}
+    - _BaseColor: {r: 0.79215693, g: 0.28235295, b: 0.28235295, a: 1}
     - _Color: {r: 0.7155139, g: 0.2509907, b: 0.2509907, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
