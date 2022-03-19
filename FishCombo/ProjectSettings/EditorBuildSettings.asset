@@ -9,9 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: a92bba17b4c5a9341b3593b490e15328
   - enabled: 1
-    path: Assets/Scenes/Julian3.unity
-    guid: a724fb8fc27201f40abfd9584f98d975
+    path: Assets/Scenes/CutScene1.unity
+    guid: 926511d34bec9304d829dbdd988c7fa3
+  - enabled: 1
+    path: Assets/Scenes/AlleyWay.unity
+    guid: 614c9dd5a9a5a8c49bc089f6943a4b00
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 391bc911e6ccd5848aee853423f33577
+  - enabled: 1
+    path: Assets/Scenes/Subway.unity
+    guid: e64d8804813318142bc51ca8736e4f2a
+  - enabled: 1
+    path: Assets/Scenes/CutScene2.unity
+    guid: 757513ce52ca5f041b5d6bebd3f184ba
+  - enabled: 1
+    path: Assets/Scenes/RecordRoom.unity
+    guid: c6e53f5e41188af43899ef5d979b183f
+  - enabled: 1
+    path: Assets/Scenes/Cutscene3.unity
+    guid: 788e1bd7cddab5243b7a621f64420675
   m_configObjects: {}

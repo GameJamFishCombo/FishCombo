@@ -17,8 +17,6 @@ public class WaveSpawner : MonoBehaviour
         [Header("Number of enemies per type")]
         public int[] Enemies;
         public float rate;
-
-
     }
 
     public Wave[] waves;
@@ -28,8 +26,6 @@ public class WaveSpawner : MonoBehaviour
     private float searchCountdown = 1f;
     private SpawnState state = SpawnState.Counting;
     public Grid grid;
-
-
 
     void Start() {
         StartCoroutine(SetWaveNumber());
@@ -64,6 +60,7 @@ public class WaveSpawner : MonoBehaviour
         //if the next wave is out of bounds of array
         //basically, final wave was completed, trigger cutscene
         if(nextWave + 1 > waves.Length - 1) {
+<<<<<<< Updated upstream
             //either goes to shop or next stage
             int sceneIdx = SceneManager.GetActiveScene().buildIndex;
 
@@ -76,6 +73,10 @@ public class WaveSpawner : MonoBehaviour
             // }
 
         SceneManager.LoadScene(sceneIdx + 1);
+=======
+            SceneManager.LoadScene("Shop");
+
+>>>>>>> Stashed changes
         } else {
             nextWave++;
         }
