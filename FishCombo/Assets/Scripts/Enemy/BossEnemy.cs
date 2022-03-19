@@ -10,7 +10,8 @@ public class BossEnemy : Units
     bool canMove = false;
     [Tooltip("Duration it takes to LERP between tiles.")]    
     public float duration = 0.09f; //time for lerp
-    public float time1 = 1, time2 = 1, timer1, timer2;
+    public float time1 = 1, time2 = 1, time3 = 1, time4 = 1,
+    timer1, timer2, timer3, timer4;
 
     [Header("Action Timings")]
     [Tooltip("Minumum move wait time. MUST be =>duration.")]
@@ -19,8 +20,12 @@ public class BossEnemy : Units
     [Tooltip("Minumum fire wait time. MUST be =>duration.")]
     public float minShootSpd = .5f;
     public float maxShootSpd = 3f;
+    
     public GameObject projectilePrefab;
+    public GameObject spikesPrefab;
 
+    public GameObject playerObj;
+    Player player;
     public Animator animator;
 
 
@@ -28,6 +33,10 @@ public class BossEnemy : Units
         enemy = GetComponent<Transform>();
         timer1 = time1;
         timer2 = time2;
+        timer3 = time3;
+        timer4 = time4;
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        player = playerObj.GetComponent<Player>();
     }
 
     public void FixedUpdate() {
@@ -35,6 +44,9 @@ public class BossEnemy : Units
         Vector3 move = new Vector3(0, 0, 0);
         bool checkBounds = true, occupied = false;
         timer1 -= Time.deltaTime;
+        timer2 -= Time.deltaTime;
+        timer3 -= Time.deltaTime;
+        timer4 -= Time.deltaTime;
         Ray ray = new Ray(transform.position, -transform.right);
 
         if(timer1 <= 0) {
@@ -66,8 +78,6 @@ public class BossEnemy : Units
             }
         }
 
-        timer2 -= Time.deltaTime;
-
         if(timer2 <= 0) {
             time2 = UnityEngine.Random.Range(minShootSpd, maxShootSpd);
             timer2 = time2;
@@ -75,113 +85,24 @@ public class BossEnemy : Units
             StartCoroutine(Launch());
         }
 
-    }
+        if(timer3 <= 0) {
+            time3 = UnityEngine.Random.Range(minShootSpd, maxShootSpd);
+            timer3 = time3;
 
-    Vector3 SetDirection(float randomNum) {
-        Vector3 move = new Vector3(0, 0, 0);
-
-        switch(randomNum) {
-            case 0: //move forward
-                return new Vector3(1f,0,0) + enemy.position;
-                break;
-            case 1: //move backward
-                return new Vector3(-1f,0,0) + enemy.position;
-
-                break;
-            case 2: //move up
-                return new Vector3(0,0,1f) + enemy.position;
-
-                break;
-            case 3: //move down
-                return new Vector3(0,0,-1f) + enemy.position;
-                break;
-            default:
-                return new Vector3(0,0,0);
-        }
-    }
-    
-    public bool OccupiedTile(Ray ray) {
-        RaycastHit hit;
-
-        if(Physics.Raycast(ray, out hit)) {
-            string tag = hit.collider.tag;
-
-            if(tag == "Enemy") {
-                Debug.Log("Tile is occupied");
-                return true;
-            }
+            StartCoroutine(Spikes());
         }
 
-        return false;
+        if(timer4 <= 0) {
+            time4 = UnityEngine.Random.Range(minShootSpd, maxShootSpd);
+            timer4 = time4;
+
+            // StartCoroutine(Launch());
+        }
+
     }
 
     public bool inBounds(Vector3 vec) {
         return (vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3);
-    }
-
-    IEnumerator LerpPosition(Vector3 targetPosition, float duration) {
-        canMove = false;
-        float time = 0;
-        Vector3 startPosition = enemy.position;
-
-        while (time < duration) {
-            enemy.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-
-        enemy.position = targetPosition;
-        canMove = true;
-    }
-
-    public bool pushTo(MovementInput direction, float pushDuration){
-        Vector3 move;
-        bool checkBounds = true;
-        transform.position = new Vector3((float)Math.Round(transform.position.x), transform.position.y, (float)Math.Round(transform.position.z));
-        switch(direction) {
-            case MovementInput.Up:
-                move = new Vector3(0, 0, 1f) + enemy.position;
-
-                checkBounds = inBounds(move);
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, pushDuration));
-                    return true;
-                }
-                return false;
-
-                break;
-            case MovementInput.Left: //move left
-                move = new Vector3(-1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move);
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, pushDuration));
-                    return true;
-                }
-                return false;
-
-            case MovementInput.Down: //move south
-                move = new Vector3(0, 0, -1f) + enemy.position;
-                checkBounds = inBounds(move);
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, pushDuration));
-                    return true;
-                }
-                return false;
-                
-            case MovementInput.Right: //move right
-                move = new Vector3(1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move);
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, pushDuration));
-                    return true;
-                }
-                return false;
-        }
-        return false;
     }
 
     public override void Die() {
@@ -205,5 +126,16 @@ public class BossEnemy : Units
         animator.SetBool("Attack", false);
         
         // PlaySound(throwSound);
+    }
+
+    IEnumerator Spikes() {
+        Debug.Log("Spawn spikes");
+        animator.SetBool("Attack",true);
+        Vector3 playerPos = player.getCurrPosition();
+        GameObject projectileObject = Instantiate(spikesPrefab, playerPos, Quaternion.identity);
+        yield return null;
+        animator.SetBool("Attack",false);
+        //some animation that shows where obj gonna spawn
+        SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
     }
 }

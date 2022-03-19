@@ -76,7 +76,6 @@ public class SpikeEnemy : Units
             timer2 = time2;
 
             StartCoroutine(Spikes());
-            Spikes();
         }
 
         

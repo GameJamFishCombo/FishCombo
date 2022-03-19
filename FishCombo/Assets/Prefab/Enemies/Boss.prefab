@@ -292,13 +292,19 @@ MonoBehaviour:
   duration: 0.09
   time1: 1
   time2: 1
+  time3: 1
+  time4: 1
   timer1: 0
   timer2: 0
+  timer3: 0
+  timer4: 0
   minMoveWaitTime: 0.09
   maxMoveWaitTime: 2
   minShootSpd: 0.5
   maxShootSpd: 3
   projectilePrefab: {fileID: 5648063081001141407, guid: e2f3ae7c7a51b6349b115fc05d3b9ddf, type: 3}
+  spikesPrefab: {fileID: 3937951337225830208, guid: ee1c8609748b89348b8be60f9d4ea5e5, type: 3}
+  playerObj: {fileID: 0}
   animator: {fileID: 7414038234473410715}
 --- !u!1 &4373310661184536264
 GameObject:
