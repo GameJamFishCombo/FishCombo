@@ -21,8 +21,6 @@ public class LungeEnemy : Units
 
     Transform player;
     public float lungeDuration = 0.03f;
-    public int numMeleeHits = 3;
-    public float meleeHitDelay = 0.01f;
     public GameObject meleeProjectile;
 
     public Animator animator;
@@ -113,16 +111,10 @@ public class LungeEnemy : Units
         // StartCoroutine(AttackAnimation());
         
         enemy.position = targetPosition;
-        time = 0;
 
-        for(int i = 0; i < (numMeleeHits-1); i++){
-            LaunchMelee();
-            while (time < meleeHitDelay) {
-                time += Time.deltaTime;
-                yield return null;
-            }
-            time = 0;
-        }
+        LaunchMelee();
+        WarningProjectile warning = meleeProjectile.GetComponent<WarningProjectile>();
+        yield return new WaitForSeconds(warning.lifeSpan);
         
         //bring enemy back
         time = 0;
@@ -158,11 +150,11 @@ public class LungeEnemy : Units
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
 
-        spawnPosition = enemy.position + new Vector3(0, 0, 0); //current tile
+        spawnPosition = enemy.position + new Vector3(-2f, 0, 0); //current tile
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
 
-        spawnPosition = enemy.position + new Vector3(1f, 0, 0); //tile infront
+        spawnPosition = enemy.position + new Vector3(-3f, 0, 0); //tile infront
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
     }

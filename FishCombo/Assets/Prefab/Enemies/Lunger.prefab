@@ -410,9 +410,7 @@ MonoBehaviour:
   minStabSpd: 3
   maxStabSpd: 4
   lungeDuration: 0.5
-  numMeleeHits: 3
-  meleeHitDelay: 0.01
-  meleeProjectile: {fileID: 7718313146677422797, guid: d98fa251f207f124eb4538061ee8cc73, type: 3}
+  meleeProjectile: {fileID: 8456820441533389506, guid: 655f764c32f1e5142984b431052854a5, type: 3}
   animator: {fileID: 4430997734024802465}
 --- !u!1 &8448888394658219723
 GameObject:
