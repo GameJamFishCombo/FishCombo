@@ -13,7 +13,7 @@ public class GridTileAnimator : MonoBehaviour
         if(other.tag == "PlayerBullet" || other.tag == "PushBullet" || other.tag == "StillBullet"){
             animator.Play("BlueHighlight");
         }
-        if(other.tag == "EnemyBullet"){
+        if(other.tag == "EnemyBullet" || other.tag == "YellowTile"){
             animator.Play("RedHighlight");
         }
         

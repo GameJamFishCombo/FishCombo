@@ -32,7 +32,7 @@ public class StillProjectile : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if(other.tag == "Enemy") {
+        if((other.tag == "Player" && shooter.tag != "Player") || (other.tag == "Enemy" && gameObject.tag == "Player")) {
             Units enemyStat = other.gameObject.GetComponent<Units>();
             enemyStat.TakeDmg(shooterStat.dmg * damageMulitplier);
             //Debug.Log("Enemy HP: " + enemyStat.currHP);        

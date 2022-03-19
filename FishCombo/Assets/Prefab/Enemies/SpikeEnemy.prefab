@@ -4793,7 +4793,7 @@ MonoBehaviour:
   maxMoveWaitTime: 2
   minShootSpd: 2
   maxShootSpd: 4
-  projectilePrefab: {fileID: 3937951337225830208, guid: ee1c8609748b89348b8be60f9d4ea5e5, type: 3}
+  projectilePrefab: {fileID: 5133037359662234039, guid: f3eb8964ac438d84ca0fbb932f597c0e, type: 3}
   playerObj: {fileID: 7428160566791425927, guid: f1b8d766af1789c40b7baa9eaaec1f10, type: 3}
   animator: {fileID: 7082998162478601726}
 --- !u!1 &3425939870308096300

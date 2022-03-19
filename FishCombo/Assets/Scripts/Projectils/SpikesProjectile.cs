@@ -5,6 +5,6 @@ using UnityEngine;
 public class SpikesProjectile : MonoBehaviour
 {
     void Update() {
-        Destroy(this.gameObject,3f);
+        Destroy(this.gameObject, 3f);
     }
 }

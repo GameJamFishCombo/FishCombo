@@ -38,10 +38,11 @@ public class PushProjectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if(other.tag == "Enemy") {
-            BasicEnemy enemyBehavior = other.gameObject.GetComponent<BasicEnemy>();
-            enemyBehavior.pushTo(MovementInput.Right, pushDuration);
+            //BasicEnemy enemyBehavior = other.gameObject.GetComponent<BasicEnemy>();
+            //enemyBehavior.pushTo(MovementInput.Right, pushDuration);
             Units enemyStat = other.gameObject.GetComponent<Units>();
             enemyStat.TakeDmg(shooterStat.dmg * damageMulitplier);
+            enemyStat.pushTo(MovementInput.Right, pushDuration);
             //Debug.Log("Enemy HP: " + enemyStat.currHP);        
             //Destroy(gameObject);
         }

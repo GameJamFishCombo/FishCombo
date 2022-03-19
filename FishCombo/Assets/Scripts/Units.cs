@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public enum UnitType {
@@ -78,5 +79,75 @@ public class Units : MonoBehaviour
         maxHP += 20;
     }
 
+    IEnumerator LerpPosition(Vector3 targetPosition, float duration) {
+        float time = 0;
+        Vector3 startPosition = transform.position;
+
+        while (time < duration) {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = targetPosition;
+    }
+
+    public bool inBounds(Vector3 vec) {
+        if(vec.x < 0 || vec.x > 7 || vec.z < 0  || vec.z > 3) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool pushTo(MovementInput direction, float pushDuration){
+        Vector3 move;
+        bool checkBounds = true;
+        transform.position = new Vector3((float)Math.Round(transform.position.x), transform.position.y, (float)Math.Round(transform.position.z));
+        switch(direction) {
+            case MovementInput.Up:
+                move = new Vector3(0, 0, 1f) + transform.position;
+
+                checkBounds = inBounds(move);
+
+                if(!checkBounds) {
+                    StartCoroutine(LerpPosition(move, pushDuration));
+                    return true;
+                }
+                return false;
+
+                break;
+            case MovementInput.Left: //move left
+                move = new Vector3(-1f, 0, 0) + transform.position;
+                checkBounds = inBounds(move);
+
+                if(!checkBounds) {
+                    StartCoroutine(LerpPosition(move, pushDuration));
+                    return true;
+                }
+                return false;
+
+            case MovementInput.Down: //move south
+                move = new Vector3(0, 0, -1f) + transform.position;
+                checkBounds = inBounds(move);
+
+                if(!checkBounds) {
+                    StartCoroutine(LerpPosition(move, pushDuration));
+                    return true;
+                }
+                return false;
+                
+            case MovementInput.Right: //move right
+                move = new Vector3(1f, 0, 0) + transform.position;
+                checkBounds = inBounds(move);
+
+                if(!checkBounds) {
+                    StartCoroutine(LerpPosition(move, pushDuration));
+                    return true;
+                }
+                return false;
+        }
+        return false;
+    }
 
 }
