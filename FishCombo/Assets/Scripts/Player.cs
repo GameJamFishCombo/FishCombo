@@ -27,7 +27,7 @@ public class Player : Units
     public GameObject meleeProjectile;
     public Transform firePoint;
     Rigidbody rigidbody;
-    bool canMove = true;
+    bool canMove = true, canAutoFire = true;
     public float projectileSpeed = 450;
 
     public Animator animator;
@@ -70,12 +70,15 @@ public class Player : Units
                 buffer.Enqueue(MovementInput.Right);
         }
 
-        if(Input.GetKeyDown(KeyCode.R)) //if between tiles, round up or down
+        if((Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.R)) && canAutoFire) 
         {
-            // attackSound1.Play();
-            AudioManager.PlaySound("Player Attack");
-            Launch();
+            StartCoroutine(PrimaryCooldown());
         }
+
+        // if(Input.GetKey(KeyCode.R) && canAutoFire) //when holding down, shoot auto
+        // {
+        //     StartCoroutine(PrimaryCooldown());
+        // }
 
         if(Input.GetKeyDown(KeyCode.W) && canMove && comboManager.comboLevel >= pushCost) //if between tiles, round up or down
         {
@@ -102,6 +105,14 @@ public class Player : Units
         }
 
         move();
+    }
+
+    IEnumerator PrimaryCooldown() {
+        canAutoFire = false;
+        AudioManager.PlaySound("Player Attack");
+        Launch();
+        yield return new WaitForSeconds(.15f);
+        canAutoFire = true;
     }
 
     private void move(){
