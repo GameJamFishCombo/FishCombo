@@ -112,7 +112,7 @@ public class Grid : MonoBehaviour
             unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Spike, 1);
         } else if(enemy.name == "Lunger") {
             unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Lunger, 1);
-        } else if(enemy.name == "BossEnemy") {
+        } else if(enemy.name == "Boss") {
             unitPiece[randX, randZ] = SpawnSinglePiece(UnitType.Boss, 1);
         }
 
