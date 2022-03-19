@@ -1133,7 +1133,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811818913}
-  m_LocalRotation: {x: -0, y: -0, z: 0.67176765, w: 0.740762}
+  m_LocalRotation: {x: 0.6717658, y: 0.7407636, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0.16575538}
   m_LocalScale: {x: 7.9996, y: 7.9996, z: 7.9996}
   m_Children:
@@ -1142,10 +1142,10 @@ RectTransform:
   - {fileID: 2087924284}
   m_Father: {fileID: 1986227861}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 84.407}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 84.407}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 862, y: 92}
+  m_AnchoredPosition: {x: -864, y: 3}
   m_SizeDelta: {x: 60.13, y: 23.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &811818915
@@ -2741,7 +2741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[0].enemy.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[1].enemy.Array.size
@@ -2749,7 +2749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[0].Enemies.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[1].Enemies.Array.size
@@ -2758,11 +2758,11 @@ PrefabInstance:
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[0].enemy.Array.data[0]
       value: 
-      objectReference: {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+      objectReference: {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[0].enemy.Array.data[1]
       value: 
-      objectReference: {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
+      objectReference: {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[0].enemy.Array.data[2]
       value: 
