@@ -20,9 +20,9 @@ public class BasicEnemy : Units
     public float minShootSpd = .5f;
     public float maxShootSpd = 3f;
     public GameObject projectilePrefab;
-
+    public GameObject firePoint;
     public Animator animator;
-
+    public int projectileSpeed ;
 
     public void Awake() {
         enemy = GetComponent<Transform>();
@@ -196,12 +196,12 @@ public class BasicEnemy : Units
 
     IEnumerator Launch() {
         animator.SetBool("Attack",true);
-        yield return new WaitForSeconds(0.5f);
-        GameObject projectileObject = Instantiate(projectilePrefab, enemy.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.6f);
+        GameObject projectileObject = Instantiate(projectilePrefab, firePoint.transform.position, Quaternion.identity);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(-1f, 0, 0);
-        projectile.Launch(lookDirection, 300);
+        projectile.Launch(lookDirection, projectileSpeed);
         animator.SetBool("Attack", false);
         
         // PlaySound(throwSound);
