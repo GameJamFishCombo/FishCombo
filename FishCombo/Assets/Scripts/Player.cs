@@ -70,7 +70,7 @@ public class Player : Units
                 buffer.Enqueue(MovementInput.Right);
         }
 
-        if(Input.GetKeyDown(KeyCode.R) && canMove) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.R)) //if between tiles, round up or down
         {
             // attackSound1.Play();
             AudioManager.PlaySound("Player Attack");
@@ -246,7 +246,7 @@ public class Player : Units
 
         //animator.SetBool("Fire",true);
         animator.Play("Fire",-1,0.0f);
-        GameObject projectileObject = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectilePrefab, roundFirePt(), Quaternion.identity);
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(1f, 0, 0);
         projectile.Launch(lookDirection, projectileSpeed);
@@ -258,7 +258,7 @@ public class Player : Units
     }
 
     void LaunchPush(){
-        Vector3 spawnPosition = player.position + new Vector3(1f, 0, 1f);
+        Vector3 spawnPosition = getCurrPosition() + new Vector3(1f, 0, 1f);
 
         GameObject projectile = Instantiate(pushPrefab, spawnPosition, Quaternion.identity);
         PushProjectile pushProjectile = projectile.GetComponent<PushProjectile>();
@@ -276,7 +276,7 @@ public class Player : Units
     }
 
     void LaunchArea(){
-        Vector3 spawnPosition = player.position + new Vector3(3f, 0, -1);
+        Vector3 spawnPosition = getCurrPosition() + new Vector3(3f, 0, -1);
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
@@ -335,5 +335,16 @@ public class Player : Units
         playerPos = new Vector3(x,.5f,z);
 
         return playerPos;
+    }
+
+    public Vector3 roundFirePt() {
+        Vector3 fingerPos = firePoint.position;
+
+        float x = Mathf.Round(fingerPos.x);
+        float z = Mathf.Round(fingerPos.z);
+
+        playerPos = new Vector3(x,.5f,z);
+
+        return fingerPos;
     }
 }
