@@ -72,27 +72,31 @@ public class Player : Units
 
         if(Input.GetKeyDown(KeyCode.R) && canMove) //if between tiles, round up or down
         {
-            attackSound1.Play();
+            //attackSound1.Play();
+            AudioManager.PlaySound("Player Attack");
             Launch();
         }
 
         if(Input.GetKeyDown(KeyCode.W) && canMove && comboManager.comboLevel >= pushCost) //if between tiles, round up or down
         {
-            attackSound2.Play();
+            //attackSound2.Play();
+            AudioManager.PlaySound("Player Special Attack 2");
             comboManager.DecreaseCombo(pushCost);
             LaunchPush();
         }
 
         if(Input.GetKeyDown(KeyCode.E) && canMove && comboManager.comboLevel >= areaCost) //if between tiles, round up or down
         {
-            attackSound1.Play();
+            //attackSound1.Play();
+            AudioManager.PlaySound("Player Special Attack 2");
             comboManager.DecreaseCombo(areaCost);
             LaunchArea();
         }
 
         if(Input.GetKeyDown(KeyCode.Q) && canMove && comboManager.comboLevel >= lungeCost) //if between tiles, round up or down
         {
-            attackSound2.Play();
+            //attackSound2.Play();
+            AudioManager.PlaySound("Player Special Attack 1");
             comboManager.DecreaseCombo(lungeCost);
             StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
         }
@@ -238,6 +242,8 @@ public class Player : Units
     }
 
     void Launch() {
+        AudioManager.PlaySound("Player Attack");
+
         //animator.SetBool("Fire",true);
         animator.Play("Fire",-1,0.0f);
         GameObject projectileObject = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
@@ -310,7 +316,8 @@ public class Player : Units
 
     public override void Die() {
         base.Die();
-        deathSound.Play();
+        //deathSound.Play();
+        AudioManager.PlaySound("Player Death");
         Destroy(this.gameObject);
         Debug.Log(player + " dead.");
     }
