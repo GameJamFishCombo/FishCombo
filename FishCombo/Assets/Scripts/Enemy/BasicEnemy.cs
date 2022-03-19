@@ -196,7 +196,7 @@ public class BasicEnemy : Units
 
     IEnumerator Launch() {
         animator.SetBool("Attack",true);
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.5f);
         GameObject projectileObject = Instantiate(projectilePrefab, firePoint.transform.position, Quaternion.identity);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
