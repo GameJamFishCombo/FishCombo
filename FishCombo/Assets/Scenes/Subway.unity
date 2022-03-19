@@ -4944,7 +4944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a17ebf6ea1f92a459e88303e9b4eb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xPos: 0.3
+  xPos: 0.35
   ScrollY: 0.18
   OffsetY: 0
   timer: 12
@@ -19563,7 +19563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a17ebf6ea1f92a459e88303e9b4eb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xPos: 0.3
+  xPos: 0.35
   ScrollY: 0.18
   OffsetY: 0
   timer: 8
@@ -24590,6 +24590,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 539904836682889681, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539904836682889681, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2495188173800109553, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_Name
       value: UI
@@ -24646,11 +24654,23 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2738316606552669554, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6500199840479337596, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6500199840479337596, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713640287304502778, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713640287304502778, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
