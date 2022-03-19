@@ -322,8 +322,10 @@ public class Player : Units
     public Vector3 getCurrPosition() {
         Vector3 playerPos = player.position;
 
-        Mathf.Round(playerPos.x);
-        Mathf.Round(playerPos.z);
+        float x = Mathf.Round(playerPos.x);
+        float z = Mathf.Round(playerPos.z);
+
+        playerPos = new Vector3(x,.5f,z);
 
         return playerPos;
     }
