@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: 'Wave 1: 1 Basic'
+  - name: 'Wave 1: 3 Basic'
     enemy:
     - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
     - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
@@ -52,11 +52,6 @@ MonoBehaviour:
     - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
     Enemies: 03000000000000000000000000000000
     rate: 0.5
-  - name: 'Wave 2: 2 Basic'
-    enemy:
-    - {fileID: 4231866635281644065, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
-    Enemies: 02000000
-    rate: 0.1
   timeBetweenWaves: 2
   waveCountdown: 0
   grid: {fileID: 8070074635623944175}
@@ -105,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetTime: 3
   comboLevel: 0
+  comboBarObj: {fileID: 0}
   comboBar: {fileID: 0}
 --- !u!1 &8070074635623944168
 GameObject:

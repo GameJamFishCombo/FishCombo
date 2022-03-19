@@ -320,6 +320,11 @@ public class Player : Units
     }
 
     public Vector3 getCurrPosition() {
-        return player.position;
+        Vector3 playerPos = player.position;
+
+        Mathf.Round(playerPos.x);
+        Mathf.Round(playerPos.z);
+
+        return playerPos;
     }
 }

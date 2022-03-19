@@ -34,15 +34,41 @@ public class SpikeEnemy : Units
         player = playerObj.GetComponent<Player>();
     }
 
-    public void Update() {
+    public void FixedUpdate() {
+        float randomNum = Mathf.Floor((int)UnityEngine.Random.Range(0,4));
+        Vector3 move = new Vector3(0, 0, 0);
+        bool checkBounds = true, occupied = false;
         timer1 -= Time.deltaTime;
+        Ray ray = new Ray(transform.position, -transform.right);
         timer2 -= Time.deltaTime;
 
         if(timer1 <= 0) {
             time1 = UnityEngine.Random.Range(minMoveWaitTime, maxMoveWaitTime);
             timer1 = time1;
 
-            Move();
+            move = SetDirection(randomNum); //gets next direction it will move
+
+            if(randomNum == 0) { //forward
+                ray = new Ray(transform.position, transform.right);
+                occupied = OccupiedTile(ray);
+            } else if(randomNum == 1) { //back
+                ray = new Ray(transform.position, -transform.right);
+                occupied = OccupiedTile(ray);
+            } else if(randomNum == 2) { //up
+                ray = new Ray(transform.position, transform.forward);
+                occupied = OccupiedTile(ray);
+            } else if(randomNum == 3) { //down
+                ray = new Ray(transform.position, -transform.forward);
+                occupied = OccupiedTile(ray);
+            }
+
+            if(!occupied) {
+                checkBounds = inBounds(move);
+
+                if(!checkBounds) {
+                    StartCoroutine(LerpPosition(move, duration));
+                }
+            }
         }
 
         if(timer2 <= 0) {
@@ -56,52 +82,61 @@ public class SpikeEnemy : Units
         
     }
 
-    void Move() {
-        int randomNum = (int)UnityEngine.Random.Range(0,4);
+    Vector3 SetDirection(float randomNum) {
         Vector3 move = new Vector3(0, 0, 0);
-        bool checkBounds = true;
 
         switch(randomNum) {
-            case 0: //move up
-                move = new Vector3(0, 0, 1f) + enemy.position;
-
-                // max 7 max 3 min 4 min 0
-                checkBounds = inBounds(move);
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, duration));
-                }
+            case 0: //move forward
+                return new Vector3(1f,0,0) + enemy.position;
+                break;
+            case 1: //move backward
+                return new Vector3(-1f,0,0) + enemy.position;
 
                 break;
-            case 1: //move left
-                move = new Vector3(-1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move);
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, duration));
-                }
+            case 2: //move up
+                return new Vector3(0,0,1f) + enemy.position;
 
                 break;
-
-            case 2: //move south
-                move = new Vector3(0, 0, -1f) + enemy.position;
-                checkBounds = inBounds(move);
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, duration));
-                }
-
+            case 3: //move down
+                return new Vector3(0,0,-1f) + enemy.position;
                 break;
-            case 3: //move right
-                move = new Vector3(1f, 0, 0) + enemy.position;
-                checkBounds = inBounds(move);
-
-                if(!checkBounds) {
-                    StartCoroutine(LerpPosition(move, duration));
-                }
-
-                break;
+            default:
+                return new Vector3(0,0,0);
         }
+    }
+    
+    public bool OccupiedTile(Ray ray) {
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit)) {
+            string tag = hit.collider.tag;
+
+            if(tag == "Enemy") {
+                Debug.Log("Tile is occupied");
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool inBounds(Vector3 vec) {
+        return (vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3);
+    }
+
+    IEnumerator LerpPosition(Vector3 targetPosition, float duration) {
+        canMove = false;
+        float time = 0;
+        Vector3 startPosition = enemy.position;
+
+        while (time < duration) {
+            enemy.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        enemy.position = targetPosition;
+        canMove = true;
     }
 
     public bool pushTo(MovementInput direction, float pushDuration){
@@ -154,41 +189,23 @@ public class SpikeEnemy : Units
         return false;
     }
 
-    public bool inBounds(Vector3 vec) {
-        return (vec.x < 4 || vec.x > 7 || vec.z < 0  || vec.z > 3);
-    }
-
-    IEnumerator LerpPosition(Vector3 targetPosition, float duration) {
-        canMove = false;
-        float time = 0;
-        Vector3 startPosition = enemy.position;
-
-        while (time < duration) {
-            enemy.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-
-        enemy.position = targetPosition;
-        canMove = true;
-    }
-
     public override void Die() {
         base.Die();
         Destroy(this.gameObject);
         Debug.Log(enemy + " dead.");
     }
 
+    public override void Sound() {
+
+    }
+
     IEnumerator Spikes() {
         Debug.Log("Spawn spikes");
         animator.SetBool("Attack",true);
         GameObject projectileObject = Instantiate(projectilePrefab, player.getCurrPosition(), Quaternion.identity);
-        // animator.SetBool("Attack",true);
         yield return null;
         animator.SetBool("Attack",false);
         //some animation that shows where obj gonna spawn
         SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
-        // animator.SetBool("Attack",false);
-
     }
 }
