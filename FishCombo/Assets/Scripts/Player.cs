@@ -193,6 +193,9 @@ public class Player : Units
     }
 
     IEnumerator Lunge(Vector3 targetPosition){ // KILL ME
+        animator.SetBool("Attack1",true);
+        yield return null;
+        animator.SetBool("Attack1",false);
         canMove = false;
         float time = 0;
         Vector3 startPosition = player.position;

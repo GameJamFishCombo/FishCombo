@@ -27,7 +27,7 @@ public class BossEnemy : Units
     public GameObject playerObj;
     Player player;
     public Animator animator;
-
+    public Transform firePoint;
 
     public void Awake() {
         enemy = GetComponent<Transform>();
@@ -116,25 +116,25 @@ public class BossEnemy : Units
     }
 
     IEnumerator Launch() {
-        animator.SetBool("Attack",true);
+        animator.SetBool("Attack2",true);
         yield return new WaitForSeconds(0.5f);
-        GameObject projectileObject = Instantiate(projectilePrefab, enemy.position, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(-1f, 0, 0);
         projectile.Launch(lookDirection, 300);
-        animator.SetBool("Attack", false);
+        animator.SetBool("Attack2", false);
         
         // PlaySound(throwSound);
     }
 
     IEnumerator Spikes() {
         Debug.Log("Spawn spikes");
-        animator.SetBool("Attack",true);
+        animator.SetBool("Attack1",true);
         Vector3 playerPos = player.getCurrPosition();
         GameObject projectileObject = Instantiate(spikesPrefab, playerPos, Quaternion.identity);
         yield return null;
-        animator.SetBool("Attack",false);
+        animator.SetBool("Attack1",false);
         //some animation that shows where obj gonna spawn
         SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
     }
