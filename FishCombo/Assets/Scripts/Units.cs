@@ -19,11 +19,12 @@ public class Units : MonoBehaviour
     float invcibilityDuration = 0.0005f;
     int comboPts;
     public int def;
-    // public HUDHealth HPBar;
+    public HUDHealth HPBar;
     public AudioSource dmgSound;
 
     void Start() {
         currHP = maxHP;
+        // HPBar = gameObject.Find("Healthbar UI").GetComponent<HUDHealth>();
     }
 
     public void TakeDmg(int dmg) {
@@ -33,7 +34,7 @@ public class Units : MonoBehaviour
             currHP -= dmg;
             if(gameObject.tag != "Player")
                 GameManager.comboManager.IncrementCombo();
-            // HPBar.SetHealth(currHP);
+            HPBar.SetHealth(currHP);
 
             if (currHP <= 0) {
                 Die();

@@ -92,7 +92,7 @@ MonoBehaviour:
   maxMoveWaitTime: 2
   minStabSpd: 0.7
   maxStabSpd: 3
-  lungeDuration: 0.1
+  lungeDuration: 0.2
   numMeleeHits: 3
   meleeHitDelay: 0.01
   meleeProjectile: {fileID: 7718313146677422797, guid: d98fa251f207f124eb4538061ee8cc73, type: 3}
