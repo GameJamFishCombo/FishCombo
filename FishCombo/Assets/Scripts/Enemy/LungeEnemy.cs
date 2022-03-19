@@ -101,16 +101,16 @@ public class LungeEnemy : Units
     IEnumerator Lunge(Vector3 targetPosition){ // KILL ME
         canMove = false;
         float time = 0;
-        Vector3 startPosition = enemy.position;
-        animator.SetBool("Attack",true);
-        yield return new WaitForSeconds(0.1f);
-        animator.SetBool("Attack", false);
+        Vector3 startPosition = roundPosition();
+        StartCoroutine(AttackAnimation());
 
         while (time < lungeDuration) {
             enemy.position = Vector3.Lerp(startPosition, targetPosition, time / lungeDuration);
             time += Time.deltaTime;
             yield return null;
         }
+
+        // StartCoroutine(AttackAnimation());
         
         enemy.position = targetPosition;
         time = 0;
@@ -124,8 +124,6 @@ public class LungeEnemy : Units
             time = 0;
         }
         
-        // StartCoroutine(AttackAnimation());
-
         //bring enemy back
         time = 0;
         while (time < lungeDuration) {
@@ -134,12 +132,20 @@ public class LungeEnemy : Units
             yield return null;
         }
 
-        // animator.SetBool("Attack", false);
-
         enemy.position = startPosition;
         canMove = true;
     }
 
+    public Vector3 roundPosition() {
+        Vector3 pos = enemy.position;
+
+        float x = Mathf.Round(pos.x);
+        float z = Mathf.Round(pos.z);
+
+        pos = new Vector3(x,.5f,z);
+
+        return pos;
+    }
 
     IEnumerator AttackAnimation(){
         animator.SetBool("Attack",true);

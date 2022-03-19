@@ -66,16 +66,16 @@ public class WaveSpawner : MonoBehaviour
         if(nextWave + 1 > waves.Length - 1) {
             //either goes to shop or next stage
             int sceneIdx = SceneManager.GetActiveScene().buildIndex;
+            bool secondEnter = false;
 
-            // if((sceneIdx + 1) == 5) {
-            //     //load whatever the shop scene is one
-            //     SceneManager.LoadScene(sceneIdx + 1);
-            // } else {
-            //     //load next scene
-            //     SceneManager.LoadScene(sceneIdx + 1);
-            // }
-
-        SceneManager.LoadScene(sceneIdx + 1);
+            if(sceneIdx == 3) {
+                SceneManager.LoadScene("Shop");
+                secondEnter = true;
+            } else if(sceneIdx == 2 && secondEnter == true) {
+                SceneManager.LoadScene("RecordRoom");
+            } else {
+                SceneManager.LoadScene(sceneIdx + 1);
+            }
         } else {
             nextWave++;
         }
