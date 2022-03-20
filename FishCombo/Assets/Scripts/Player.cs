@@ -68,7 +68,7 @@ public class Player : Units
                 buffer.Enqueue(MovementInput.Right);
         }
 
-        if((Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.R)) && canAutoFire && canCast) 
+        if((Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.R)) && canMove && canAutoFire && canCast) 
         {
             StartCoroutine(PrimaryCooldown());
         }

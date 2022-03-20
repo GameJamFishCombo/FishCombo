@@ -160,7 +160,7 @@ MonoBehaviour:
     rate: 0.5
   timeBetweenWaves: 2
   waveCountdown: 0
-  grid: {fileID: 0}
+  grid: {fileID: 1964667721}
   playerAnimation: {fileID: 0}
 --- !u!4 &44855699
 Transform:
@@ -1679,6 +1679,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1964667721 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8070074635623944175, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
+  m_PrefabInstance: {fileID: 1120645793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4186c3a33edbcc44692cb61833226b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2112472974
 GameObject:
   m_ObjectHideFlags: 0
