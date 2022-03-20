@@ -24,7 +24,11 @@ public class GridTileAnimator : MonoBehaviour
         }
         
     }
-
+    void OnTriggerStay(Collider other){
+        if(other.tag == "EnemyBullet" || other.tag == "YellowTile"){    
+            animator.Play("RedHighlight");
+        }
+    }
     void OnTriggerExit(Collider other){
         animator.Play("GrayHighlight");
     }

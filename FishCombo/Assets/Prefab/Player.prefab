@@ -701,7 +701,10 @@ MonoBehaviour:
   firePoint: {fileID: 2892561090614271308}
   projectileSpeed: 600
   animator: {fileID: 4827720983324577512}
-  abilityAnimationCooldown: 0.3
+  lungeAnimationCooldown: 0.3
+  pushAnimationCooldown: 0.6
+  areaAnimationCooldown: 0.6
+  recordAbility: {fileID: 3821618178255049549, guid: 80abaf077da37914db1dad77d6703764, type: 3}
 --- !u!54 &6206849033393784433
 Rigidbody:
   m_ObjectHideFlags: 0
