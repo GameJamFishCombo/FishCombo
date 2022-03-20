@@ -706,6 +706,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c0e563f99516749aed2f5ca5f8d663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &811818917
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811818913}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9401ee54399af54482a1ccc0391b951, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &849936100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,6 +1428,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 539904836682889681, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539904836682889681, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2495188173800109553, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_Name
       value: UI
@@ -1485,6 +1512,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2495188175263346774, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7.9996
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495188175263346774, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7.9996
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495188175263346774, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7.9996
+      objectReference: {fileID: 0}
     - target: {fileID: 2738316606552669554, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_FillAmount
       value: 1
@@ -1499,6 +1538,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6500199840479337596, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713640287304502778, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713640287304502778, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
