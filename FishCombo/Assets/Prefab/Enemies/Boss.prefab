@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 6142227594120429880}
+  lerpSpd: 2
 --- !u!1 &2812835265459463048
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +288,6 @@ MonoBehaviour:
   type: 5
   maxHP: 200
   dmg: 10
-  def: 0
   HPBar: {fileID: 2063369587373552911}
   dmgSound: {fileID: 0}
   duration: 0.09
@@ -297,13 +297,15 @@ MonoBehaviour:
   abilityTimer: 0
   minMoveWaitTime: 0.09
   maxMoveWaitTime: 2
-  minShootSpd: 0.5
-  maxShootSpd: 3
+  minShootSpd: 1
+  maxShootSpd: 2
   projectilePrefab: {fileID: 8844356964958360404, guid: 1c43a4e195235c4488aab1480ddc1962, type: 3}
   spikesPrefab: {fileID: 1828222069488127797, guid: 82adeb07db81c8749aa5503adf9c98f9, type: 3}
   playerObj: {fileID: 7428160566791425927, guid: f1b8d766af1789c40b7baa9eaaec1f10, type: 3}
   animator: {fileID: 7414038234473410715}
   firePoint: {fileID: 2278000092383567024}
+  spikeWaitTime: 0
+  projectileWaitTime: 0.9
 --- !u!1 &4373310661184536264
 GameObject:
   m_ObjectHideFlags: 0

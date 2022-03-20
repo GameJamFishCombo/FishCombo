@@ -18,7 +18,6 @@ public class WaveSpawner : MonoBehaviour
         public int[] Enemies;
         public float rate;
     }
-
     public Wave[] waves;
     private int nextWave = 0;
     public float timeBetweenWaves = 5f;
@@ -76,7 +75,9 @@ public class WaveSpawner : MonoBehaviour
     }
 
     IEnumerator LoadScene(string scene){
-        yield return new WaitForSeconds(2f);
+        playerAnimation.SetBool("Victory",true);
+        AudioManager.PlaySound("Victory");
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(scene);
     }
 

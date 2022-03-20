@@ -28,7 +28,8 @@ public class BossEnemy : Units
     Player player;
     public Animator animator;
     public Transform firePoint;
-
+    public float spikeWaitTime;
+    public float projectileWaitTime;
     public void Awake() {
         enemy = GetComponent<Transform>();
         movementTimer = movementTime;
@@ -80,11 +81,11 @@ public class BossEnemy : Units
             float abilityNum = Mathf.Floor((int)UnityEngine.Random.Range(0,2));
             switch(abilityNum){
                 case(0f):
-                    StartCoroutine(Launch());
+                    StartCoroutine(SpikeAnimationWait());
                     abilityTimer = 1;
                     break;
                 case(1f):
-                    StartCoroutine(Spikes());
+                    StartCoroutine(ProjectileAnimationWait());
                     abilityTimer = 2;
                     break;
             }
@@ -105,28 +106,39 @@ public class BossEnemy : Units
     public override void Sound() {
 
     }
+    IEnumerator SpikeAnimationWait(){
+        animator.SetBool("Attack1",true);
+        yield return null;
+        animator.SetBool("Attack1",false);
+        yield return new WaitForSeconds(spikeWaitTime);
+        StartCoroutine(Spikes());
+    }
+
+    IEnumerator ProjectileAnimationWait(){
+        animator.SetBool("Attack2",true);
+        yield return null;
+        animator.SetBool("Attack2",false);
+        yield return new WaitForSeconds(projectileWaitTime);
+        StartCoroutine(Launch());
+        
+    }
 
     IEnumerator Launch() {
-        animator.SetBool("Attack2",true);
-        yield return new WaitForSeconds(0.5f);
         GameObject projectileObject = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(-1f, 0, 0);
         projectile.Launch(lookDirection, 300);
-        animator.SetBool("Attack2", false);
-        
+        yield return null;
         // PlaySound(throwSound);
     }
 
     IEnumerator Spikes() {
         Debug.Log("Spawn spikes");
-        animator.SetBool("Attack1",true);
         Vector3 playerPos = player.getCurrPosition();
         GameObject projectileObject = Instantiate(spikesPrefab, playerPos, Quaternion.identity);
-        yield return null;
-        animator.SetBool("Attack1",false);
         //some animation that shows where obj gonna spawn
         SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
+        yield return null;
     }
 }

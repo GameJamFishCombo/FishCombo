@@ -251,3 +251,8 @@ MonoBehaviour:
     volume: 0.5
     pitchVariation: 0
     source: {fileID: 0}
+  - audioName: Victory
+    audioClip: {fileID: 8300000, guid: 5c2708bff38efb343954f3e9a3318dea, type: 3}
+    volume: 0.5
+    pitchVariation: 0
+    source: {fileID: 0}
