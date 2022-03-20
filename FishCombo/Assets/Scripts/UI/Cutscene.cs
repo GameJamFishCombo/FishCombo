@@ -8,8 +8,6 @@ public class Cutscene : MonoBehaviour
     public Animator[] animators;
     public AudioSource paper;
     public int sceneNum = 0;
-    public float timer = 6;
-    public float time = 6;
 
     public float exitTimer = 3f;
     public float exitTime = 3f;
@@ -17,23 +15,10 @@ public class Cutscene : MonoBehaviour
     public GameObject transitionOut;
     public bool cutsceneOver;
     public string levelToLoad;
-    void Start(){
-        time = timer;
-    }
-
 
     void Update(){
         if(cutsceneOver)
             exitTime -= Time.deltaTime;
-
-        time-=Time.deltaTime;
-
-        if(time <=0){
-            timer = 4;
-            time = timer;
-            sceneNum++;
-            PlayScene();
-        }
 
         if(exitTime <=0){
             string currName = SceneManager.GetActiveScene().name;
@@ -54,9 +39,5 @@ public class Cutscene : MonoBehaviour
                 transitionOut.SetActive(true);
                 cutsceneOver = true;
         }
-    }
-
-    public void Skipscene(){
-        time = 0;
     }
 }
