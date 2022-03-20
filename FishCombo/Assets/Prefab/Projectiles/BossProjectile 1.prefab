@@ -111,6 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7575136741905250769}
   - component: {fileID: 8824946153245614813}
+  - component: {fileID: 6705617441938296510}
   m_Layer: 0
   m_Name: BossProjectile 1
   m_TagString: Untagged
@@ -146,3 +147,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooter: {fileID: 2199046822223763853, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+--- !u!54 &6705617441938296510
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844356964958360404}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

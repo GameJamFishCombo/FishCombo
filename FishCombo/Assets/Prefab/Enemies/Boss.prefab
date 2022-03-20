@@ -303,7 +303,7 @@ MonoBehaviour:
   maxMoveWaitTime: 2
   minShootSpd: 0.5
   maxShootSpd: 3
-  projectilePrefab: {fileID: 5648063081001141407, guid: 0ceb0abb12a7f804b9e1c970d6ba5746, type: 3}
+  projectilePrefab: {fileID: 8844356964958360404, guid: 1c43a4e195235c4488aab1480ddc1962, type: 3}
   spikesPrefab: {fileID: 3937951337225830208, guid: ee1c8609748b89348b8be60f9d4ea5e5, type: 3}
   playerObj: {fileID: 0}
   animator: {fileID: 7414038234473410715}
