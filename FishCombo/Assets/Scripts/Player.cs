@@ -27,17 +27,15 @@ public class Player : Units
     public GameObject meleeProjectile;
     public Transform firePoint;
     Rigidbody rigidbody;
-    bool canMove = true, canAutoFire = true;
+    bool canMove = true, canAutoFire = true, canCast = true;
     public float projectileSpeed = 450;
 
     public Animator animator;
+    public float abilityAnimationCooldown = 0.3f;
 
     private Queue<MovementInput> buffer;
     private Grid grid;
     private ComboManager comboManager;
-    public AudioSource deathSound;
-    public AudioSource attackSound1;
-    public AudioSource attackSound2;
 
     void Awake()
     {
@@ -70,7 +68,7 @@ public class Player : Units
                 buffer.Enqueue(MovementInput.Right);
         }
 
-        if((Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.R)) && canAutoFire) 
+        if((Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.R)) && canAutoFire && canCast) 
         {
             StartCoroutine(PrimaryCooldown());
         }
@@ -80,27 +78,30 @@ public class Player : Units
         //     StartCoroutine(PrimaryCooldown());
         // }
 
-        if(Input.GetKeyDown(KeyCode.W) && canMove && comboManager.comboLevel >= pushCost) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.W) && canMove && comboManager.comboLevel >= pushCost && canCast) //if between tiles, round up or down
         {
             // attackSound2.Play();
             AudioManager.PlaySound("Player Special Attack 2");
             comboManager.DecreaseCombo(pushCost);
+            StartCoroutine(AnimationTimer(abilityAnimationCooldown));
             LaunchPush();
         }
 
-        if(Input.GetKeyDown(KeyCode.E) && canMove && comboManager.comboLevel >= areaCost) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.E) && canMove && comboManager.comboLevel >= areaCost && canCast) //if between tiles, round up or down
         {
             // attackSound1.Play();
             AudioManager.PlaySound("Player Special Attack 2");
             comboManager.DecreaseCombo(areaCost);
+            StartCoroutine(AnimationTimer(abilityAnimationCooldown));
             LaunchArea();
         }
 
-        if(Input.GetKeyDown(KeyCode.Q) && canMove && comboManager.comboLevel >= lungeCost) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.Q) && canMove && comboManager.comboLevel >= lungeCost && canCast) //if between tiles, round up or down
         {
             // attackSound2.Play();
             AudioManager.PlaySound("Player Special Attack 1");
             comboManager.DecreaseCombo(lungeCost);
+            StartCoroutine(AnimationTimer(abilityAnimationCooldown));
             StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
         }
 
@@ -330,6 +331,15 @@ public class Player : Units
         animator.SetBool(animation,true);
         yield return null;
         animator.SetBool(animation,false);
+    }
+
+    IEnumerator AnimationTimer(float timer){
+        canCast = false;
+        while(timer > 0){
+            yield return null;
+            timer -= Time.deltaTime;
+        }
+        canCast = true;
     }
 
     public override void Die() {
