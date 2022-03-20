@@ -1659,6 +1659,10 @@ PrefabInstance:
       value: 7.9996
       objectReference: {fileID: 0}
     - target: {fileID: 2495188175263346775, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: lerpSpd
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495188175263346775, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: ability1
       value: 
       objectReference: {fileID: 1884505414}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ComboManager : MonoBehaviour
 {
     public float resetTime = 2; // Seconds
-    public int comboLevel = 0;
+    public float comboLevel = 0;
 
     private float resetTimer;
     public GameObject comboBarObj;
@@ -42,8 +42,9 @@ public class ComboManager : MonoBehaviour
         if(comboLevel > 0){
             if(resetTimer <= 0){
                 Debug.Log("Reset Combo");
+                float oldComboLv = comboLevel;
                 comboLevel = 0;
-                comboBar.SetCombo(comboLevel);
+                comboBar.SetCombo(comboLevel, oldComboLv);
             }
             else{
                 resetTimer -= Time.deltaTime;
@@ -52,11 +53,12 @@ public class ComboManager : MonoBehaviour
     }
 
     public void IncrementCombo(){
+        float oldComboLv = comboLevel;
         comboLevel += 1;
         comboBar.PlayAnimation("ComboBar");
         resetTimer = resetTime;
         //Debug.Log("Combo set to "+ comboLevel);
-        comboBar.SetCombo(comboLevel);
+        comboBar.SetCombo(comboLevel, oldComboLv);
         if(comboLevel == 5){
             abilityCooldown1.GetComponent<Animator>().Play("AbilityIcon");
             abilityCooldown1.SetCombo(0);
@@ -72,8 +74,9 @@ public class ComboManager : MonoBehaviour
     }
 
     public void DecreaseCombo(int decrement){
+        float oldComboLv = comboLevel;
         comboLevel -= decrement;
-        comboBar.SetCombo(comboLevel);
+        comboBar.SetCombo(comboLevel, oldComboLv);
         
         if(comboLevel < 5) {
             abilityCooldown1.SetCombo(1);

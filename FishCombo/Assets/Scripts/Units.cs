@@ -15,12 +15,11 @@ public class Units : MonoBehaviour
     public UnitType type;
     private Vector3 desiredPos, desiredScale;
     public int maxHP = 100;
-    public int currHP {get; private set;}
+    public float currHP {get; private set;}
     public int dmg;
     bool invincible = false;
     float invcibilityDuration = 0.0005f;
     int comboPts;
-    public int def;
     public HUDHealth HPBar;
     public AudioSource dmgSound;
 
@@ -32,12 +31,13 @@ public class Units : MonoBehaviour
 
     public void TakeDmg(int dmg) {
         if(!invincible){
-            dmg -= def;
+            float originalHP = currHP;
             dmg = Mathf.Clamp(dmg, 0, int.MaxValue);
             currHP -= dmg;
             if(gameObject.tag != "Player")
                 GameManager.comboManager.IncrementCombo();
-            HPBar.SetHealth(currHP);
+
+            HPBar.SetHealth(currHP, originalHP);
 
             if (currHP <= 0) {
                 Die();

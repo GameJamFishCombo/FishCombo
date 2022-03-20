@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2793978519587687085}
+  lerpSpd: 1.5
 --- !u!1 &1648797020332109533
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +685,6 @@ MonoBehaviour:
   type: 3
   maxHP: 100
   dmg: 2
-  def: 0
   HPBar: {fileID: 147915059326384941}
   dmgSound: {fileID: 0}
   lungeCost: 5
@@ -701,9 +701,7 @@ MonoBehaviour:
   firePoint: {fileID: 2892561090614271308}
   projectileSpeed: 600
   animator: {fileID: 4827720983324577512}
-  deathSound: {fileID: 8487704772160376952}
-  attackSound1: {fileID: 8027915356653473964}
-  attackSound2: {fileID: 9125299449365715248}
+  abilityAnimationCooldown: 0.3
 --- !u!54 &6206849033393784433
 Rigidbody:
   m_ObjectHideFlags: 0
