@@ -372,7 +372,8 @@ public class Player : Units
     public override void Die() {
         // base.Die();
         //deathSound.Play();
-        Instantiate(deathParticles,transform.position,Quaternion.identity);
+        if(deathParticles != null)
+            Instantiate(deathParticles,transform.position,Quaternion.identity);
         AudioManager.PlaySound("Player Death");
         // Destroy(this.gameObject);
         Debug.Log(player + " dead.");        

@@ -38,7 +38,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         if(loadMain)
-        time-=Time.deltaTime;
+            time-=Time.deltaTime;
 
         if(time <= 2.4f){
             fadeOutObject.SetActive(true);
@@ -60,7 +60,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void GameOver() {
-        gameOverObj.SetActive(true);
+        LoadMenu();
+        /*gameOverObj.SetActive(true);
 
         time-=Time.deltaTime;
 
@@ -72,7 +73,7 @@ public class PauseMenu : MonoBehaviour
 
         if(time <= 0){
             LoadMenu();
-        }
+        }*/
     }
 
     public void Resume() {
