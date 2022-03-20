@@ -198,9 +198,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 636485563418717735}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 200
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 200
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -293,8 +293,6 @@ MonoBehaviour:
   duration: 0.09
   movementTime: 1
   abilityTime: 2
-  time3: 1
-  time4: 1
   movementTimer: 0
   abilityTimer: 0
   timer3: 0
