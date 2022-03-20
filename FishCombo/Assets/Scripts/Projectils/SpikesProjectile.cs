@@ -23,7 +23,6 @@ public class SpikesProjectile : MonoBehaviour
                 Debug.Log("shooterstat dmg" + shooterStat.dmg);
                 playerStat.TakeDmg(shooterStat.dmg);
                 //Debug.Log("Player HP: " + playerStat.currHP);        
-                Destroy(this.gameObject);
             }
         }
     }
