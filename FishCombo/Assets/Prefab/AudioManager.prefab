@@ -206,8 +206,8 @@ MonoBehaviour:
     volume: 0.5
     pitchVariation: 0
     source: {fileID: 0}
-  - audioName: Player Special Attack 2
-    audioClip: {fileID: 8300000, guid: 0ad07640546f2154eb1f65c976b08ad4, type: 3}
+  - audioName: PushAbilityClap
+    audioClip: {fileID: 8300000, guid: 7fd419a7f3a4d5641bd2a344539269ba, type: 3}
     volume: 0.5
     pitchVariation: 0
     source: {fileID: 0}

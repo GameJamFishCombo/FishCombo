@@ -31,7 +31,9 @@ public class Player : Units
     public float projectileSpeed = 450;
 
     public Animator animator;
-    public float abilityAnimationCooldown = 0.3f;
+    public float lungeAnimationCooldown = 0.3f;
+    public float pushAnimationCooldown = 0.6f;
+    public float areaAnimationCooldown = 0.6f;
 
     private Queue<MovementInput> buffer;
     private Grid grid;
@@ -83,8 +85,9 @@ public class Player : Units
             // attackSound2.Play();
             AudioManager.PlaySound("Player Special Attack 2");
             comboManager.DecreaseCombo(pushCost);
-            StartCoroutine(AnimationTimer(abilityAnimationCooldown));
-            LaunchPush();
+            // StartCoroutine(AnimationTimer(pushAnimationCooldown));
+            //LaunchPush(); moved into animatorwait
+            StartCoroutine(PushAnimationWait("Attack2"));
         }
 
         if(Input.GetKeyDown(KeyCode.E) && canMove && comboManager.comboLevel >= areaCost && canCast) //if between tiles, round up or down
@@ -92,8 +95,8 @@ public class Player : Units
             // attackSound1.Play();
             AudioManager.PlaySound("Player Special Attack 2");
             comboManager.DecreaseCombo(areaCost);
-            StartCoroutine(AnimationTimer(abilityAnimationCooldown));
-            LaunchArea();
+            StartCoroutine(AnimationTimer(areaAnimationCooldown));
+            StartCoroutine(AreaAnimationWait("Attack3"));
         }
 
         if(Input.GetKeyDown(KeyCode.Q) && canMove && comboManager.comboLevel >= lungeCost && canCast) //if between tiles, round up or down
@@ -101,7 +104,7 @@ public class Player : Units
             // attackSound2.Play();
             AudioManager.PlaySound("Player Special Attack 1");
             comboManager.DecreaseCombo(lungeCost);
-            StartCoroutine(AnimationTimer(abilityAnimationCooldown));
+            StartCoroutine(AnimationTimer(lungeAnimationCooldown));
             StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
         }
 
@@ -272,7 +275,7 @@ public class Player : Units
     }
 
     void LaunchPush(){
-        StartCoroutine(AnimationWait("Attack2"));
+        
         Vector3 spawnPosition = getCurrPosition() + new Vector3(1f, 0, 1f);
 
         GameObject projectile = Instantiate(pushPrefab, spawnPosition, Quaternion.identity);
@@ -334,6 +337,24 @@ public class Player : Units
         animator.SetBool(animation,true);
         yield return null;
         animator.SetBool(animation,false);
+    }
+
+     IEnumerator PushAnimationWait(string animation){
+        StartCoroutine(AnimationTimer(pushAnimationCooldown));
+        animator.SetBool(animation,true);
+        yield return null;
+        animator.SetBool(animation,false);
+        yield return new WaitForSeconds(0.5f);
+        AudioManager.PlaySound("PushAbilityClap");
+        LaunchPush();
+    }
+
+    IEnumerator AreaAnimationWait(string animation){
+        animator.SetBool(animation,true);
+        yield return null;
+        animator.SetBool(animation,false);
+        yield return new WaitForSeconds(0.5f);
+        LaunchArea();
     }
 
     IEnumerator AnimationTimer(float timer){

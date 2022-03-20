@@ -4979,7 +4979,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5093481}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.85, y: 0.049, z: 5.166}
+  m_LocalPosition: {x: -1.85, y: 0.049, z: 4.551}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5039,6 +5039,70 @@ PrefabInstance:
     - target: {fileID: 5615658278364898961, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[13].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[18].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[19].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[14].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ad07640546f2154eb1f65c976b08ad4, type: 3}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[14].audioName
+      value: Player Special Attack 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[15].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0608262afa1bfbd449e6eceb21ba461c, type: 3}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[15].audioName
+      value: ' UI Hover'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[16].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b34908166aa7c64b8233eedae216909, type: 3}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[16].audioName
+      value: UI Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[17].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 043c04513bf25f94786a8a597dcd5044, type: 3}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[17].audioName
+      value: UI Item Chosen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[18].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fb63e08ef2fda314c8cd0d5358335af2, type: 3}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[18].audioName
+      value: UI Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[19].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fb63e08ef2fda314c8cd0d5358335af2, type: 3}
+    - target: {fileID: 8184508825473685668, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
+      propertyPath: audioFiles.Array.data[19].audioName
+      value: UI Select
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf640bcef42dc494ca04dca5fbd1bb19, type: 3}
@@ -5456,7 +5520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5805040324331313491, guid: 99fcec1e5a63ea342bd56740fc232646, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.15
+      value: 4.48
       objectReference: {fileID: 0}
     - target: {fileID: 5805040324331313491, guid: 99fcec1e5a63ea342bd56740fc232646, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11164,7 +11228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111660918}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.85, y: 3.13, z: 5.395}
+  m_LocalPosition: {x: -1.85, y: 3.13, z: 4.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
