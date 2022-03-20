@@ -26,11 +26,12 @@ public class WaveSpawner : MonoBehaviour
     private float searchCountdown = 1f;
     private SpawnState state = SpawnState.Counting;
     public Grid grid;
+    public Animator playerAnimation;
 
     void Start() {
         StartCoroutine(SetWaveNumber());
-
         waveCountdown = timeBetweenWaves;
+        playerAnimation = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
     void Update() {
@@ -60,6 +61,8 @@ public class WaveSpawner : MonoBehaviour
         //if the next wave is out of bounds of array
         //basically, final wave was completed, trigger cutscene
         if(nextWave + 1 > waves.Length - 1) {
+            playerAnimation.SetBool("Victory", true);
+
             string currSceneName = SceneManager.GetActiveScene().name;
 
             if(currSceneName == "RecordRoom") {

@@ -305,7 +305,7 @@ MonoBehaviour:
   maxShootSpd: 3
   projectilePrefab: {fileID: 8844356964958360404, guid: 1c43a4e195235c4488aab1480ddc1962, type: 3}
   spikesPrefab: {fileID: 3937951337225830208, guid: ee1c8609748b89348b8be60f9d4ea5e5, type: 3}
-  playerObj: {fileID: 0}
+  playerObj: {fileID: 7428160566791425927, guid: f1b8d766af1789c40b7baa9eaaec1f10, type: 3}
   animator: {fileID: 7414038234473410715}
   firePoint: {fileID: 2278000092383567024}
 --- !u!1 &4373310661184536264
