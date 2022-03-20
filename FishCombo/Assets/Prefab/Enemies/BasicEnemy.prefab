@@ -141,9 +141,8 @@ MonoBehaviour:
   currX: 0
   currY: 0
   type: 1
-  maxHP: 100
+  maxHP: 75
   dmg: 1
-  def: 0
   HPBar: {fileID: 6332129840560237689}
   dmgSound: {fileID: 0}
   duration: 0.12
@@ -289,6 +288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1527587121181960413}
+  lerpSpd: 10
+  health: 75
 --- !u!1 &6173836234702281261
 GameObject:
   m_ObjectHideFlags: 0

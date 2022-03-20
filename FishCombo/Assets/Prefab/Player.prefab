@@ -114,7 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2793978519587687085}
-  lerpSpd: 1.5
+  lerpSpd: 4
+  health: 100
 --- !u!1 &1648797020332109533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1047,7 @@ MonoBehaviour:
   meleeProjectile: {fileID: 1963822313625910434, guid: 7b736d7799259164791bf164c993ab38, type: 3}
   firePoint: {fileID: 2892561090614271308}
   projectileSpeed: 600
+  recordAbility: {fileID: 3821618178255049549, guid: 80abaf077da37914db1dad77d6703764, type: 3}
   animator: {fileID: 4827720983324577512}
   lungeAnimationCooldown: 0.3
   pushAnimationCooldown: 0.6

@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 6142227594120429880}
   lerpSpd: 2
+  health: 200
 --- !u!1 &2812835265459463048
 GameObject:
   m_ObjectHideFlags: 0

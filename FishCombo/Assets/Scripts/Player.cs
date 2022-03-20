@@ -29,7 +29,7 @@ public class Player : Units
     Rigidbody rigidbody;
     bool canMove = true, canAutoFire = true, canCast = true;
     public float projectileSpeed = 450;
-
+    public GameObject recordAbility;
     public Animator animator;
     public float lungeAnimationCooldown = 0.3f;
     public float pushAnimationCooldown = 0.6f;
@@ -352,6 +352,7 @@ public class Player : Units
     }
 
     IEnumerator AreaAnimationWait(string animation){
+        Instantiate(recordAbility,getCurrPosition(),Quaternion.identity);
         animator.SetBool(animation,true);
         yield return null;
         animator.SetBool(animation,false);
@@ -403,4 +404,5 @@ public class Player : Units
 
         return fingerPos;
     }
+
 }

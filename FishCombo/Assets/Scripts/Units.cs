@@ -36,6 +36,10 @@ public class Units : MonoBehaviour
             currHP -= dmg;
             if(gameObject.tag != "Player")
                 GameManager.comboManager.IncrementCombo();
+            
+            if(gameObject.tag == "Player"){
+                DamageAnimation();
+            }
 
             HPBar.SetHealth(currHP, originalHP);
 
@@ -45,6 +49,9 @@ public class Units : MonoBehaviour
             StartCoroutine(Invincible(invcibilityDuration));
         }
         
+    }
+    public virtual void DamageAnimation(){
+
     }
 
     IEnumerator Invincible(float duration){

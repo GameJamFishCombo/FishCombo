@@ -439,6 +439,7 @@ MonoBehaviour:
   waveCountdown: 0
   grid: {fileID: 1912579320}
   playerAnimation: {fileID: 0}
+  transition: {fileID: 0}
 --- !u!4 &365560805
 Transform:
   m_ObjectHideFlags: 0

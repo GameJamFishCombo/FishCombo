@@ -9,9 +9,9 @@ public class HUDHealth : MonoBehaviour
     public float lerpSpd = 2;
     bool lerpHP = false;
     float time = 0;
-
+    public int health;
     void Start() {
-        SetMaxHealth(100);
+        SetMaxHealth(health);
     }
 
     public void SetMaxHealth(int HP) {
