@@ -5634,6 +5634,86 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &620748247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 620748249}
+  - component: {fileID: 620748248}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &620748248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620748247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f7aec811b323340bd2c65a9a49acf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - name: 'Wave 1: 1 Basic'
+    enemy:
+    - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
+    - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
+    - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+    Enemies: 01000000000000000000000000000000
+    rate: 0.5
+  - name: 'Wave 2: 1 Spike'
+    enemy:
+    - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
+    - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
+    - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+    Enemies: 00000000010000000000000000000000
+    rate: 0.5
+  - name: 'Wave 3: 1 Basic 1 Spike'
+    enemy:
+    - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
+    - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
+    - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+    Enemies: 01000000010000000000000000000000
+    rate: 0.5
+  - name: 'Wave 4: 3 Basic 2 Spike'
+    enemy:
+    - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
+    - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
+    - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+    Enemies: 03000000020000000000000000000000
+    rate: 0.5
+  timeBetweenWaves: 2
+  waveCountdown: 0
+  grid: {fileID: 8070074636011742644}
+  playerAnimation: {fileID: 0}
+--- !u!4 &620748249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620748247}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &769378851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12772,25 +12852,13 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
-      propertyPath: waves.Array.data[0].enemy.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[1].enemy.Array.size
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
-      propertyPath: waves.Array.data[0].Enemies.Array.size
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[1].Enemies.Array.size
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
-      propertyPath: waves.Array.data[0].enemy.Array.data[0]
-      value: 
-      objectReference: {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[0].enemy.Array.data[1]
       value: 
@@ -12819,10 +12887,6 @@ PrefabInstance:
       propertyPath: waves.Array.data[1].enemy.Array.data[3]
       value: 
       objectReference: {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
-    - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
-      propertyPath: waves.Array.data[0].Enemies.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6202831642993872826, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: waves.Array.data[0].Enemies.Array.data[1]
       value: 1
@@ -12893,6 +12957,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
+--- !u!114 &8070074636011742644 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8070074635623944175, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
+  m_PrefabInstance: {fileID: 8070074636011742643}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4186c3a33edbcc44692cb61833226b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8524875412280203754
 GameObject:
   m_ObjectHideFlags: 0

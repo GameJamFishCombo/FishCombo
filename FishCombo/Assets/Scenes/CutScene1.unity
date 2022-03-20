@@ -602,8 +602,6 @@ MonoBehaviour:
   - {fileID: 771400310}
   paper: {fileID: 0}
   sceneNum: 0
-  timer: 6
-  time: 6
   exitTimer: 3
   exitTime: 3
   transitionOut: {fileID: 7074993066188887780}
@@ -938,7 +936,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 951811400}
         m_TargetAssemblyTypeName: Cutscene, Assembly-CSharp
-        m_MethodName: Skipscene
+        m_MethodName: PlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

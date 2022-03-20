@@ -19662,6 +19662,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &758516693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 758516695}
+  - component: {fileID: 758516694}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &758516694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758516693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f7aec811b323340bd2c65a9a49acf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - name: 'Wave 1: 2 Lunger'
+    enemy:
+    - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
+    - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
+    - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+    Enemies: 00000000000000000200000000000000
+    rate: 0.5
+  - name: 'Wave 2: 3 Spike'
+    enemy:
+    - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
+    - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
+    - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+    Enemies: 00000000030000000000000000000000
+    rate: 0.5
+  - name: 'Wave 3: 2 Lunger 3 Spike'
+    enemy:
+    - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
+    - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
+    - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+    Enemies: 00000000020000000300000000000000
+    rate: 0.5
+  - name: 'Wave 4: 4 Lunger 4 Spike'
+    enemy:
+    - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+    - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
+    - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
+    - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+    Enemies: 00000000040000000400000000000000
+    rate: 0.5
+  timeBetweenWaves: 2
+  waveCountdown: 0
+  grid: {fileID: 0}
+  playerAnimation: {fileID: 0}
+--- !u!4 &758516695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758516693}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &785382549
 GameObject:
   m_ObjectHideFlags: 0
