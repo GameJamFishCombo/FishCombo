@@ -35,6 +35,8 @@ public class Player : Units
     public float pushAnimationCooldown = 0.6f;
     public float areaAnimationCooldown = 0.6f;
 
+    public GameObject recordAbility;
+
     private Queue<MovementInput> buffer;
     private Grid grid;
     private ComboManager comboManager;
@@ -350,6 +352,7 @@ public class Player : Units
     }
 
     IEnumerator AreaAnimationWait(string animation){
+        Instantiate(recordAbility,getCurrPosition(),Quaternion.identity);
         animator.SetBool(animation,true);
         yield return null;
         animator.SetBool(animation,false);
