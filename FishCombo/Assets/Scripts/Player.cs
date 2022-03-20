@@ -35,11 +35,10 @@ public class Player : Units
     public float pushAnimationCooldown = 0.6f;
     public float areaAnimationCooldown = 0.6f;
 
-    public GameObject recordAbility;
-
     private Queue<MovementInput> buffer;
     private Grid grid;
     private ComboManager comboManager;
+    PauseMenu pauseMenuUI;
 
     void Awake()
     {
@@ -49,6 +48,7 @@ public class Player : Units
         playerPos = rigidbody.position;
         grid = GameObject.Find("Grid").GetComponent<Grid>();
         comboManager = GameObject.Find("Combo Manager").GetComponent<ComboManager>();
+        pauseMenuUI = GameObject.Find("Canvas").GetComponent<PauseMenu>();
     }
 
     public void Update() {
@@ -341,7 +341,7 @@ public class Player : Units
         animator.SetBool(animation,false);
     }
 
-     IEnumerator PushAnimationWait(string animation){
+    IEnumerator PushAnimationWait(string animation){
         StartCoroutine(AnimationTimer(pushAnimationCooldown));
         animator.SetBool(animation,true);
         yield return null;
@@ -352,7 +352,6 @@ public class Player : Units
     }
 
     IEnumerator AreaAnimationWait(string animation){
-        Instantiate(recordAbility,getCurrPosition(),Quaternion.identity);
         animator.SetBool(animation,true);
         yield return null;
         animator.SetBool(animation,false);
@@ -370,11 +369,13 @@ public class Player : Units
     }
 
     public override void Die() {
-        base.Die();
+        // base.Die();
         //deathSound.Play();
         AudioManager.PlaySound("Player Death");
+        // Destroy(this.gameObject);
+        Debug.Log(player + " dead.");        
+        pauseMenuUI.GameOver();
         Destroy(this.gameObject);
-        Debug.Log(player + " dead.");
     }
 
     public override void Sound() {

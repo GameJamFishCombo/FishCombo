@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour
     public float timer = 3;
     public float time = 3;
     public GameObject fadeOutObject;
+    public GameObject gameOverObj;
     public bool cutscene;
     
     void Start(){
@@ -55,6 +56,21 @@ public class PauseMenu : MonoBehaviour
                     Pause();
                 }
             }
+        }
+    }
+
+    public void GameOver() {
+        gameOverObj.SetActive(true);
+
+        if(true)
+        time-=Time.deltaTime;
+
+        if(time <= 2.4f){
+            fadeOutObject.SetActive(true);
+        }
+
+        if(time <= 0){
+            LoadMenu();
         }
     }
 
