@@ -62,8 +62,9 @@ public class PauseMenu : MonoBehaviour
     public void GameOver() {
         gameOverObj.SetActive(true);
 
-        if(true)
         time-=Time.deltaTime;
+
+        Debug.Log(time);
 
         if(time <= 2.4f){
             fadeOutObject.SetActive(true);

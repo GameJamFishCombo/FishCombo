@@ -21,6 +21,7 @@ public class Units : MonoBehaviour
     float invcibilityDuration = 0.0005f;
     int comboPts;
     public HUDHealth HPBar;
+    public GameObject hitEffect;
     public AudioSource dmgSound;
 
     void Start() {
@@ -42,6 +43,8 @@ public class Units : MonoBehaviour
             }
 
             HPBar.SetHealth(currHP, originalHP);
+            if(hitEffect != null)
+                Instantiate(hitEffect, transform.position, Quaternion.identity);
 
             if (currHP <= 0) {
                 Die();
