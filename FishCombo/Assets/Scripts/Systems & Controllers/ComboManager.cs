@@ -8,19 +8,32 @@ public class ComboManager : MonoBehaviour
     public int comboLevel = 0;
 
     private float resetTimer;
-
     public GameObject comboBarObj;
     public ComboBar comboBar;
+    GameObject abilityCooldownObj1;
+    GameObject abilityCooldownObj2;
+    GameObject abilityCooldownObj3;
+    AbilityCoolDown abilityCooldown1;
+    AbilityCoolDown abilityCooldown2;
+    AbilityCoolDown abilityCooldown3;
 
     void Awake() {
         comboBarObj = GameObject.Find("ComboBar");
         comboBar = comboBarObj.GetComponent<ComboBar>();
+
+        abilityCooldownObj1 = GameObject.Find("Ability1");
+        abilityCooldownObj2 = GameObject.Find("Ability2");
+        abilityCooldownObj3 = GameObject.Find("Ability3");
+
+        abilityCooldown1 = abilityCooldownObj1.GetComponent<AbilityCoolDown>();
+        abilityCooldown2 = abilityCooldownObj2.GetComponent<AbilityCoolDown>();
+        abilityCooldown3 = abilityCooldownObj3.GetComponent<AbilityCoolDown>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        comboBar.SetMaxCombo(100);
+        comboBar.SetMaxCombo(36);
     }
 
     // Update is called once per frame
@@ -31,7 +44,8 @@ public class ComboManager : MonoBehaviour
                 Debug.Log("Reset Combo");
                 comboLevel = 0;
                 comboBar.SetCombo(comboLevel);
-            }else{
+            }
+            else{
                 resetTimer -= Time.deltaTime;
             }
         }
@@ -39,9 +53,19 @@ public class ComboManager : MonoBehaviour
 
     public void IncrementCombo(){
         comboLevel += 1;
+        comboBar.PlayAnimation("ComboBar");
         resetTimer = resetTime;
         //Debug.Log("Combo set to "+ comboLevel);
         comboBar.SetCombo(comboLevel);
+        if(comboLevel == 5){
+            abilityCooldown1.GetComponent<Animator>().Play("AbilityIcon");
+        }
+        if(comboLevel == 15){
+            abilityCooldown2.GetComponent<Animator>().Play("AbilityIcon");
+        }
+        if(comboLevel == 30){
+            abilityCooldown3.GetComponent<Animator>().Play("AbilityIcon");
+        }
     }
 
     public void DecreaseCombo(int decrement){

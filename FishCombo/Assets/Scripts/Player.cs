@@ -229,6 +229,7 @@ public class Player : Units
     }
 
     void LaunchMelee(){
+        StartCoroutine(AnimationWait("Attack3"));
         Vector3 spawnPosition = player.position + new Vector3(0, 0, -1);
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
@@ -271,6 +272,7 @@ public class Player : Units
     }
 
     void LaunchPush(){
+        StartCoroutine(AnimationWait("Attack2"));
         Vector3 spawnPosition = getCurrPosition() + new Vector3(1f, 0, 1f);
 
         GameObject projectile = Instantiate(pushPrefab, spawnPosition, Quaternion.identity);

@@ -20,6 +20,12 @@ public class Cutscene : MonoBehaviour
         if(cutsceneOver)
             exitTime -= Time.deltaTime;
 
+<<<<<<< Updated upstream
+=======
+            
+        
+
+>>>>>>> Stashed changes
         if(exitTime <=0){
             string currName = SceneManager.GetActiveScene().name;
             //go to credits or end application
@@ -40,4 +46,12 @@ public class Cutscene : MonoBehaviour
                 cutsceneOver = true;
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    public void Skipscene(){
+        sceneNum++;
+        PlayScene();
+    }
+>>>>>>> Stashed changes
 }
