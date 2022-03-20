@@ -14,7 +14,7 @@ AnimatorStateMachine:
     m_Position: {x: 467.76355, y: 71.35886, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6952268288847709734}
-    m_Position: {x: 427.32477, y: 198.89651, z: 0}
+    m_Position: {x: 430, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4057367688790259334}
     m_Position: {x: 650, y: 210, z: 0}
@@ -35,7 +35,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlueHighlight
+  m_Name: Blue Highlight
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

@@ -3,7 +3,32 @@ guid: 439e26a07c3d20a4085e00ab8dd7815e
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tile_border_dark
+    second: {fileID: 2100000, guid: a91e8e5a45fbc7047b7839ade4837191, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tile_border_gray
+    second: {fileID: 2100000, guid: ed6600d170d0d584d902b4bc1b088484, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tile_border_light
+    second: {fileID: 2100000, guid: 63a0907035fa8394da2484bf06db7571, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tile_highlight_blue_dark
+    second: {fileID: 2100000, guid: 9917525601405ce459736a2a888551a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tile_highlight_blue_light
+    second: {fileID: 2100000, guid: b74fd18a309196c4e9a29b053baa3674, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,7 +110,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.25
+    globalScale: 25
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
