@@ -12,6 +12,8 @@ public class SpikesProjectile : MonoBehaviour
     }
 
     void Start() {
+        //StartCoroutine(Sound());
+        AudioManager.PlaySound("Spikes");
         Destroy(this.gameObject, 1f);
     }
 
@@ -26,4 +28,9 @@ public class SpikesProjectile : MonoBehaviour
             }
         }
     }
+    
+    // IEnumerator Sound(){
+    //     yield return new WaitForSeconds(0.3f);
+    //     AudioManager.PlaySound("Spikes");
+    // }
 }

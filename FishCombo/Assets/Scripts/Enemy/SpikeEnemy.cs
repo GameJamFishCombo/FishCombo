@@ -91,18 +91,24 @@ public class SpikeEnemy : Units
         Debug.Log(enemy + " dead.");
     }
 
-    public override void Sound() {
+    // public override void Sound() {
 
-    }
+    // }
 
     IEnumerator Spikes() {
         Debug.Log("Spawn spikes");
         animator.SetBool("Attack",true);
+        StartCoroutine(Sound());
         Vector3 playerPos = player.getCurrPosition();
         GameObject projectileObject = Instantiate(projectilePrefab, playerPos, Quaternion.identity);
         yield return null;
         animator.SetBool("Attack",false);
         //some animation that shows where obj gonna spawn
         SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
+    }
+
+    IEnumerator Sound(){
+        yield return new WaitForSeconds(0.3f);
+        AudioManager.PlaySound("GroundPound");
     }
 }

@@ -256,3 +256,13 @@ MonoBehaviour:
     volume: 0.5
     pitchVariation: 0
     source: {fileID: 0}
+  - audioName: Spikes
+    audioClip: {fileID: 8300000, guid: 51da2012c1e9e8243ade0a140657eb5a, type: 3}
+    volume: 1
+    pitchVariation: 0
+    source: {fileID: 0}
+  - audioName: GroundPound
+    audioClip: {fileID: 8300000, guid: d7350f4208155ea45bd62fd1debd22b0, type: 3}
+    volume: 1
+    pitchVariation: 0
+    source: {fileID: 0}
