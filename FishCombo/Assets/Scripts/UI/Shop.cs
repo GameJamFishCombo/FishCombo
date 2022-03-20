@@ -38,8 +38,10 @@ public class Shop : MonoBehaviour
 
     public GameObject playerPrefab;
     public Player player;
+    // public string levelToLoad1;
+    // public string levelToLoad2;
 
-    int numVisited = 0;
+    static int numVisited = 0;
 
     void Start()
     {
@@ -86,9 +88,7 @@ public class Shop : MonoBehaviour
             if(numVisited == 0) {
                 numVisited++;
                 SceneManager.LoadScene("Subway");
-            }
-            
-            if(numVisited == 1) {
+            } else if(numVisited == 1) {
                 numVisited++;
                 SceneManager.LoadScene("CutScene2");
             }

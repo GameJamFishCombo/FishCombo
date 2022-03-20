@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 6705617441938296510}
   m_Layer: 0
   m_Name: BossProjectile 1
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6841e8c829dcfc745bab10df6004ef50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shooter: {fileID: 2199046822223763853, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
+  shooter: {fileID: 3529395433689516189, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
 --- !u!54 &6705617441938296510
 Rigidbody:
   m_ObjectHideFlags: 0

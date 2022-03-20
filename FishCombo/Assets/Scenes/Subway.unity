@@ -24646,6 +24646,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2495188174223147362, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: pauseSound
+      value: 
+      objectReference: {fileID: 5099735620772744173}
+    - target: {fileID: 2495188174223147362, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: onClickSound
+      value: 
+      objectReference: {fileID: 5099735622632704652}
+    - target: {fileID: 2495188174223147362, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: onHoverSound
+      value: 
+      objectReference: {fileID: 5099735621498416237}
+    - target: {fileID: 2495188174223147362, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: unpauseSound
+      value: 
+      objectReference: {fileID: 5099735621491435707}
+    - target: {fileID: 2495188174223147362, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: audiolistener
+      value: 
+      objectReference: {fileID: 798582250}
+    - target: {fileID: 2495188174223147362, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: pauseBackground
+      value: 
+      objectReference: {fileID: 5099735621048648116}
     - target: {fileID: 2495188174864183305, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
