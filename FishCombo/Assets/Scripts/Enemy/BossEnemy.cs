@@ -10,8 +10,8 @@ public class BossEnemy : Units
     bool canMove = false;
     [Tooltip("Duration it takes to LERP between tiles.")]    
     public float duration = 0.09f; //time for lerp
-    public float time1 = 1, time2 = 1, time3 = 1, time4 = 1,
-    timer1, timer2, timer3, timer4;
+    public float movementTime = 1, abilityTime = 2,
+    movementTimer, abilityTimer, timer3, timer4;
 
     [Header("Action Timings")]
     [Tooltip("Minumum move wait time. MUST be =>duration.")]
@@ -31,10 +31,8 @@ public class BossEnemy : Units
 
     public void Awake() {
         enemy = GetComponent<Transform>();
-        timer1 = time1;
-        timer2 = time2;
-        timer3 = time3;
-        timer4 = time4;
+        movementTimer = movementTime;
+        abilityTimer = abilityTime;
         playerObj = GameObject.FindGameObjectWithTag("Player");
         player = playerObj.GetComponent<Player>();
     }
@@ -43,15 +41,13 @@ public class BossEnemy : Units
         float randomNum = Mathf.Floor((int)UnityEngine.Random.Range(0,4));
         Vector3 move = new Vector3(0, 0, 0);
         bool checkBounds = true, occupied = false;
-        timer1 -= Time.deltaTime;
-        timer2 -= Time.deltaTime;
-        timer3 -= Time.deltaTime;
-        timer4 -= Time.deltaTime;
+        movementTimer -= Time.deltaTime;
+        abilityTimer -= Time.deltaTime;
         Ray ray = new Ray(transform.position, -transform.right);
 
-        if(timer1 <= 0) {
-            time1 = UnityEngine.Random.Range(minMoveWaitTime, maxMoveWaitTime);
-            timer1 = time1;
+        if(movementTimer <= 0) {
+            movementTime = UnityEngine.Random.Range(minMoveWaitTime, maxMoveWaitTime);
+            movementTimer = movementTime;
 
             move = SetDirection(randomNum); //gets next direction it will move
 
@@ -78,25 +74,20 @@ public class BossEnemy : Units
             }
         }
 
-        if(timer2 <= 0) {
-            time2 = UnityEngine.Random.Range(minShootSpd, maxShootSpd);
-            timer2 = time2;
-
-            StartCoroutine(Launch());
-        }
-
-        if(timer3 <= 0) {
-            time3 = UnityEngine.Random.Range(minShootSpd, maxShootSpd);
-            timer3 = time3;
-
-            StartCoroutine(Spikes());
-        }
-
-        if(timer4 <= 0) {
-            time4 = UnityEngine.Random.Range(minShootSpd, maxShootSpd);
-            timer4 = time4;
-
-            // StartCoroutine(Launch());
+        if(abilityTimer <= 0) {
+            abilityTime = UnityEngine.Random.Range(minShootSpd, maxShootSpd);
+            //abilityTimer = abilityTime;
+            float abilityNum = Mathf.Floor((int)UnityEngine.Random.Range(0,2));
+            switch(abilityNum){
+                case(0f):
+                    StartCoroutine(Launch());
+                    abilityTimer = 1;
+                    break;
+                case(1f):
+                    StartCoroutine(Spikes());
+                    abilityTimer = 2;
+                    break;
+            }
         }
 
     }
