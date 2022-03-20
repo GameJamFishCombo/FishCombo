@@ -24750,6 +24750,10 @@ PrefabInstance:
       propertyPath: pauseBackground
       value: 
       objectReference: {fileID: 5099735621048648116}
+    - target: {fileID: 2495188174688495567, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2495188174864183305, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -44388,6 +44392,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8070074635623944175, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
+      propertyPath: newRedTile
+      value: 
+      objectReference: {fileID: 6005812876562809840, guid: a94df355bf80c5d4d8dbc74d9cdf38b6, type: 3}
+    - target: {fileID: 8070074635623944175, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
+      propertyPath: newBlueTile
+      value: 
+      objectReference: {fileID: 6005812876562809840, guid: b72339554a996f24f9d6cb9ba55b8782, type: 3}
     - target: {fileID: 8070074636707876499, guid: f44cc81c7daa35d46b93bdeda3686fc2, type: 3}
       propertyPath: m_RootOrder
       value: 8
