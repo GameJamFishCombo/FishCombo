@@ -291,6 +291,7 @@ public class Player : Units
     }
 
     void LaunchArea(){
+        StartCoroutine(AnimationWait("Attack3"));
         Vector3 spawnPosition = getCurrPosition() + new Vector3(3f, 0, -1);
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
