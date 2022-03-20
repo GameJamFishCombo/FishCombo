@@ -246,6 +246,11 @@ MonoBehaviour:
     volume: 1
     pitchVariation: 0
     source: {fileID: 0}
+  - audioName: RecordGrow
+    audioClip: {fileID: 8300000, guid: 184d9df0f4a57d145b0aff0b27a21d24, type: 3}
+    volume: 1
+    pitchVariation: 0
+    source: {fileID: 0}
   - audioName: PageTurn
     audioClip: {fileID: 8300000, guid: 6ae220bff3e5fd541a5f65f7f6f761bc, type: 3}
     volume: 0.5

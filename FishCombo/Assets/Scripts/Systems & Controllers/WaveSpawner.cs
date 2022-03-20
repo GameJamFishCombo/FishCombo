@@ -79,7 +79,7 @@ public class WaveSpawner : MonoBehaviour
         AudioManager.PlaySound("Victory");
         yield return new WaitForSeconds(4f);
         transition.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(scene);
     }
 

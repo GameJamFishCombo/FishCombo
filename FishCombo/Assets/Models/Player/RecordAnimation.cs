@@ -25,6 +25,9 @@ public class RecordAnimation : MonoBehaviour
     public bool lerp2 = false;
     public bool lerp3 = false;
 
+    public bool lerpsound1 = false;
+    public bool lerpsound2 = false;
+    public bool lerpsound3 = false;
     void Start()
     {
         time = timer;
@@ -35,13 +38,19 @@ public class RecordAnimation : MonoBehaviour
     {
         time  -= Time.deltaTime;
 
-        if(time <= 0.65f){
+        if(time <= 0.65f && !lerpsound1){
+            lerpsound1 = true;
+            AudioManager.PlaySound("RecordGrow");
             record1.GetComponent<Animator>().Play("Grow");
         }
-        if(time <= 0.6f){
+        if(time <= 0.6f && !lerpsound2){
+            lerpsound2 = true;
+            AudioManager.PlaySound("RecordGrow");
             record2.GetComponent<Animator>().Play("Grow");
         }
-        if(time <= 0.55f){
+        if(time <= 0.55f && !lerpsound3){
+            lerpsound3 = true;
+            AudioManager.PlaySound("RecordGrow");
             record3.GetComponent<Animator>().Play("Grow");
         }
         if(!lerp1 && time <= 0.13)
