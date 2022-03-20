@@ -74,5 +74,13 @@ public class ComboManager : MonoBehaviour
     public void DecreaseCombo(int decrement){
         comboLevel -= decrement;
         comboBar.SetCombo(comboLevel);
+        
+        if(comboLevel < 5) {
+            abilityCooldown1.SetCombo(1);
+        } else if(comboLevel < 15) {
+            abilityCooldown2.SetCombo(1);
+        } else if(comboLevel < 30) {
+            abilityCooldown3.SetCombo(1);
+        }
     }
 }

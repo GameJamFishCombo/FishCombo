@@ -11,7 +11,7 @@ public class BossEnemy : Units
     [Tooltip("Duration it takes to LERP between tiles.")]    
     public float duration = 0.09f; //time for lerp
     public float movementTime = 1, abilityTime = 2,
-    movementTimer, abilityTimer, timer3, timer4;
+    movementTimer, abilityTimer;
 
     [Header("Action Timings")]
     [Tooltip("Minumum move wait time. MUST be =>duration.")]

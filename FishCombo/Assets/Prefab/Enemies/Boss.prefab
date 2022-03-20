@@ -286,7 +286,7 @@ MonoBehaviour:
   currY: 0
   type: 5
   maxHP: 200
-  dmg: 5
+  dmg: 10
   def: 0
   HPBar: {fileID: 2063369587373552911}
   dmgSound: {fileID: 0}
@@ -295,8 +295,6 @@ MonoBehaviour:
   abilityTime: 2
   movementTimer: 0
   abilityTimer: 0
-  timer3: 0
-  timer4: 0
   minMoveWaitTime: 0.09
   maxMoveWaitTime: 2
   minShootSpd: 0.5
