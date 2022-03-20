@@ -193,9 +193,7 @@ public class Player : Units
     }
 
     IEnumerator Lunge(Vector3 targetPosition){ // KILL ME
-        animator.SetBool("Attack1",true);
-        yield return null;
-        animator.SetBool("Attack1",false);
+       StartCoroutine(AnimationWait("Attack1"));
         canMove = false;
         float time = 0;
         Vector3 startPosition = player.position;
@@ -326,6 +324,12 @@ public class Player : Units
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(areaProjectile, spawnPosition, Quaternion.identity);
 
+    }
+
+    IEnumerator AnimationWait(string animation){
+        animator.SetBool(animation,true);
+        yield return null;
+        animator.SetBool(animation,false);
     }
 
     public override void Die() {

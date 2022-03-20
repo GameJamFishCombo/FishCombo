@@ -2131,6 +2131,7 @@ GameObject:
   - component: {fileID: 8176111637778606875}
   - component: {fileID: 5033722351080336137}
   - component: {fileID: 219706627922788144}
+  - component: {fileID: 1694751547404361102}
   m_Layer: 5
   m_Name: Ability1
   m_TagString: Untagged
@@ -2260,6 +2261,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 5033722351080336137}
+--- !u!95 &1694751547404361102
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613434867991879574}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37c5e14745a8c144b8602e98cba89601, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5098690525406294281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,6 +2368,7 @@ GameObject:
   - component: {fileID: 4016719425050112551}
   - component: {fileID: 1706970719831197061}
   - component: {fileID: 5229930111132036863}
+  - component: {fileID: 3905086432378144644}
   m_Layer: 5
   m_Name: Ability2
   m_TagString: Untagged
@@ -2477,6 +2498,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1706970719831197061}
+--- !u!95 &3905086432378144644
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6714895951412355535}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37c5e14745a8c144b8602e98cba89601, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6854111976438425564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,6 +2530,7 @@ GameObject:
   - component: {fileID: 3805105855753004674}
   - component: {fileID: 2168393358232521203}
   - component: {fileID: 6578657925227889051}
+  - component: {fileID: 2814851552307771341}
   m_Layer: 5
   m_Name: Ability3
   m_TagString: Untagged
@@ -2619,3 +2660,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2168393358232521203}
+--- !u!95 &2814851552307771341
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854111976438425564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37c5e14745a8c144b8602e98cba89601, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
