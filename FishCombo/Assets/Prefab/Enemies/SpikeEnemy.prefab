@@ -4780,7 +4780,7 @@ MonoBehaviour:
   currY: 0
   type: 2
   maxHP: 100
-  dmg: 0
+  dmg: 1
   def: 0
   HPBar: {fileID: 7615452795893224199}
   dmgSound: {fileID: 0}

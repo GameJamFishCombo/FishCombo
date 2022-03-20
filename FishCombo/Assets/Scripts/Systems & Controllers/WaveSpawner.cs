@@ -31,7 +31,7 @@ public class WaveSpawner : MonoBehaviour
     void Start() {
         StartCoroutine(SetWaveNumber());
         waveCountdown = timeBetweenWaves;
-        playerAnimation = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        playerAnimation = GameObject.Find("Jam_Idle").GetComponent<Animator>();
     }
 
     void Update() {
