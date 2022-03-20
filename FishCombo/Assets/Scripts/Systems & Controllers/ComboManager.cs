@@ -59,12 +59,15 @@ public class ComboManager : MonoBehaviour
         comboBar.SetCombo(comboLevel);
         if(comboLevel == 5){
             abilityCooldown1.GetComponent<Animator>().Play("AbilityIcon");
+            abilityCooldown1.SetCombo(0);
         }
         if(comboLevel == 15){
             abilityCooldown2.GetComponent<Animator>().Play("AbilityIcon");
+            abilityCooldown2.SetCombo(0);
         }
         if(comboLevel == 30){
             abilityCooldown3.GetComponent<Animator>().Play("AbilityIcon");
+            abilityCooldown3.SetCombo(0);
         }
     }
 
