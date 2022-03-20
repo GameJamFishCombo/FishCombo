@@ -231,3 +231,23 @@ MonoBehaviour:
     volume: 0.5
     pitchVariation: 0
     source: {fileID: 0}
+  - audioName: ThrowRecord1
+    audioClip: {fileID: 8300000, guid: 0e96a1477a183dc43825d8de273d6197, type: 3}
+    volume: 0.5
+    pitchVariation: 0
+    source: {fileID: 0}
+  - audioName: ThrowRecord2
+    audioClip: {fileID: 8300000, guid: 96a8fceba9e0852428ca371a5e1728b3, type: 3}
+    volume: 0.5
+    pitchVariation: 0
+    source: {fileID: 0}
+  - audioName: ThrowRecord3
+    audioClip: {fileID: 8300000, guid: 2416c6236f5df2c44933e65a12aa822b, type: 3}
+    volume: 0.5
+    pitchVariation: 0
+    source: {fileID: 0}
+  - audioName: PageTurn
+    audioClip: {fileID: 8300000, guid: 6ae220bff3e5fd541a5f65f7f6f761bc, type: 3}
+    volume: 0.5
+    pitchVariation: 0
+    source: {fileID: 0}

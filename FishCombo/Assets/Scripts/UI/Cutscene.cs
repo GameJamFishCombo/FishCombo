@@ -45,6 +45,7 @@ public class Cutscene : MonoBehaviour
     }
 
     public void Skipscene(){
+        AudioManager.PlaySound("PageTurn");
         sceneNum++;
         PlayScene();
     }
