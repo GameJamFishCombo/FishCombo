@@ -11,6 +11,10 @@ public class SpikesProjectile : MonoBehaviour
         shooterStat = shooter.GetComponent<Units>();
     }
 
+    void Start() {
+        Destroy(this.gameObject, 1f);
+    }
+
     void OnTriggerEnter(Collider other) {
         Debug.Log("Collide with " + other.name);
         if(this.tag == "EnemyBullet"){
@@ -19,7 +23,7 @@ public class SpikesProjectile : MonoBehaviour
                 Debug.Log("shooterstat dmg" + shooterStat.dmg);
                 playerStat.TakeDmg(shooterStat.dmg);
                 //Debug.Log("Player HP: " + playerStat.currHP);        
-                Destroy(this.gameObject, 3f);
+                Destroy(this.gameObject);
             }
         }
     }
