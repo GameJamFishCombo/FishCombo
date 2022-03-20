@@ -66,13 +66,18 @@ public class WaveSpawner : MonoBehaviour
             string currSceneName = SceneManager.GetActiveScene().name;
 
             if(currSceneName == "RecordRoom") {
-                SceneManager.LoadScene("Cutscene3");
+                StartCoroutine(LoadScene("Cutscene3"));
             } else {
-                SceneManager.LoadScene("Shop");
+                 StartCoroutine(LoadScene("Shop"));
             }
         } else {
             nextWave++;
         }
+    }
+
+    IEnumerator LoadScene(string scene){
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(scene);
     }
 
     bool EnemyIsAlive() {
