@@ -74,6 +74,7 @@ public class Units : MonoBehaviour
 
     public void IncreaseATK() {
         dmg += 1;
+        Debug.Log("New Atk: " + dmg);
     }
 
     public void IncreaseMaxHP() {

@@ -19,7 +19,8 @@ public class PauseMenu : MonoBehaviour
     public float time = 3;
     public GameObject fadeOutObject;
     public bool cutscene;
-    void Awake(){
+    
+    void Start(){
         if(!cutscene)
         Cursor.visible = false;
         onHoverSound.ignoreListenerPause = true;
