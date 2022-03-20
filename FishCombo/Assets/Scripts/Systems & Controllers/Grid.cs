@@ -8,7 +8,8 @@ public class Grid : MonoBehaviour
     [SerializeField] private Material tileMaterial;
     [SerializeField] private float tileSize = 1.0f;
     [SerializeField] private float yOffset = 0.2f;
-    [SerializeField] private GameObject newTile;
+    [SerializeField] private GameObject newBlueTile;
+    [SerializeField] private GameObject newRedTile;
 
     [Header("Prefabs & Mats")]
     [SerializeField] private GameObject[] prefabs;
@@ -48,10 +49,17 @@ public class Grid : MonoBehaviour
 
     private GameObject GenerateSingleTile(float tileSize, int x, int y) {
         Vector3 location = new Vector3(x,0,y);
-        GameObject defaultTile = Instantiate(newTile, location, Quaternion.identity);
+        GameObject defaultTile = Instantiate(newBlueTile, location, Quaternion.identity);
 
-        defaultTile.name = string.Format("X:{0} Y:{1}", x, y);
-        defaultTile.layer = LayerMask.NameToLayer("Tile");
+        if(x > 3) {
+            defaultTile = Instantiate(newRedTile, location, Quaternion.identity);
+            defaultTile.name = string.Format("X:{0} Y:{1}", x, y);
+            defaultTile.layer = LayerMask.NameToLayer("Tile");
+        } else {
+            defaultTile = Instantiate(newBlueTile, location, Quaternion.identity);
+            defaultTile.name = string.Format("X:{0} Y:{1}", x, y);
+            defaultTile.layer = LayerMask.NameToLayer("Tile");
+        }
 
         return defaultTile;
     }
