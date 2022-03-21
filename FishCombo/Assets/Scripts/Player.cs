@@ -234,7 +234,7 @@ public class Player : Units
     }
 
     void LaunchMelee(){
-        StartCoroutine(AnimationWait("Attack3"));
+        //StartCoroutine(AnimationWait("Attack3"));
         Vector3 spawnPosition = player.position + new Vector3(0, 0, -1);
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);
