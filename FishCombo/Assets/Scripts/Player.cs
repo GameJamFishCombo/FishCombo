@@ -72,7 +72,7 @@ public class Player : Units
                 buffer.Enqueue(MovementInput.Right);
         }
 
-        if((Input.GetKeyDown(KeyCode.R) || Input.GetKey(KeyCode.R)) && canMove && canAutoFire && canCast) 
+        if((Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.E)) && canMove && canAutoFire && canCast) 
         {
             StartCoroutine(PrimaryCooldown());
         }
@@ -92,7 +92,7 @@ public class Player : Units
             StartCoroutine(PushAnimationWait("Attack2"));
         }
 
-        if(Input.GetKeyDown(KeyCode.E) && canMove && comboManager.comboLevel >= areaCost && canCast) //if between tiles, round up or down
+        if(Input.GetKeyDown(KeyCode.R) && canMove && comboManager.comboLevel >= areaCost && canCast) //if between tiles, round up or down
         {
             // attackSound1.Play();
             AudioManager.PlaySound("Player Special Attack 2");
