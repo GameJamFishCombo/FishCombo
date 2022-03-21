@@ -74,5 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa5ce85bb4e5284dbf7a80cc92eadef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeSpan: 1
+  lifeSpan: 0.5
   spawnObject: {fileID: 7718313146677422797, guid: d98fa251f207f124eb4538061ee8cc73, type: 3}

@@ -18,7 +18,7 @@ public class Units : MonoBehaviour
     public float currHP {get; private set;}
     public int dmg;
     bool invincible = false;
-    float invcibilityDuration = 0.0005f;
+    float invcibilityDuration = 0.001f;
     int comboPts;
     public HUDHealth HPBar;
     public GameObject hitEffect;

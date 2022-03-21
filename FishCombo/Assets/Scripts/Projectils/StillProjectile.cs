@@ -11,6 +11,7 @@ public class StillProjectile : MonoBehaviour
     public GameObject shooter;
     float lifeTimer = 0f;
     Units shooterStat;
+    bool canHurt = true;
     Grid grid;
     
     void Awake()
@@ -32,12 +33,11 @@ public class StillProjectile : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if(!(other.tag == "Player" && shooter.tag == "Player") & !(other.tag == "Enemy" && gameObject.tag == "Enemy") & (other.tag == "Enemy" || other.tag == "Player")) {
+        if(!(other.tag == "Player" && shooter.tag == "Player") && !(other.tag == "Enemy" && gameObject.tag == "Enemy") && (other.tag == "Enemy" || other.tag == "Player") && (canHurt)) {
             Units enemyStat = other.gameObject.GetComponent<Units>();
             Debug.Log("Player AOE did: " + (shooterStat.dmg + damageMulitplier));
             enemyStat.TakeDmg(shooterStat.dmg * damageMulitplier);
-            //Debug.Log("Enemy HP: " + enemyStat.currHP);        
-            Destroy(gameObject);
+            canHurt = false;
         }
     }
 }
