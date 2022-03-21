@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooter: {fileID: 3529395433689516189, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
+  particles: {fileID: 4456737041351190653, guid: 14903dae97dac244cabeedb814fad00f, type: 3}
 --- !u!54 &6705617441938296510
 Rigidbody:
   m_ObjectHideFlags: 0

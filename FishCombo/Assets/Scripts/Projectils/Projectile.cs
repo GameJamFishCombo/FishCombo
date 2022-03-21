@@ -39,6 +39,7 @@ public class Projectile : MonoBehaviour
         } else if(this.tag == "EnemyBullet"){
             if(other.tag == "Player") {
                 Units playerStat = other.gameObject.GetComponent<Units>();
+                Instantiate(particles,transform.position,Quaternion.identity);
                 playerStat.TakeDmg(shooterStat.dmg);
                 //Debug.Log("Player HP: " + playerStat.currHP);        
                 Destroy(gameObject);

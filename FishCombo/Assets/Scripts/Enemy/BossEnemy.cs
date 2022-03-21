@@ -115,9 +115,12 @@ public class BossEnemy : Units
     }
 
     IEnumerator ProjectileAnimationWait(){
+         
         animator.SetBool("Attack2",true);
         yield return null;
         animator.SetBool("Attack2",false);
+        yield return new WaitForSeconds(0.1f);
+        AudioManager.PlaySound("FunkyFire");
         yield return new WaitForSeconds(projectileWaitTime);
         StartCoroutine(Launch());
         
@@ -125,7 +128,6 @@ public class BossEnemy : Units
 
     IEnumerator Launch() {
         GameObject projectileObject = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(-1f, 0, 0);
         projectile.Launch(lookDirection, 300);
