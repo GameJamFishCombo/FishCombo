@@ -122,7 +122,7 @@ public class Units : MonoBehaviour
             string tag = hit.collider.tag;
 
             if(tag == "Enemy") {
-                Debug.Log("Tile is occupied");
+                // Debug.Log("Tile is occupied");
                 return true;
             }
         }

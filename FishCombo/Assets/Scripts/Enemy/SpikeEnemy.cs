@@ -96,7 +96,7 @@ public class SpikeEnemy : Units
     // }
 
     IEnumerator Spikes() {
-        Debug.Log("Spawn spikes");
+        // Debug.Log("Spawn spikes");
         animator.SetBool("Attack",true);
         StartCoroutine(Sound());
         Vector3 playerPos = player.getCurrPosition();

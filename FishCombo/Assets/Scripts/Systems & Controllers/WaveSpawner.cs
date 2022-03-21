@@ -60,14 +60,17 @@ public class WaveSpawner : MonoBehaviour
 
         //if the next wave is out of bounds of array
         //basically, final wave was completed, trigger cutscene
-        if(nextWave + 1 > waves.Length - 1) {
-
+        Debug.Log("Next Wave #: " + nextWave);
+        if(nextWave + 1 >= waves.Length) {
+            waveCountdown = 1000f;
+            Debug.Log("All Waves Completed");
             string currSceneName = SceneManager.GetActiveScene().name;
+            // Debug.Log("Scene Name: " + currSceneName);
 
             if(currSceneName == "RecordRoom") {
                 StartCoroutine(LoadScene("Cutscene3"));
             } else {
-                 StartCoroutine(LoadScene("Shop"));
+                StartCoroutine(LoadScene("Shop"));
             }
         } else {
             nextWave++;
@@ -77,7 +80,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator LoadScene(string scene){
         playerAnimation.SetBool("Victory",true);
         AudioManager.PlaySound("Victory");
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         transition.SetActive(true);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(scene);

@@ -41,7 +41,7 @@ public class ComboManager : MonoBehaviour
     {
         if(comboLevel > 0){
             if(resetTimer <= 0){
-                Debug.Log("Reset Combo");
+                // Debug.Log("Reset Combo");
                 float oldComboLv = comboLevel;
                 comboLevel = 0;
                 comboBar.SetCombo(comboLevel, oldComboLv);

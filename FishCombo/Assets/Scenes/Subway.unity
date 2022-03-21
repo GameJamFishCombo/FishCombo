@@ -512,7 +512,7 @@ MonoBehaviour:
   waveCountdown: 0
   grid: {fileID: 1704102885}
   playerAnimation: {fileID: 0}
-  transition: {fileID: 0}
+  transition: {fileID: 790785600}
 --- !u!4 &758516695
 Transform:
   m_ObjectHideFlags: 0
@@ -5569,6 +5569,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+--- !u!1 &790785600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2495188174471066315, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
+  m_PrefabInstance: {fileID: 790785599}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &798582249
 GameObject:
   m_ObjectHideFlags: 0

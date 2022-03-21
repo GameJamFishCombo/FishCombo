@@ -126,7 +126,7 @@ public class Grid : MonoBehaviour
 
         PositionAllPieces();
 
-        Debug.Log("Spawning Enemy: " + enemy.name);
+        // Debug.Log("Spawning Enemy: " + enemy.name);
     }
 
     public bool inBounds(Vector3 vec, string tag) {

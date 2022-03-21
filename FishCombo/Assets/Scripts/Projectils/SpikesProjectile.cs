@@ -18,11 +18,11 @@ public class SpikesProjectile : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        Debug.Log("Collide with " + other.name);
+        // Debug.Log("Collide with " + other.name);
         if(this.tag == "EnemyBullet"){
             if(other.tag == "Player") {
                 Units playerStat = other.gameObject.GetComponent<Units>();
-                Debug.Log("shooterstat dmg" + shooterStat.dmg);
+                // Debug.Log("shooterstat dmg" + shooterStat.dmg);
                 playerStat.TakeDmg(shooterStat.dmg);
                 //Debug.Log("Player HP: " + playerStat.currHP);        
             }
