@@ -476,38 +476,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: 'Wave 1: 2 Lunger'
+  - name: 'Wave 1: 1 Lunger'
     enemy:
     - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
     - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
     - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
     - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
-    Enemies: 00000000000000000200000000000000
+    Enemies: 00000000000000000100000000000000
     rate: 0.5
-  - name: 'Wave 2: 3 Spike'
+  - name: 'Wave 2: 1 Spike 1 Lunger'
     enemy:
     - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
     - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
     - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
     - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
-    Enemies: 00000000030000000000000000000000
+    Enemies: 00000000010000000100000000000000
     rate: 0.5
-  - name: 'Wave 3: 2 Lunger 3 Spike'
+  - name: 'Wave 3: 1 Lunger 1 Spike 1 Basic'
     enemy:
     - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
     - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
     - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
     - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
-    Enemies: 00000000020000000300000000000000
+    Enemies: 01000000010000000100000000000000
     rate: 0.5
-  - name: 'Wave 4: 4 Lunger 4 Spike'
+  - name: 'Wave 4: 1 Basic, 2 Spike, 1 Lunger'
     enemy:
     - {fileID: 2199046822223763846, guid: e45f8f5b830169a45a88da4e0f67da2e, type: 3}
     - {fileID: 3041116586562559631, guid: 86302bf57565ada4f8692269e5a7f14a, type: 3}
     - {fileID: 3394755508995505930, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
     - {fileID: 3886950254091038084, guid: 24d9e78128f2d5547a9c5a2340ab0053, type: 3}
-    Enemies: 00000000040000000400000000000000
-    rate: 0.5
+    Enemies: 01000000010000000200000000000000
+    rate: 0.3
   timeBetweenWaves: 2
   waveCountdown: 0
   grid: {fileID: 1704102885}
