@@ -10,7 +10,25 @@ public class GridTileAnimator : MonoBehaviour
     public GameObject particles;
     // Start is called before the first frame update
     
+    public List<Collider> triggerList = new List<Collider>();
+
+    void Update(){
+        if(triggerList.Count > 0){
+            int count = 0;
+            foreach(Collider c in triggerList){
+                if(c != null && c.tag != "Player")
+                    count++;
+            }
+
+            if(count <= 0){
+                animator.Play("GrayHighlight");
+                triggerList.Clear();
+            }
+        }
+    }
+
     void OnTriggerEnter(Collider other){
+        triggerList.Add(other);
         if(other.tag == "PlayerBullet" || other.tag == "PushBullet" || other.tag == "StillBullet"){
             animator.Play("BlueHighlight");
         }
@@ -30,6 +48,7 @@ public class GridTileAnimator : MonoBehaviour
         }
     }
     void OnTriggerExit(Collider other){
+        triggerList.Remove(other);
         animator.Play("GrayHighlight");
     }
     
