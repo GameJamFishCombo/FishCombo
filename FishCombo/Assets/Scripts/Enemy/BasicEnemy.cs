@@ -83,24 +83,24 @@ public class BasicEnemy : Units
 
     public override void Die() {
         base.Die();
+        AudioManager.PlaySound("EnemyDeath");
         Destroy(this.gameObject);
         Debug.Log(enemy + " dead.");
     }
 
-    public override void Sound() {
+    // public override void Sound() {
 
-    }
+    // }
 
     IEnumerator Launch() {
         animator.SetBool("Attack",true);
         yield return new WaitForSeconds(0.5f);
+        AudioManager.PlaySound("SprayAttack");
         GameObject projectileObject = Instantiate(projectilePrefab, firePoint.transform.position, Quaternion.identity);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(-1f, 0, 0);
         projectile.Launch(lookDirection, projectileSpeed);
         animator.SetBool("Attack", false);
-        
-        // PlaySound(throwSound);
     }
 }

@@ -271,3 +271,13 @@ MonoBehaviour:
     volume: 1
     pitchVariation: 0
     source: {fileID: 0}
+  - audioName: SprayAttack
+    audioClip: {fileID: 8300000, guid: 72f13eca5c3d9b145b62dc3fdfac8087, type: 3}
+    volume: 1
+    pitchVariation: 0
+    source: {fileID: 0}
+  - audioName: EnemyDeath
+    audioClip: {fileID: 8300000, guid: cf7837900d6cfaf47af2fd953b8fbd00, type: 3}
+    volume: 1
+    pitchVariation: 0
+    source: {fileID: 0}

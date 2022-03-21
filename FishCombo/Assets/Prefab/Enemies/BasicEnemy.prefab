@@ -144,6 +144,7 @@ MonoBehaviour:
   maxHP: 75
   dmg: 1
   HPBar: {fileID: 6332129840560237689}
+  hitEffect: {fileID: 5440027151704298234, guid: 7e336e1572bfd7c4cb642787fb36d479, type: 3}
   dmgSound: {fileID: 0}
   duration: 0.12
   time1: 1
