@@ -20,9 +20,6 @@ public class Cutscene : MonoBehaviour
         if(cutsceneOver)
             exitTime -= Time.deltaTime;
 
-            
-        
-
         if(exitTime <=0){
             //go to credits or end application
             SceneManager.LoadScene(levelToLoad);
