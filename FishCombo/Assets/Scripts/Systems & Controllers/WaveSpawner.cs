@@ -28,13 +28,13 @@ public class WaveSpawner : MonoBehaviour
     public Animator playerAnimation;
     public GameObject transition;
     public GameObject mainMusicObj;
-    public AudioSource mainMusic;
+    // public AudioSource mainMusic;
 
     void Start() {
         StartCoroutine(SetWaveNumber());
         waveCountdown = timeBetweenWaves;
         playerAnimation = GameObject.Find("Jam_Idle").GetComponent<Animator>();
-        mainMusic = mainMusicObj.GetComponent<AudioSource>();
+        // mainMusic = mainMusicObj.GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -82,7 +82,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator LoadScene(string scene){
         playerAnimation.SetBool("Victory",true);
-        mainMusic.Stop();
+        // mainMusic.Stop();
         AudioManager.PlaySound("Victory");
         yield return new WaitForSeconds(3f);
         transition.SetActive(true);
