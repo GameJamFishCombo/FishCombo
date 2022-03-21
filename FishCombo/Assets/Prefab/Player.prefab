@@ -699,7 +699,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8956560313617596929, guid: eb7b1a2da12f0124787f159da0ac9c43, type: 3}
   pushPrefab: {fileID: 4028143268801482855, guid: 7725c1e134b120c44a6c0c126821283b, type: 3}
   areaProjectile: {fileID: 2607529295597614123, guid: 37123692671739e46bf71d09ecb07a90, type: 3}
-  meleeProjectile: {fileID: 1963822313625910434, guid: 7b736d7799259164791bf164c993ab38, type: 3}
+  meleeProjectile: {fileID: 1879501858810017308, guid: 869142e17537f994aa05009b2c646e2e, type: 3}
   firePoint: {fileID: 2892561090614271308}
   projectileSpeed: 600
   recordAbility: {fileID: 3821618178255049549, guid: 80abaf077da37914db1dad77d6703764, type: 3}
