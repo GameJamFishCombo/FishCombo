@@ -731,7 +731,7 @@ MonoBehaviour:
   timer: 3
   time: 3
   fadeOutObject: {fileID: 2495188174471066315}
-  gameOverObj: {fileID: 0}
+  gameOverObj: {fileID: 5753799211349587868}
   cutscene: 0
 --- !u!1 &2495188174239225732
 GameObject:

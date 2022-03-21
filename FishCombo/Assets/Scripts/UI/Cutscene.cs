@@ -24,14 +24,10 @@ public class Cutscene : MonoBehaviour
         
 
         if(exitTime <=0){
-            string currName = SceneManager.GetActiveScene().name;
             //go to credits or end application
-            if(currName == "Cutscene3") {
-                Application.Quit();
-            } else {
-                SceneManager.LoadScene(levelToLoad);
-            }
+            SceneManager.LoadScene(levelToLoad);
         }
+        
 
     }
 
