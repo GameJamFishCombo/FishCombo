@@ -306,7 +306,7 @@ MonoBehaviour:
     volume: 0.5
     pitchVariation: 0
     source: {fileID: 0}
-  - audioName: LungeSwipe
+  - audioName: LungeAbility
     audioClip: {fileID: 8300000, guid: 936c77638775cf8418fe99cf50fbf0a3, type: 3}
     volume: 1
     pitchVariation: 0

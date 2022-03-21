@@ -34,8 +34,8 @@ public class BossEnemy : Units
         enemy = GetComponent<Transform>();
         movementTimer = movementTime;
         abilityTimer = abilityTime;
-        playerObj = GameObject.FindGameObjectWithTag("Player");
-        player = playerObj.GetComponent<Player>();
+        player = FindObjectOfType<Player>();
+       //player = playerObj.GetComponent<Player>();
     }
 
     public void FixedUpdate() {

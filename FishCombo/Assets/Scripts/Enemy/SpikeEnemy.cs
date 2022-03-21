@@ -30,8 +30,8 @@ public class SpikeEnemy : Units
         enemy = GetComponent<Transform>();
         timer1 = time1;
         timer2 = time2;
-        playerObj = GameObject.FindGameObjectWithTag("Player");
-        player = playerObj.GetComponent<Player>();
+        player = FindObjectOfType<Player>();
+        //player = playerObj.GetComponent<Player>();
     }
 
     public void FixedUpdate() {
@@ -100,11 +100,11 @@ public class SpikeEnemy : Units
         animator.SetBool("Attack",true);
         StartCoroutine(Sound());
         Vector3 playerPos = player.getCurrPosition();
-        GameObject projectileObject = Instantiate(projectilePrefab, playerPos, Quaternion.identity);
+        Instantiate(projectilePrefab, playerPos, Quaternion.identity);
         yield return null;
         animator.SetBool("Attack",false);
         //some animation that shows where obj gonna spawn
-        SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
+        //SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
     }
 
     IEnumerator Sound(){
