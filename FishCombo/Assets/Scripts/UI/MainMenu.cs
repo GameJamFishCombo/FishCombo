@@ -7,10 +7,28 @@ public class MainMenu : MonoBehaviour
 {
     public AudioSource onClickSound;
     public AudioSource onHoverSound;
+    public float time = 2.3f;
+    public float timer = 2.3f;
+    public bool playing;
+    public GameObject fadeOutObject;
+    
+    void Update(){
+        
+        if(playing)
+            time-=Time.deltaTime;
+        if(time<=0)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    void Start(){
+        Cursor.visible = true;
+    }
 
     public void PlayGame() {
+        fadeOutObject.SetActive(true);
+        playing = true;
         onClickSound.Play();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
 
     public void QuitGame() {
