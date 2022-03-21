@@ -6,7 +6,7 @@ public class StillProjectile : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody rigidbody;
-    public int damageMulitplier = 3;
+    public int damageMulitplier = 5;
     public float lifeSpan = 0.2f; 
     public GameObject shooter;
     float lifeTimer = 0f;
@@ -32,8 +32,9 @@ public class StillProjectile : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if((other.tag == "Player" && shooter.tag != "Player") || (other.tag == "Enemy" && gameObject.tag == "Player")) {
+        if(!(other.tag == "Player" && shooter.tag != "Player") & !(other.tag == "Enemy" && gameObject.tag == "Enemy") & (other.tag == "Enemy" || other.tag == "Player")) {
             Units enemyStat = other.gameObject.GetComponent<Units>();
+            Debug.Log("Player AOE did: " + (shooterStat.dmg + damageMulitplier));
             enemyStat.TakeDmg(shooterStat.dmg * damageMulitplier);
             //Debug.Log("Enemy HP: " + enemyStat.currHP);        
             Destroy(gameObject);
