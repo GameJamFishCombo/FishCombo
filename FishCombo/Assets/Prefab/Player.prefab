@@ -683,7 +683,7 @@ MonoBehaviour:
   team: 0
   currX: 0
   currY: 0
-  type: 3
+  type: 4
   maxHP: 100
   dmg: 2
   HPBar: {fileID: 147915059326384941}
@@ -707,6 +707,7 @@ MonoBehaviour:
   lungeAnimationCooldown: 0.3
   pushAnimationCooldown: 0.6
   areaAnimationCooldown: 0.6
+  pauseMenuUI: {fileID: 0}
   deathParticles: {fileID: 5440027151704298234, guid: 66abbbc3ee9086744a544ea544cbf68e, type: 3}
 --- !u!54 &6206849033393784433
 Rigidbody:

@@ -22,8 +22,9 @@ public class PauseMenu : MonoBehaviour
     public bool cutscene;
     
     void Start(){
-        if(!cutscene)
-        Cursor.visible = false;
+        if(!cutscene) Cursor.visible = false;
+        else {Cursor.visible = true;}
+        
         onHoverSound.ignoreListenerPause = true;
         pauseSound.ignoreListenerPause = true;
         pauseBackground.ignoreListenerPause = true;
