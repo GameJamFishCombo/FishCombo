@@ -109,6 +109,13 @@ public class PauseMenu : MonoBehaviour
         clickBlocker.SetActive(true);
     }
 
+    public void Death(){
+        loadMain = true;
+        time = 6f;
+        gameOverObj.SetActive(true);
+
+    }
+
     public void QuitGame() {
         if(!loadMain){
             onClickSound.Play();

@@ -687,6 +687,7 @@ MonoBehaviour:
   maxHP: 100
   dmg: 2
   HPBar: {fileID: 147915059326384941}
+  hitEffect: {fileID: 0}
   dmgSound: {fileID: 0}
   lungeCost: 5
   pushCost: 15
@@ -706,6 +707,7 @@ MonoBehaviour:
   lungeAnimationCooldown: 0.3
   pushAnimationCooldown: 0.6
   areaAnimationCooldown: 0.6
+  deathParticles: {fileID: 5440027151704298234, guid: 66abbbc3ee9086744a544ea544cbf68e, type: 3}
 --- !u!54 &6206849033393784433
 Rigidbody:
   m_ObjectHideFlags: 0

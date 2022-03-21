@@ -49,6 +49,7 @@ public class GridTileAnimator : MonoBehaviour
     }
     void OnTriggerExit(Collider other){
         triggerList.Remove(other);
+        if(other.tag != "Player")
         animator.Play("GrayHighlight");
     }
     

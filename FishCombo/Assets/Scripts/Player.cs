@@ -38,7 +38,7 @@ public class Player : Units
     private Queue<MovementInput> buffer;
     private Grid grid;
     private ComboManager comboManager;
-    PauseMenu pauseMenuUI;
+    public PauseMenu pauseMenuUI;
     public GameObject deathParticles;
     void Awake()
     {
@@ -377,7 +377,7 @@ public class Player : Units
         AudioManager.PlaySound("Player Death");
         // Destroy(this.gameObject);
         Debug.Log(player + " dead.");        
-        pauseMenuUI.GameOver();
+        pauseMenuUI.Death();
         Destroy(this.gameObject);
     }
 

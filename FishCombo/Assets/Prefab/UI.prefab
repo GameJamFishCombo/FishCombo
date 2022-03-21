@@ -636,8 +636,8 @@ RectTransform:
   - {fileID: 2495188175434512556}
   - {fileID: 2495188174806777741}
   - {fileID: 2495188174043357366}
-  - {fileID: 2495188174471066292}
   - {fileID: 1164485285452177768}
+  - {fileID: 2495188174471066292}
   m_Father: {fileID: 2495188173800109554}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -731,6 +731,7 @@ MonoBehaviour:
   timer: 3
   time: 3
   fadeOutObject: {fileID: 2495188174471066315}
+  gameOverObj: {fileID: 0}
   cutscene: 0
 --- !u!1 &2495188174239225732
 GameObject:
@@ -1001,7 +1002,7 @@ RectTransform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 2495188174223147361}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2328,7 +2329,7 @@ RectTransform:
   m_Children:
   - {fileID: 7846466623505330688}
   m_Father: {fileID: 2495188174223147361}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
