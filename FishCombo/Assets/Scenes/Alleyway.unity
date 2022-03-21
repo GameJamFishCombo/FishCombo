@@ -5164,6 +5164,7 @@ MonoBehaviour:
   grid: {fileID: 8070074636011742644}
   playerAnimation: {fileID: 0}
   transition: {fileID: 1080456714}
+  mainMusicObj: {fileID: 1997931106}
 --- !u!4 &620748249
 Transform:
   m_ObjectHideFlags: 0
