@@ -8,7 +8,7 @@ public enum UnitType {
 }
 
 public class Units : MonoBehaviour
-{
+{   
     Transform unit;
     public int team;
     public int currX, currY;
