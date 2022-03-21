@@ -513,6 +513,7 @@ MonoBehaviour:
   grid: {fileID: 1704102885}
   playerAnimation: {fileID: 0}
   transition: {fileID: 790785600}
+  mainMusicObj: {fileID: 0}
 --- !u!4 &758516695
 Transform:
   m_ObjectHideFlags: 0
@@ -5651,13 +5652,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798582249}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.13406482, y: -0, z: -0, w: 0.9909726}
+  m_LocalPosition: {x: 3.22, y: 4.72, z: -11.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1913376689}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15.409, y: 0, z: 0}
 --- !u!114 &798582253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6006,6 +6007,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1913376689}
+  - component: {fileID: 1913376690}
   m_Layer: 0
   m_Name: CamAnchor
   m_TagString: Untagged
@@ -6020,14 +6022,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913376688}
-  m_LocalRotation: {x: 0.13406482, y: -0, z: -0, w: 0.9909726}
-  m_LocalPosition: {x: 3.22, y: 4.72, z: -11.07}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 798582252}
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 15.409, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1913376690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913376688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultPosInfluence: {x: 0.3, y: 0.3, z: 0}
+  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+  RestPositionOffset: {x: 0, y: 0, z: 0}
+  RestRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1955443990
 GameObject:
   m_ObjectHideFlags: 0

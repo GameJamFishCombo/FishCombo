@@ -24,7 +24,8 @@ public class Units : MonoBehaviour
     public HUDHealth HPBar;
     public GameObject hitEffect;
     public AudioSource dmgSound;
-
+    //public float shakeMultiplier = 0.05f;
+    
     void Start() {
         currHP = maxHP;
         // HPBar = gameObject.Find("Healthbar UI").GetComponent<HUDHealth>();
@@ -36,9 +37,11 @@ public class Units : MonoBehaviour
             float originalHP = currHP;
             dmg = Mathf.Clamp(dmg, 0, int.MaxValue);
             currHP -= dmg;
-            if(gameObject.tag != "Player")
+            if(gameObject.tag != "Player"){
                 GameManager.comboManager.IncrementCombo();
-            
+                CameraShaker.Instance.ShakeOnce(0.5f,0.4f,0.2f,0.1f);
+            }
+
             if(gameObject.tag == "Player"){
                 CameraShaker.Instance.ShakeOnce(1.3f,3f,0.2f,0.4f);
                 
