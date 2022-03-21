@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMulitplier: 3
-  lifeSpan: 1
+  lifeSpan: 0.4
   shooter: {fileID: 3032979723643574803, guid: ab508a78ef2b56b41a961ea7d9639ee8, type: 3}
 --- !u!1001 &752764976317094476
 PrefabInstance:
