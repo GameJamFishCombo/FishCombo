@@ -210,6 +210,7 @@ public class Player : Units
             yield return null;
         }
         player.position = targetPosition;
+        AudioManager.PlaySound("LungeAbility");
         time = 0;
 
         for(int i = 0; i < (numMeleeHits-1); i++){

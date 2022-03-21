@@ -44,7 +44,7 @@ public class Units : MonoBehaviour
 
             if(gameObject.tag == "Player"){
                 CameraShaker.Instance.ShakeOnce(1.3f,3f,0.2f,0.4f);
-                
+                AudioManager.PlaySound("PlayerDamage");
             }
 
             HPBar.SetHealth(currHP, originalHP);

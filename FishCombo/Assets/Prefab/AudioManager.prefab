@@ -296,3 +296,18 @@ MonoBehaviour:
     volume: 0.5
     pitchVariation: 0
     source: {fileID: 0}
+  - audioName: LungeAttack
+    audioClip: {fileID: 8300000, guid: cc2e7036e38144f4cb7e689449102656, type: 3}
+    volume: 0.5
+    pitchVariation: 0
+    source: {fileID: 0}
+  - audioName: PlayerDamage
+    audioClip: {fileID: 8300000, guid: cc2e7036e38144f4cb7e689449102656, type: 3}
+    volume: 0.5
+    pitchVariation: 0
+    source: {fileID: 0}
+  - audioName: LungeSwipe
+    audioClip: {fileID: 8300000, guid: 936c77638775cf8418fe99cf50fbf0a3, type: 3}
+    volume: 1
+    pitchVariation: 0
+    source: {fileID: 0}

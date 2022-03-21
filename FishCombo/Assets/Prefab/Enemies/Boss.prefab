@@ -288,7 +288,7 @@ MonoBehaviour:
   currY: 0
   type: 5
   maxHP: 750
-  dmg: 15
+  dmg: 13
   HPBar: {fileID: 2063369587373552911}
   hitEffect: {fileID: 5440027151704298234, guid: 66abbbc3ee9086744a544ea544cbf68e, type: 3}
   dmgSound: {fileID: 0}
