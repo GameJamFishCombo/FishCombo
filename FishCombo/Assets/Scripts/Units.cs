@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using EZCameraShake;
 
 public enum UnitType {
     None, Basic, Spike, Lunger, Player, Boss 
@@ -39,7 +40,8 @@ public class Units : MonoBehaviour
                 GameManager.comboManager.IncrementCombo();
             
             if(gameObject.tag == "Player"){
-                DamageAnimation();
+                CameraShaker.Instance.ShakeOnce(1.3f,3f,0.2f,0.4f);
+                
             }
 
             HPBar.SetHealth(currHP, originalHP);
