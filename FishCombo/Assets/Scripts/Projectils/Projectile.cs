@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     GameObject enemy;
     public GameObject shooter;
     Units shooterStat;
-    
+    public GameObject particles;
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -32,6 +32,8 @@ public class Projectile : MonoBehaviour
                 Units enemyStat = other.gameObject.GetComponent<Units>();
                 enemyStat.TakeDmg(shooterStat.dmg);
                 //Debug.Log("Enemy HP: " + enemyStat.currHP);        
+                Instantiate(particles,transform.position,Quaternion.identity);
+                AudioManager.PlaySound("BulletCollide");
                 Destroy(gameObject);
             }
         } else if(this.tag == "EnemyBullet"){

@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooter: {fileID: 7428160566791425927, guid: f1b8d766af1789c40b7baa9eaaec1f10, type: 3}
+  particles: {fileID: 8003174229961846373, guid: 40a96e82e40734c48b1bbdd46e0d9a7e, type: 3}
 --- !u!54 &5515459478394696434
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -84,77 +85,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8436697940221992435}
     m_Modifications:
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: ShapeModule.type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: ShapeModule.arc.value
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: ShapeModule.m_Rotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.43921572
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.9843138
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 136483350104340541, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 5446012324730671062, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5446012324730671062, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.113171995
-      objectReference: {fileID: 0}
-    - target: {fileID: 5446012324730671062, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.113171995
-      objectReference: {fileID: 0}
-    - target: {fileID: 5446012324730671062, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.113171995
       objectReference: {fileID: 0}
     - target: {fileID: 5446012324730671062, guid: 5ea4b898e52e8ac4eb5789cda9df431d, type: 3}
       propertyPath: m_LocalPosition.x

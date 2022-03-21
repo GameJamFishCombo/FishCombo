@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 6142227594120429880}
-  lerpSpd: 2
+  lerpSpd: 10
   health: 200
 --- !u!1 &2812835265459463048
 GameObject:
@@ -141,8 +141,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2812835265459463048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.7047553, y: 6.7047553, z: 9.5238}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000011786}
+  m_LocalScale: {x: 7.805006, y: 7.805006, z: 11.086656}
   m_Children:
   - {fileID: 55744953944929756}
   - {fileID: 2081619102115161589}
@@ -152,7 +152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 694, y: -416}
+  m_AnchoredPosition: {x: 663, y: -425}
   m_SizeDelta: {x: 60.13, y: 23.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6142227594120429880

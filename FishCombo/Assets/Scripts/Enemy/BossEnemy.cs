@@ -136,6 +136,7 @@ public class BossEnemy : Units
     IEnumerator Spikes() {
         Debug.Log("Spawn spikes");
         Vector3 playerPos = player.getCurrPosition();
+        AudioManager.PlaySound("GroundPound");
         GameObject projectileObject = Instantiate(spikesPrefab, playerPos, Quaternion.identity);
         //some animation that shows where obj gonna spawn
         SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();
