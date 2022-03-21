@@ -24,7 +24,7 @@ public class Units : MonoBehaviour
     public HUDHealth HPBar;
     public GameObject hitEffect;
     public AudioSource dmgSound;
-    //public float shakeMultiplier = 0.05f;
+    float shakeMultiplier = 0.01f;
     
     void Start() {
         currHP = maxHP;
@@ -39,7 +39,7 @@ public class Units : MonoBehaviour
             currHP -= dmg;
             if(gameObject.tag != "Player"){
                 GameManager.comboManager.IncrementCombo();
-                CameraShaker.Instance.ShakeOnce(0.5f,0.4f,0.2f,0.1f);
+                CameraShaker.Instance.ShakeOnce(0.5f + shakeMultiplier*dmg, 0.5f, 0.3f, 0.15f);
             }
 
             if(gameObject.tag == "Player"){
