@@ -286,8 +286,8 @@ MonoBehaviour:
     volume: 1
     pitchVariation: 0
     source: {fileID: 0}
-  - audioName: FunkyFire
-    audioClip: {fileID: 8300000, guid: 99006e2474a96ac4b8cf4bcefcfc8483, type: 3}
-    volume: 1
+  - audioName: Player Special Attack 2
+    audioClip: {fileID: 8300000, guid: 0ad07640546f2154eb1f65c976b08ad4, type: 3}
+    volume: 0.5
     pitchVariation: 0
     source: {fileID: 0}
