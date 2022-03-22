@@ -116,6 +116,7 @@ MonoBehaviour:
   slider: {fileID: 6142227594120429880}
   lerpSpd: 10
   health: 750
+  animator: {fileID: 4833908289437793498}
 --- !u!1 &2812835265459463048
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5850404847304315346}
   - component: {fileID: 6142227594120429880}
+  - component: {fileID: 4833908289437793498}
   m_Layer: 0
   m_Name: Healthbar
   m_TagString: Untagged
@@ -200,12 +202,31 @@ MonoBehaviour:
   m_HandleRect: {fileID: 636485563418717735}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 750
+  m_MaxValue: 600
   m_WholeNumbers: 1
-  m_Value: 3
+  m_Value: 600
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &4833908289437793498
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812835265459463048}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0dd58b63dca3a3e4996e1855138d06ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3529395433689516189
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +308,7 @@ MonoBehaviour:
   currX: 0
   currY: 0
   type: 5
-  maxHP: 750
+  maxHP: 600
   dmg: 13
   HPBar: {fileID: 2063369587373552911}
   hitEffect: {fileID: 5440027151704298234, guid: 66abbbc3ee9086744a544ea544cbf68e, type: 3}
@@ -378,7 +399,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.004
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2272,14 +2293,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d16c802f9818f2f42a38a6277d45a96f, type: 3}
---- !u!4 &422247865784793112 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d16c802f9818f2f42a38a6277d45a96f, type: 3}
-  m_PrefabInstance: {fileID: 168490601224445939}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1051573602730943138 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d16c802f9818f2f42a38a6277d45a96f, type: 3}
+  m_PrefabInstance: {fileID: 168490601224445939}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &422247865784793112 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d16c802f9818f2f42a38a6277d45a96f, type: 3}
   m_PrefabInstance: {fileID: 168490601224445939}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &7414038234473410715

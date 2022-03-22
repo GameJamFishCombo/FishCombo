@@ -1348,6 +1348,7 @@ MonoBehaviour:
   slider: {fileID: 3160678130241605117}
   lerpSpd: 10
   health: 100
+  animator: {fileID: 7422846674216473625}
 --- !u!1 &833659556324395549
 GameObject:
   m_ObjectHideFlags: 0
@@ -7427,6 +7428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5518548419936719026}
   - component: {fileID: 3160678130241605117}
+  - component: {fileID: 7422846674216473625}
   m_Layer: 0
   m_Name: Healthbar
   m_TagString: Untagged
@@ -7507,6 +7509,25 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &7422846674216473625
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5330175929043917841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0dd58b63dca3a3e4996e1855138d06ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5343567791813316401
 GameObject:
   m_ObjectHideFlags: 0

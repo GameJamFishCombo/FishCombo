@@ -152,6 +152,7 @@ MonoBehaviour:
   slider: {fileID: 2223059416338524629}
   lerpSpd: 10
   health: 90
+  animator: {fileID: 236960570381823848}
 --- !u!1 &1265658062374519413
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1793919799568075084}
   - component: {fileID: 2223059416338524629}
+  - component: {fileID: 236960570381823848}
   m_Layer: 0
   m_Name: Healthbar
   m_TagString: Untagged
@@ -317,6 +319,25 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &236960570381823848
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874485896874985773}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0dd58b63dca3a3e4996e1855138d06ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3032979723643574803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,14 +1662,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39906cd92790684ea05eb0e3b876b83, type: 3}
---- !u!1 &3584717040844014113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d39906cd92790684ea05eb0e3b876b83, type: 3}
-  m_PrefabInstance: {fileID: 4430997732324360048}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4248206764953852059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d39906cd92790684ea05eb0e3b876b83, type: 3}
+  m_PrefabInstance: {fileID: 4430997732324360048}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3584717040844014113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d39906cd92790684ea05eb0e3b876b83, type: 3}
   m_PrefabInstance: {fileID: 4430997732324360048}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &4430997734024802465
