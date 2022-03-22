@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     public float timer = 2.3f;
     public bool playing;
     public GameObject fadeOutObject;
-    
+    public AudioSource track;
     void Update(){
         
         if(playing)
@@ -21,10 +21,13 @@ public class MainMenu : MonoBehaviour
     }
 
     void Start(){
+        AudioListener.pause = false;
         Cursor.visible = true;
+        StartCoroutine(FadeMusic.StartFade(track, 4f, 1f));
     }
 
     public void PlayGame() {
+        StartCoroutine(FadeMusic.StartFade(track, 1.7f, 0f));
         fadeOutObject.SetActive(true);
         playing = true;
         onClickSound.Play();

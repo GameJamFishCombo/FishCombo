@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FadeTrack : MonoBehaviour
 {
-    public AudioSource track;
-
+    public GameObject startTheme;
+    
     // Start is called before the first frame update
     void Start() {
-        StartCoroutine(FadeMusic.StartFade(track, 3f, 1f));
+        
     }
 }
