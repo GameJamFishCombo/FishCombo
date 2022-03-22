@@ -79,7 +79,7 @@ public class Shop : MonoBehaviour
             HoverItemOne();
         }
 
-        if(time2 <= 2){
+        if(time2 <= 2.4){
             FadeIn.SetActive(true);
         }
 
