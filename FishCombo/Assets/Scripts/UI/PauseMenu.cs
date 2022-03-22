@@ -107,6 +107,7 @@ public class PauseMenu : MonoBehaviour
         loadMain = true;
         Time.timeScale = 1f;
         onClickSound.Play();
+        if(clickBlocker != null)
         clickBlocker.SetActive(true);
     }
 

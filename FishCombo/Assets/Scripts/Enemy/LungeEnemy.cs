@@ -92,6 +92,7 @@ public class LungeEnemy : Units
 
     public override void Die() {
         base.Die();
+        AudioManager.PlaySound("EnemyDeath");
         Destroy(this.gameObject);
         Debug.Log(enemy + " dead.");
     }

@@ -5536,10 +5536,6 @@ PrefabInstance:
       propertyPath: pauseBackground
       value: 
       objectReference: {fileID: 5099735621048648116}
-    - target: {fileID: 2495188174688495567, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2495188174864183305, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5547,10 +5543,6 @@ PrefabInstance:
     - target: {fileID: 2495188174864183305, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738316606552669554, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6500199840479337596, guid: 4a5f61c9bbb751a488bbce8851ca2d60, type: 3}
       propertyPath: m_AnchorMax.x
