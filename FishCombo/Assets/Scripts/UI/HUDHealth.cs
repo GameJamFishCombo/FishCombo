@@ -11,8 +11,9 @@ public class HUDHealth : MonoBehaviour
     float time = 0;
     public int health;
     public Animator animator;
+
     void Start() {
-        SetMaxHealth(health);
+        //SetMaxHealth(health);
     }
 
     public void SetMaxHealth(int HP) {

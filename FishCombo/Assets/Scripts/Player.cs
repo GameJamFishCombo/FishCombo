@@ -199,7 +199,7 @@ public class Player : Units
 
     IEnumerator Lunge(Vector3 targetPosition){ // KILL ME
         StartCoroutine(AnimationWait("Attack1"));
-        StartCoroutine(Invincible(0.5f));
+        StartCoroutine(Invincible(0.55f));
         canMove = false;
         float time = 0;
         Vector3 startPosition = player.position;
