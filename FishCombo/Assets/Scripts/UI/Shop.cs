@@ -38,6 +38,8 @@ public class Shop : MonoBehaviour
 
     public GameObject playerPrefab;
     public Player player;
+
+    public AudioSource music;
     // public string levelToLoad1;
     // public string levelToLoad2;
 
@@ -81,6 +83,7 @@ public class Shop : MonoBehaviour
 
         if(time2 <= 2.4){
             FadeIn.SetActive(true);
+            StartCoroutine(FadeMusic.StartFade(music,2f,0f));
         }
 
         if(time2 <= 0){

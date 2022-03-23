@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 6142227594120429880}
   lerpSpd: 10
-  health: 750
+  health: 600
   animator: {fileID: 4833908289437793498}
 --- !u!1 &2812835265459463048
 GameObject:
@@ -310,6 +310,7 @@ MonoBehaviour:
   type: 5
   maxHP: 600
   dmg: 13
+  invincible: 0
   HPBar: {fileID: 2063369587373552911}
   hitEffect: {fileID: 5440027151704298234, guid: 66abbbc3ee9086744a544ea544cbf68e, type: 3}
   dmgSound: {fileID: 0}
