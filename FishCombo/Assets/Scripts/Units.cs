@@ -30,7 +30,6 @@ public class Units : MonoBehaviour
         currHP = maxHP;
         // HPBar = gameObject.Find("Healthbar UI").GetComponent<HUDHealth>();
         unit = GetComponent<Transform>();
-        boxcollider = gameObject.GetComponent<Collider>();
     }
 
     public void TakeDmg(int dmg) {

@@ -48,7 +48,6 @@ public class Player : Units
         grid = GameObject.Find("Grid").GetComponent<Grid>();
         comboManager = GameObject.Find("Combo Manager").GetComponent<ComboManager>();
         pauseMenuUI = GameObject.Find("Canvas").GetComponent<PauseMenu>();
-        //Units.boxcollider = gameObject.GetComponent<Collider>();
     }
 
     public void Update() {
