@@ -147,6 +147,7 @@ public class LungeEnemy : Units
     }
 
     void LaunchMelee(){
+        AudioManager.PlaySound("EnemyLunge");
         Vector3 spawnPosition = enemy.position + new Vector3(-1f, 0, 0); //tile behind
         if(!inBounds(spawnPosition, "Projectile"))
             Instantiate(meleeProjectile, spawnPosition, Quaternion.identity);

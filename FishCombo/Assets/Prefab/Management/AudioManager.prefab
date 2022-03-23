@@ -311,3 +311,8 @@ MonoBehaviour:
     volume: 1
     pitchVariation: 0
     source: {fileID: 0}
+  - audioName: EnemyLunge
+    audioClip: {fileID: 8300000, guid: 0e96a1477a183dc43825d8de273d6197, type: 3}
+    volume: 1
+    pitchVariation: 0
+    source: {fileID: 0}

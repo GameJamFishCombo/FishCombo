@@ -687,6 +687,7 @@ MonoBehaviour:
   type: 4
   maxHP: 100
   dmg: 2
+  invincible: 0
   HPBar: {fileID: 147915059326384941}
   hitEffect: {fileID: 0}
   dmgSound: {fileID: 0}
