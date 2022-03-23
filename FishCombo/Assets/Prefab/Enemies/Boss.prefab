@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 6142227594120429880}
-  lerpSpd: 10
+  lerpSpd: 100
   health: 600
   animator: {fileID: 4833908289437793498}
 --- !u!1 &2812835265459463048

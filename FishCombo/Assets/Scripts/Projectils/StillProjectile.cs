@@ -6,7 +6,7 @@ public class StillProjectile : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody rigidbody;
-    public int damageMulitplier = 5;
+    public int damageMulitplier = 2;
     public float lifeSpan = 0.2f; 
     public GameObject shooter;
     float lifeTimer = 0f;

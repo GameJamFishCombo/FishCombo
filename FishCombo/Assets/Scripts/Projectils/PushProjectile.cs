@@ -7,7 +7,7 @@ public class PushProjectile : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody rigidbody;
-    public int damageMulitplier = 2;
+    public int damageMulitplier = 3;
     public float projectileSpeed = 450;
     public float pushDuration = 0.07f;
     public GameObject shooter;

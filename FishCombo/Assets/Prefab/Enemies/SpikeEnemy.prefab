@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 3160678130241605117}
-  lerpSpd: 10
+  lerpSpd: 100
   health: 100
   animator: {fileID: 7422846674216473625}
 --- !u!1 &833659556324395549
@@ -4784,6 +4784,7 @@ MonoBehaviour:
   type: 2
   maxHP: 100
   dmg: 3
+  invincible: 0
   HPBar: {fileID: 7615452795893224199}
   hitEffect: {fileID: 5440027151704298234, guid: 66abbbc3ee9086744a544ea544cbf68e, type: 3}
   dmgSound: {fileID: 0}
