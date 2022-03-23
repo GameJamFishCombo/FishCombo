@@ -34,7 +34,6 @@ public class Player : Units
     public float lungeAnimationCooldown = 0.3f;
     public float pushAnimationCooldown = 0.6f;
     public float areaAnimationCooldown = 0.6f;
-
     private Queue<MovementInput> buffer;
     private Grid grid;
     private ComboManager comboManager;
@@ -49,6 +48,7 @@ public class Player : Units
         grid = GameObject.Find("Grid").GetComponent<Grid>();
         comboManager = GameObject.Find("Combo Manager").GetComponent<ComboManager>();
         pauseMenuUI = GameObject.Find("Canvas").GetComponent<PauseMenu>();
+        //Units.boxcollider = gameObject.GetComponent<Collider>();
     }
 
     public void Update() {
@@ -200,6 +200,7 @@ public class Player : Units
 
     IEnumerator Lunge(Vector3 targetPosition){ // KILL ME
         StartCoroutine(AnimationWait("Attack1"));
+        StartCoroutine(Invincible(0.5f));
         canMove = false;
         float time = 0;
         Vector3 startPosition = player.position;

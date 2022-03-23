@@ -22,8 +22,11 @@ public class SpikesProjectile : MonoBehaviour
         if(this.tag == "EnemyBullet"){
             if(other.tag == "Player") {
                 Units playerStat = other.gameObject.GetComponent<Units>();
+                
                 // Debug.Log("shooterstat dmg" + shooterStat.dmg);
+                if(!playerStat.invincible)
                 playerStat.TakeDmg(shooterStat.dmg);
+
                 //Debug.Log("Player HP: " + playerStat.currHP);        
             }
         }

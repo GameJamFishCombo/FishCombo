@@ -18,18 +18,19 @@ public class Units : MonoBehaviour
     public int maxHP = 100;
     public float currHP {get; private set;}
     public int dmg;
-    bool invincible = false;
+    public bool invincible = false;
     float invcibilityDuration = 0.001f;
     int comboPts;
     public HUDHealth HPBar;
     public GameObject hitEffect;
     public AudioSource dmgSound;
     float shakeMultiplier = 0.01f;
-    
+
     void Start() {
         currHP = maxHP;
         // HPBar = gameObject.Find("Healthbar UI").GetComponent<HUDHealth>();
         unit = GetComponent<Transform>();
+        boxcollider = gameObject.GetComponent<Collider>();
     }
 
     public void TakeDmg(int dmg) {
@@ -62,7 +63,7 @@ public class Units : MonoBehaviour
 
     }
 
-    IEnumerator Invincible(float duration){
+    public IEnumerator Invincible(float duration){
         invincible = true;
         while(duration > 0){
             duration -= Time.deltaTime;

@@ -33,16 +33,19 @@ public class Projectile : MonoBehaviour
                 enemyStat.TakeDmg(shooterStat.dmg);
                 //Debug.Log("Enemy HP: " + enemyStat.currHP);        
                 Instantiate(particles,transform.position,Quaternion.identity);
-                AudioManager.PlaySound("BulletCollide");
+                //AudioManager.PlaySound("BulletCollide");
                 Destroy(gameObject);
             }
         } else if(this.tag == "EnemyBullet"){
             if(other.tag == "Player") {
                 Units playerStat = other.gameObject.GetComponent<Units>();
-                Instantiate(particles,transform.position,Quaternion.identity);
-                playerStat.TakeDmg(shooterStat.dmg);
-                //Debug.Log("Player HP: " + playerStat.currHP);        
-                Destroy(gameObject);
+                if(!playerStat.invincible){
+                    Instantiate(particles,transform.position,Quaternion.identity);
+                
+                    playerStat.TakeDmg(shooterStat.dmg);
+                    //Debug.Log("Player HP: " + playerStat.currHP);        
+                    Destroy(gameObject);
+                }
             }
         }
     }
