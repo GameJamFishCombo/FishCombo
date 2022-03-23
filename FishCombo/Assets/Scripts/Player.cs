@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public enum MovementInput
 {
@@ -12,6 +14,13 @@ public enum MovementInput
 
 public class Player : Units
 {
+
+    Controls controls;
+    [SerializeField] float moveLeft;
+    [SerializeField] float moveRight;
+    [SerializeField] float moveUp;
+    [SerializeField] float moveDown;
+    public bool fireButtonHeld;
     Transform player;
     Vector3 playerPos;
     public int lungeCost = 5;
@@ -41,6 +50,21 @@ public class Player : Units
     public GameObject deathParticles;
     void Awake()
     {
+        controls = new Controls();
+        controls.Controller.Fire.started += ctx => PrimaryFire();
+        controls.Controller.Fire.canceled += ctx => CancelPrimaryFire();
+        controls.Controller.Ability1.performed += ctx => Ability1Fire();
+        controls.Controller.Ability2.performed += ctx => Ability2Fire();
+        controls.Controller.Ability3.performed += ctx => Ability3Fire();
+        controls.Controller.MoveLeft.started += ctx => moveLeft = 1;
+        controls.Controller.MoveLeft.canceled += ctx => moveLeft = 0;
+        controls.Controller.MoveRight.started += ctx => moveRight = 1;
+        controls.Controller.MoveRight.canceled += ctx => moveRight = 0;
+        controls.Controller.MoveUp.started += ctx => moveUp = 1;
+        controls.Controller.MoveUp.canceled += ctx => moveUp = 0;
+        controls.Controller.MoveDown.started += ctx => moveDown = 1;
+        controls.Controller.MoveDown.canceled += ctx => moveDown = 0;
+
         buffer = new Queue<MovementInput>();
         rigidbody = GetComponent<Rigidbody>();
         player = GetComponent<Transform>();
@@ -49,67 +73,141 @@ public class Player : Units
         comboManager = GameObject.Find("Combo Manager").GetComponent<ComboManager>();
         pauseMenuUI = GameObject.Find("Canvas").GetComponent<PauseMenu>();
     }
+    public void OnEnable(){
+        controls.Controller.Enable();
+    }
 
     public void Update() {
-        if(Input.GetKeyDown(KeyCode.UpArrow)) {
-            if(buffer.Count < 2)
-                buffer.Enqueue(MovementInput.Up);
-        }
-
-        if(Input.GetKeyDown(KeyCode.LeftArrow)) {
-            if(buffer.Count < 2)
-                buffer.Enqueue(MovementInput.Left);
-        }
-            
-        if(Input.GetKeyDown(KeyCode.DownArrow)) {
-            if(buffer.Count < 2)
-                buffer.Enqueue(MovementInput.Down);
-        }
-
-        if(Input.GetKeyDown(KeyCode.RightArrow)) {
-            if(buffer.Count < 2)
-                buffer.Enqueue(MovementInput.Right);
-        }
-
-        if((Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.E)) && canMove && canAutoFire && canCast) 
+        
+        if(canMove && canAutoFire && canCast && fireButtonHeld) 
         {
             StartCoroutine(PrimaryCooldown());
         }
+
+        // if(Input.GetKeyDown(KeyCode.UpArrow)) {
+        //     if(buffer.Count < 2)
+        //         buffer.Enqueue(MovementInput.Up);
+        // }
+
+        // if(Input.GetKeyDown(KeyCode.LeftArrow)) {
+        //     if(buffer.Count < 2)
+        //         buffer.Enqueue(MovementInput.Left);
+        // }
+            
+        // if(Input.GetKeyDown(KeyCode.DownArrow)) {
+        //     if(buffer.Count < 2)
+        //         buffer.Enqueue(MovementInput.Down);
+        // }
+
+        // if(Input.GetKeyDown(KeyCode.RightArrow)) {
+        //     if(buffer.Count < 2)
+        //         buffer.Enqueue(MovementInput.Right);
+        // }
+        
+
+        if(moveUp == 1f) {
+            if(buffer.Count < 1)
+                buffer.Enqueue(MovementInput.Up);
+        }
+ 
+    
+        if(moveLeft == 1f) {
+            Debug.Log("left");
+            if(buffer.Count < 1)
+                buffer.Enqueue(MovementInput.Left);
+        }
+  
+            
+        if(moveDown == 1f) {
+            if(buffer.Count < 1)
+                buffer.Enqueue(MovementInput.Down);
+        }
+
+
+        if(moveRight == 1f) {
+            if(buffer.Count < 1)
+                buffer.Enqueue(MovementInput.Right);
+        }
+
+
+        //if((Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.E)) && canMove && canAutoFire && canCast) 
+        //{
+        //    StartCoroutine(PrimaryCooldown());
+        //}
 
         // if(Input.GetKey(KeyCode.R) && canAutoFire) //when holding down, shoot auto
         // {
         //     StartCoroutine(PrimaryCooldown());
         // }
 
-        if(Input.GetKeyDown(KeyCode.W) && canMove && comboManager.comboLevel >= pushCost && canCast) //if between tiles, round up or down
-        {
+        //if(Input.GetKeyDown(KeyCode.W) && canMove && comboManager.comboLevel >= pushCost && canCast) //if between tiles, round up or down
+        //{
             // attackSound2.Play();
+        //    AudioManager.PlaySound("Player Special Attack 2");
+        //    comboManager.DecreaseCombo(pushCost);
+        //    // StartCoroutine(AnimationTimer(pushAnimationCooldown));
+        //    //LaunchPush(); moved into animatorwait
+        //    StartCoroutine(PushAnimationWait("Attack2"));
+        //}
+
+        //if(Input.GetKeyDown(KeyCode.R) && canMove && comboManager.comboLevel >= areaCost && canCast) //if between tiles, round up or down
+        //{
+        //    // attackSound1.Play();
+        //    AudioManager.PlaySound("Player Special Attack 2");
+        //    comboManager.DecreaseCombo(areaCost);
+        //    StartCoroutine(AnimationTimer(areaAnimationCooldown));
+        //    StartCoroutine(AreaAnimationWait("Attack3"));
+        //}
+
+        //if(Input.GetKeyDown(KeyCode.Q) && canMove && comboManager.comboLevel >= lungeCost && canCast) //if between tiles, round up or down
+        //{
+        //    // attackSound2.Play();
+        //    AudioManager.PlaySound("Player Special Attack 1");
+        //    comboManager.DecreaseCombo(lungeCost);
+        //    StartCoroutine(AnimationTimer(lungeAnimationCooldown));
+        //    StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
+        //}
+
+        movePlayer();
+    }
+    public void PrimaryFire(){
+       fireButtonHeld = true;
+    }
+
+    public void CancelPrimaryFire(){
+       fireButtonHeld = false;
+    }
+    
+    public void Ability1Fire(){
+         if(canMove && comboManager.comboLevel >= lungeCost && canCast)
+            {
+            AudioManager.PlaySound("Player Special Attack 1");
+            comboManager.DecreaseCombo(lungeCost);
+            StartCoroutine(AnimationTimer(lungeAnimationCooldown));
+            StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
+            }
+    }
+
+    public void Ability2Fire(){
+        if(canMove && comboManager.comboLevel >= pushCost && canCast){
             AudioManager.PlaySound("Player Special Attack 2");
             comboManager.DecreaseCombo(pushCost);
-            // StartCoroutine(AnimationTimer(pushAnimationCooldown));
-            //LaunchPush(); moved into animatorwait
             StartCoroutine(PushAnimationWait("Attack2"));
+        }   
+        else{
+
         }
 
-        if(Input.GetKeyDown(KeyCode.R) && canMove && comboManager.comboLevel >= areaCost && canCast) //if between tiles, round up or down
+    }
+    public void Ability3Fire(){
+        if(canMove && comboManager.comboLevel >= areaCost && canCast)
         {
-            // attackSound1.Play();
             AudioManager.PlaySound("Player Special Attack 2");
             comboManager.DecreaseCombo(areaCost);
             StartCoroutine(AnimationTimer(areaAnimationCooldown));
             StartCoroutine(AreaAnimationWait("Attack3"));
         }
-
-        if(Input.GetKeyDown(KeyCode.Q) && canMove && comboManager.comboLevel >= lungeCost && canCast) //if between tiles, round up or down
-        {
-            // attackSound2.Play();
-            AudioManager.PlaySound("Player Special Attack 1");
-            comboManager.DecreaseCombo(lungeCost);
-            StartCoroutine(AnimationTimer(lungeAnimationCooldown));
-            StartCoroutine(Lunge(transform.position + (new Vector3(4f, 0, 0))));
-        }
-
-        move();
+        
     }
 
     IEnumerator PrimaryCooldown() {
@@ -120,11 +218,12 @@ public class Player : Units
         canAutoFire = true;
     }
 
-    private void move(){
+    private void movePlayer(){
         if(canMove && buffer.Count > 0) {        
             MovementInput input = buffer.Dequeue();
             bool checkBounds = true;
             if(input == MovementInput.Up) {
+                moveUp = 0;
                 Vector3 move = new Vector3(0, 0, 1f) + player.position;
                 checkBounds = inBounds(move, "Player");
 
@@ -134,6 +233,7 @@ public class Player : Units
             }
 
             if(input == MovementInput.Left) {
+                moveLeft = 0;
                 Vector3 move = new Vector3(-1f, 0, 0) + player.position;
                 checkBounds = inBounds(move, "Player");
 
@@ -143,6 +243,7 @@ public class Player : Units
             }
             
             if(input == MovementInput.Down) {
+                moveDown = 0;
                 Vector3 move = new Vector3(0, 0, -1f) + player.position;
                 checkBounds = inBounds(move, "Player");
 
@@ -152,6 +253,7 @@ public class Player : Units
             }
 
             if(input == MovementInput.Right) {
+                moveRight = 0;
                 Vector3 move = new Vector3(1f, 0, 0) + player.position;
                 checkBounds = inBounds(move, "Player");
 
