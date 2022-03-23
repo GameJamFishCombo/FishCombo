@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     }
 
     void Start(){
+        Shop.numVisited = 0;
         AudioListener.pause = false;
         Cursor.visible = true;
         StartCoroutine(FadeMusic.StartFade(track, 4f, 1f));

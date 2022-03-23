@@ -43,7 +43,7 @@ public class Shop : MonoBehaviour
     // public string levelToLoad1;
     // public string levelToLoad2;
 
-    static int numVisited = 0;
+    public static int numVisited = 0;
 
     void Start()
     {
