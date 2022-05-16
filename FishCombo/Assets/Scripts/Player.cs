@@ -14,9 +14,9 @@ public class Player : Units
 {
     Transform player;
     Vector3 playerPos;
-    public int lungeCost = 5;
-    public int pushCost = 15;
-    public int areaCost = 30;
+    private int lungeCost = 4;
+    private int pushCost = 12;
+    private int areaCost = 20;
     public float duration = 0.09f;
     public float lungeDuration = 0.03f;
     public int numMeleeHits = 3;

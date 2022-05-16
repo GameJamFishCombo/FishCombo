@@ -692,8 +692,8 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   dmgSound: {fileID: 0}
   lungeCost: 5
-  pushCost: 15
-  areaCost: 30
+  pushCost: 10
+  areaCost: 25
   duration: 0.12
   lungeDuration: 0.3
   numMeleeHits: 1

@@ -10,6 +10,8 @@ public class Shop : MonoBehaviour
     public bool itemSelected = false;
     public float timer = 4.5f;
     public float time = 0f;
+    public ParticleSystem hparticles;
+    public ParticleSystem dparticles;
 
     public float timer2 = 3f;
     public float time2 = 3f;
@@ -140,11 +142,13 @@ public class Shop : MonoBehaviour
         if(itemNum == 1){
             StartCoroutine(LerpPosition(meds,takenItem.position,0.2f));
             player.IncreaseMaxHP(); 
+            hparticles.Play();
         }  
 
         if(itemNum == 2){
             StartCoroutine(LerpPosition(syringe,takenItem.position,0.2f));
             player.IncreaseATK(); 
+            dparticles.Play();
         }
     }
 

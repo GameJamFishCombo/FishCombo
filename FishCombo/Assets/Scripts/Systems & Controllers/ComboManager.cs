@@ -16,7 +16,9 @@ public class ComboManager : MonoBehaviour
     AbilityCoolDown abilityCooldown1;
     AbilityCoolDown abilityCooldown2;
     AbilityCoolDown abilityCooldown3;
+    private int maxCombo = 25;
 
+    public bool maxed = false;
     void Awake() {
         comboBarObj = GameObject.Find("ComboBar");
         comboBar = comboBarObj.GetComponent<ComboBar>();
@@ -33,7 +35,7 @@ public class ComboManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        comboBar.SetMaxCombo(36);
+        comboBar.SetMaxCombo(maxCombo);
     }
 
     // Update is called once per frame
@@ -44,31 +46,53 @@ public class ComboManager : MonoBehaviour
                 // Debug.Log("Reset Combo");
                 float oldComboLv = comboLevel;
                 comboLevel = 0;
+                Gray();
                 comboBar.SetCombo(comboLevel, oldComboLv);
             }
             else{
                 resetTimer -= Time.deltaTime;
             }
         }
+        
+        if(maxed && maxCombo > comboLevel){
+            maxed = false;
+            comboBarObj.GetComponent<Animator>().SetTrigger("Static");
+        }
+       
     }
 
     public void IncrementCombo(){
         float oldComboLv = comboLevel;
+        if(comboLevel < maxCombo)
         comboLevel += 1;
+
+        if(maxCombo > comboLevel)
         comboBar.PlayAnimation("ComboBar");
+
+        if(maxCombo == comboLevel){
+            maxed = true;
+            comboBarObj.GetComponent<Animator>().SetTrigger("Shake");
+        }
+        
         resetTimer = resetTime;
         //Debug.Log("Combo set to "+ comboLevel);
         comboBar.SetCombo(comboLevel, oldComboLv);
-        if(comboLevel == 5){
+        if(comboLevel == 4){
             abilityCooldown1.GetComponent<Animator>().Play("AbilityIcon");
+        }
+        if(comboLevel == 12){
+            abilityCooldown2.GetComponent<Animator>().Play("AbilityIcon");
+        }
+        if(comboLevel == 20){
+            abilityCooldown3.GetComponent<Animator>().Play("AbilityIcon");
+        }
+        if(comboLevel >= 4){
             abilityCooldown1.SetCombo(0);
         }
-        if(comboLevel == 15){
-            abilityCooldown2.GetComponent<Animator>().Play("AbilityIcon");
+        if(comboLevel >= 12){
             abilityCooldown2.SetCombo(0);
         }
-        if(comboLevel == 30){
-            abilityCooldown3.GetComponent<Animator>().Play("AbilityIcon");
+        if(comboLevel >= 20){
             abilityCooldown3.SetCombo(0);
         }
     }
@@ -77,13 +101,24 @@ public class ComboManager : MonoBehaviour
         float oldComboLv = comboLevel;
         comboLevel -= decrement;
         comboBar.SetCombo(comboLevel, oldComboLv);
-        
-        if(comboLevel < 5) {
-            abilityCooldown1.SetCombo(1);
-        } else if(comboLevel < 15) {
-            abilityCooldown2.SetCombo(1);
-        } else if(comboLevel < 30) {
+        if(comboLevel < 20) {
             abilityCooldown3.SetCombo(1);
         }
+
+        if(comboLevel < 12) {
+            abilityCooldown2.SetCombo(1);
+        }
+
+        if(comboLevel < 5) {
+            abilityCooldown1.SetCombo(1);
+        }
+        
+       
+    }
+
+    public void Gray(){
+        abilityCooldown1.SetCombo(1);
+        abilityCooldown2.SetCombo(1);
+        abilityCooldown3.SetCombo(1);
     }
 }
