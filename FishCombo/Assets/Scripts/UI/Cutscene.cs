@@ -15,6 +15,7 @@ public class Cutscene : MonoBehaviour
     public GameObject transitionOut;
     public bool cutsceneOver;
     public string levelToLoad;
+    public Animator credits;
 
     void Update(){
         if(cutsceneOver)
@@ -30,6 +31,8 @@ public class Cutscene : MonoBehaviour
 
     void PlayScene(){
         if(sceneNum < animators.Length) {
+            if(credits != null)
+            credits.Play("Credits");
             animators[sceneNum].Play("In");
         } else{
                 transitionOut.SetActive(true);

@@ -373,8 +373,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: if you can beat me....!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fb6605de7e661294e9783c75f036099b, type: 2}
-  m_sharedMaterial: {fileID: 1613781682325079206, guid: fb6605de7e661294e9783c75f036099b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
+  m_sharedMaterial: {fileID: -1470260206197080930, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -766,8 +766,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: next
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fb6605de7e661294e9783c75f036099b, type: 2}
-  m_sharedMaterial: {fileID: 1613781682325079206, guid: fb6605de7e661294e9783c75f036099b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
+  m_sharedMaterial: {fileID: -1470260206197080930, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1770,6 +1770,7 @@ MonoBehaviour:
   transitionOut: {fileID: 85066323}
   cutsceneOver: 0
   levelToLoad: RecordRoom
+  credits: {fileID: 0}
 --- !u!4 &951811401
 Transform:
   m_ObjectHideFlags: 0
@@ -2548,8 +2549,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ill sign you...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fb6605de7e661294e9783c75f036099b, type: 2}
-  m_sharedMaterial: {fileID: 1613781682325079206, guid: fb6605de7e661294e9783c75f036099b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
+  m_sharedMaterial: {fileID: -1470260206197080930, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3144,8 +3145,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fb6605de7e661294e9783c75f036099b, type: 2}
-  m_sharedMaterial: {fileID: 1613781682325079206, guid: fb6605de7e661294e9783c75f036099b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
+  m_sharedMaterial: {fileID: -1470260206197080930, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
