@@ -377,7 +377,9 @@ public class Player : Units
             Instantiate(deathParticles,transform.position,Quaternion.identity);
         AudioManager.PlaySound("Player Death");
         // Destroy(this.gameObject);
-        Debug.Log(player + " dead.");        
+        Debug.Log(player + " dead.");
+        dmg = 2; //reset amps
+        maxHP = 100;        
         pauseMenuUI.Death();
         Destroy(this.gameObject);
     }
