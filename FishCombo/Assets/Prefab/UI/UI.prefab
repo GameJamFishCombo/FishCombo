@@ -1625,7 +1625,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 30
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1644,6 +1644,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 2495188175263346768}
   lerpSpd: 1
+  speed: 2
+  newCombo: 0
+  oldCombo: 0
+  timeStartedLerping: 0
 --- !u!95 &6395984227852227767
 Animator:
   serializedVersion: 3
