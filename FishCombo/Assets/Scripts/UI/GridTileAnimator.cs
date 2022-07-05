@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using EZCameraShake;
 public class GridTileAnimator : MonoBehaviour
 {
 
@@ -35,6 +35,7 @@ public class GridTileAnimator : MonoBehaviour
 
         if(other.tag == "PushBullet"){
             conBlockAnimator.Play("Slam");
+            CameraShaker.Instance.ShakeOnce(0.85f, 1f, 0.1f, 0.1f);
             Instantiate(particles,transform.position+(Vector3.up/2),Quaternion.identity);
         }
         if(other.tag == "EnemyBullet" || other.tag == "YellowTile"){

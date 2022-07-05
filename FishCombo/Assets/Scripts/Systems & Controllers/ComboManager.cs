@@ -18,6 +18,8 @@ public class ComboManager : MonoBehaviour
     AbilityCoolDown abilityCooldown3;
     private int maxCombo = 25;
 
+    public bool comboing = true;
+
     public bool maxed = false;
     void Awake() {
         comboBarObj = GameObject.Find("ComboBar");
@@ -42,12 +44,17 @@ public class ComboManager : MonoBehaviour
     void Update()
     {
         if(comboLevel > 0){
-            if(resetTimer <= 0){
+            if(resetTimer <= 0 && comboing){
+                comboing = false;
                 // Debug.Log("Reset Combo");
+                 maxed = false;
                 float oldComboLv = comboLevel;
                 comboLevel = 0;
                 Gray();
                 comboBar.SetCombo(comboLevel, oldComboLv);
+                comboBarObj.GetComponent<Animator>().Play("Static");
+                comboBarObj.GetComponent<Animator>().ResetTrigger("Static");
+
             }
             else{
                 resetTimer -= Time.deltaTime;
@@ -56,12 +63,14 @@ public class ComboManager : MonoBehaviour
         
         if(maxed && maxCombo > comboLevel){
             maxed = false;
-            comboBarObj.GetComponent<Animator>().SetTrigger("Static");
+            comboBarObj.GetComponent<Animator>().Play("Static");
+            comboBarObj.GetComponent<Animator>().ResetTrigger("Static");
         }
        
     }
 
     public void IncrementCombo(){
+        comboing = true;
         float oldComboLv = comboLevel;
         if(comboLevel < maxCombo)
         comboLevel += 1;
@@ -71,20 +80,24 @@ public class ComboManager : MonoBehaviour
 
         if(maxCombo == comboLevel){
             maxed = true;
-            comboBarObj.GetComponent<Animator>().SetTrigger("Shake");
+            comboBarObj.GetComponent<Animator>().Play("ComboBarShake");
         }
+        else maxed = false;
         
         resetTimer = resetTime;
         //Debug.Log("Combo set to "+ comboLevel);
         comboBar.SetCombo(comboLevel, oldComboLv);
         if(comboLevel == 4){
             abilityCooldown1.GetComponent<Animator>().Play("AbilityIcon");
+            Debug.Log("Set Cooldown3 abailable cuz = 4");
         }
         if(comboLevel == 12){
             abilityCooldown2.GetComponent<Animator>().Play("AbilityIcon");
+            Debug.Log("Set Cooldown3 abailable cuz = 12");
         }
         if(comboLevel == 20){
             abilityCooldown3.GetComponent<Animator>().Play("AbilityIcon");
+            Debug.Log("Set Cooldown3 abailable cuz = 20");
         }
         if(comboLevel >= 4){
             abilityCooldown1.SetCombo(0);
@@ -98,27 +111,47 @@ public class ComboManager : MonoBehaviour
     }
 
     public void DecreaseCombo(int decrement){
+        
         float oldComboLv = comboLevel;
         comboLevel -= decrement;
         comboBar.SetCombo(comboLevel, oldComboLv);
         if(comboLevel < 20) {
             abilityCooldown3.SetCombo(1);
+            //abilityCooldown3.GetComponent<Animator>().SetTrigger("Static");
+            //abilityCooldown3.GetComponent<Animator>().ResetTrigger("Static");
+            abilityCooldown3.GetComponent<Animator>().Play("Static");
+            Debug.Log("Set Cooldown3 static");
         }
 
         if(comboLevel < 12) {
             abilityCooldown2.SetCombo(1);
+            //abilityCooldown2.GetComponent<Animator>().SetTrigger("Static");
+            //abilityCooldown2.GetComponent<Animator>().ResetTrigger("Static");
+            abilityCooldown2.GetComponent<Animator>().Play("Static");
+            Debug.Log("Set Cooldown2 static");
         }
 
-        if(comboLevel < 5) {
+        if(comboLevel < 4) {
             abilityCooldown1.SetCombo(1);
+           // abilityCooldown1.GetComponent<Animator>().SetTrigger("Static");
+            //abilityCooldown1.GetComponent<Animator>().ResetTrigger("Static");
+            abilityCooldown1.GetComponent<Animator>().Play("Static");
+            Debug.Log("Set Cooldown1 static");
         }
         
        
     }
 
     public void Gray(){
+         Debug.Log("Set all Cooldowns static");
         abilityCooldown1.SetCombo(1);
+        //abilityCooldown1.GetComponent<Animator>().SetTrigger("Static");
+        abilityCooldown1.GetComponent<Animator>().Play("Static");
         abilityCooldown2.SetCombo(1);
+        //abilityCooldown2.GetComponent<Animator>().SetTrigger("Static");
+        abilityCooldown2.GetComponent<Animator>().Play("Static");
         abilityCooldown3.SetCombo(1);
+        //abilityCooldown3.GetComponent<Animator>().SetTrigger("Static");
+        abilityCooldown3.GetComponent<Animator>().Play("Static");
     }
 }

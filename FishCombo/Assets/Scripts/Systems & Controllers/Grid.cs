@@ -42,14 +42,14 @@ public class Grid : MonoBehaviour
         
         for (int x = 0; x < tileCountX; x++) { 
             for (int y = 0; y < tileCountY; y++) {
-                tiles[x,y] = GenerateSingleTile(tileSize, x, y);
+                tiles[x,y] = GenerateSingleTile(tileSize, x, y); //needs to use 2 different gameobjects functions here
             }
         }
     }
-
+    
     private GameObject GenerateSingleTile(float tileSize, int x, int y) {
         Vector3 location = new Vector3(x,0,y);
-        GameObject defaultTile = Instantiate(newBlueTile, location, Quaternion.identity);
+        GameObject defaultTile = Instantiate(newRedTile, location, Quaternion.identity); //problem line uses blue tile as default
 
         if(x > 3) {
             defaultTile = Instantiate(newRedTile, location, Quaternion.identity);
@@ -63,6 +63,7 @@ public class Grid : MonoBehaviour
 
         return defaultTile;
     }
+
 
     //Spawn player
     private void SpawnAllPieces() {

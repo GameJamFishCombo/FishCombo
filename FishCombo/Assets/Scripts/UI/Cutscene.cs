@@ -17,6 +17,11 @@ public class Cutscene : MonoBehaviour
     public string levelToLoad;
     public Animator credits;
 
+    public AudioSource track;
+    void Start(){
+        StartCoroutine(FadeMusic.StartFade(track, 4f, 1f));
+    }
+
     void Update(){
         if(cutsceneOver)
             exitTime -= Time.deltaTime;
@@ -35,6 +40,7 @@ public class Cutscene : MonoBehaviour
             credits.Play("Credits");
             animators[sceneNum].Play("In");
         } else{
+                StartCoroutine(FadeMusic.StartFade(track, 1.7f, 0f));
                 transitionOut.SetActive(true);
                 cutsceneOver = true;
         }

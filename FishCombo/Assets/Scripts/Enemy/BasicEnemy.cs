@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using EZCameraShake;
 
 public class BasicEnemy : Units
 {
@@ -94,13 +95,15 @@ public class BasicEnemy : Units
 
     IEnumerator Launch() {
         animator.SetBool("Attack",true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         AudioManager.PlaySound("SprayAttack");
+        CameraShaker.Instance.ShakeOnce(1f, 1f, 0.2f, 0.2f);
         GameObject projectileObject = Instantiate(projectilePrefab, firePoint.transform.position, Quaternion.identity);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(-1f, 0, 0);
         projectile.Launch(lookDirection, projectileSpeed);
+        
         animator.SetBool("Attack", false);
     }
 }

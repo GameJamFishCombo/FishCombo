@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class SpikesProjectile : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class SpikesProjectile : MonoBehaviour
     void Start() {
         //StartCoroutine(Sound());
         AudioManager.PlaySound("Spikes");
+        CameraShaker.Instance.ShakeOnce(1.1f, 2f, 0.2f, 0.35f);
         Destroy(this.gameObject, 1f);
     }
 

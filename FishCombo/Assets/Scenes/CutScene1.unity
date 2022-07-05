@@ -277,7 +277,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 7586c8db91b1f724ea68fb29b2082a3f, type: 2}
-  m_audioClip: {fileID: 8300000, guid: de1abba8cd9402d4280bbbc0d58da91d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 96e6680497c487f40985bf26e45a8202, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -563,8 +563,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: when suddenly... from a funky dimension!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
+  m_sharedMaterial: {fileID: -1470260206197080930, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1092,8 +1092,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: what will jam do...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
+  m_sharedMaterial: {fileID: -1470260206197080930, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1209,6 +1209,7 @@ MonoBehaviour:
   cutsceneOver: 0
   levelToLoad: AlleyWay
   credits: {fileID: 0}
+  track: {fileID: 51720428}
 --- !u!4 &951811401
 Transform:
   m_ObjectHideFlags: 0
@@ -1683,7 +1684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b4ef60b5a6ac742be4dfe2c542830f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 51720428}
+  track: {fileID: 0}
 --- !u!1 &1218408199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,8 +1972,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: next
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
+  m_sharedMaterial: {fileID: -1470260206197080930, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2669,8 +2670,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: jam was on his way to deliver his debut album to grid city records...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
+  m_sharedMaterial: {fileID: -1470260206197080930, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3356,7 +3357,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fb6605de7e661294e9783c75f036099b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_sharedMaterial: {fileID: 1613781682325079206, guid: fb6605de7e661294e9783c75f036099b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3420,7 +3421,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5759385679197111464
@@ -3661,7 +3662,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fb6605de7e661294e9783c75f036099b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_sharedMaterial: {fileID: 1613781682325079206, guid: fb6605de7e661294e9783c75f036099b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3725,7 +3726,7 @@ MonoBehaviour:
   m_margin: {x: 2.0873108, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5759385679478084930
@@ -4040,7 +4041,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: main menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fb6605de7e661294e9783c75f036099b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44ebbb9b586643e4da701bc63d9a622e, type: 2}
   m_sharedMaterial: {fileID: 1613781682325079206, guid: fb6605de7e661294e9783c75f036099b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4104,7 +4105,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5759385679991981546

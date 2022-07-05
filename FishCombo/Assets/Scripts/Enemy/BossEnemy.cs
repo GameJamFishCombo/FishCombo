@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using EZCameraShake;
 
 public class BossEnemy : Units
 {
@@ -131,6 +132,7 @@ public class BossEnemy : Units
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         Vector3 lookDirection = new Vector3(-1f, 0, 0);
         projectile.Launch(lookDirection, 300);
+        CameraShaker.Instance.ShakeOnce(1.5f, 1f, 0.1f, 0.3f);
         yield return null;
         // PlaySound(throwSound);
     }
@@ -138,7 +140,9 @@ public class BossEnemy : Units
     IEnumerator Spikes() {
         Debug.Log("Spawn spikes");
         Vector3 playerPos = player.getCurrPosition();
+        yield return new WaitForSeconds(0.2f);
         AudioManager.PlaySound("GroundPound");
+        CameraShaker.Instance.ShakeOnce(1.5f, 2f, 0.1f, 0.4f);
         GameObject projectileObject = Instantiate(spikesPrefab, playerPos, Quaternion.identity);
         //some animation that shows where obj gonna spawn
         SpikesProjectile projectile = projectileObject.GetComponent<SpikesProjectile>();

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using EZCameraShake;
 
 public class SpikeEnemy : Units
 {
@@ -110,6 +111,7 @@ public class SpikeEnemy : Units
 
     IEnumerator Sound(){
         yield return new WaitForSeconds(0.3f);
+        CameraShaker.Instance.ShakeOnce(1.5f, 2f, 0.1f, 0.3f);
         AudioManager.PlaySound("GroundPound");
     }
 }

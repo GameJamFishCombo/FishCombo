@@ -79,6 +79,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume() {
         if(!loadMain){
+            if(!cutscene)
+            Cursor.visible = false;
             unpauseSound.Play();
             AudioListener.pause = false;
             pauseBackground.Pause();
@@ -90,6 +92,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Pause() {
+        Cursor.visible = true;
+
         AudioListener.pause = true;
         onClickSound.Play();
         pauseMenuUI.SetActive(true);
